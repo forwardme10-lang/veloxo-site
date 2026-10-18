@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Join the beta · Veloxo</title>
-<meta name="description" content="Join the Veloxo beta in Chennai: a training plan for your goal, Velo your SI coach, and Chennai's cycling events in one app.">
+<meta name="description" content="Join the Veloxo beta: a training plan for your goal, Velo your SI coach, and cycling events from local clubs in one app.">
 <meta property="og:title" content="Join the Veloxo beta">
-<meta property="og:description" content="Riders and cycling clubs in Chennai: try Veloxo before everyone else.">
+<meta property="og:description" content="Riders and cycling clubs: try Veloxo before everyone else.">
 <meta property="og:image" content="https://veloxo.heyminmini.in/assets/app-icon-512.png">
 <link rel="canonical" href="https://veloxo.heyminmini.in/join.html">
 <link rel="icon" href="assets/app-icon-512.png">
@@ -17,6 +17,40 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<svg class="sprite" aria-hidden="true" focusable="false">
+<symbol id="cyclist" viewBox="0 0 220 140">
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- wheels -->
+    <g stroke="var(--il-ink)" stroke-width="4.5"><circle cx="50" cy="102" r="33"/><circle cx="170" cy="102" r="33"/></g>
+    <g stroke="var(--il-ink)" stroke-width="1.6" opacity=".35"><circle cx="50" cy="102" r="25"/><circle cx="170" cy="102" r="25"/></g>
+    <g fill="var(--il-ink)" stroke="none"><circle cx="50" cy="102" r="3.5"/><circle cx="170" cy="102" r="3.5"/></g>
+    <!-- far leg (behind the frame) -->
+    <path d="M88 44 L118 63 L92 94" stroke="var(--il-ink2)" stroke-width="9"/>
+    <path d="M87 96 h11" stroke="var(--il-ink2)" stroke-width="5"/>
+    <!-- frame -->
+    <g stroke="var(--il-bike)" stroke-width="5">
+      <path d="M50 102 L102 102 L90 54 Z"/>
+      <path d="M90 54 L152 51 L157 66 L102 102"/>
+      <path d="M157 66 L170 102"/>
+      <path d="M90 54 L88 47"/>
+    </g>
+    <path d="M78 46 h20" stroke="var(--il-ink)" stroke-width="5"/>
+    <circle cx="102" cy="102" r="8" stroke="var(--il-ink)" stroke-width="3"/><path d="M92 94 L112 110" stroke="var(--il-ink)" stroke-width="3"/>
+    <!-- bar: stem and drops -->
+    <path d="M152 51 L163 48 c7 -1 9 5 7 10 c-1 4 -4 6 -8 6" stroke="var(--il-ink)" stroke-width="4.5"/>
+    <!-- torso -->
+    <path d="M88 42 L134 27" stroke="var(--il-jersey)" stroke-width="15"/>
+    <!-- arm -->
+    <path d="M136 28 L155 41 L165 51" stroke="var(--il-jersey2)" stroke-width="7"/>
+    <!-- near leg -->
+    <path d="M88 44 L121 74 L112 110" stroke="var(--il-ink)" stroke-width="10"/>
+    <path d="M108 112 h12" stroke="var(--il-ink)" stroke-width="5.5"/>
+    <!-- head and helmet -->
+    <circle cx="150" cy="17" r="8.5" fill="var(--il-skin)" stroke="none"/>
+    <path d="M139 16 c1 -9 10 -13 18 -10 c4 2 6 5 6 8 l-25 3 z" fill="var(--il-helmet)" stroke="var(--il-helmet)" stroke-width="2"/>
+  </g>
+</symbol>
+</svg>
 <a class="skip" href="#main">Skip to content</a>
 <header class="top"><div class="wrap">
   <a class="logo" href="index.html" aria-label="Veloxo home">
@@ -29,7 +63,7 @@
 
 <div class="wrap join">
   <div class="join-intro">
-    <span class="eyebrow"><span class="live" aria-hidden="true"></span>Android beta · Chennai</span>
+    <span class="eyebrow"><span class="live" aria-hidden="true"></span>Android beta · Open now</span>
     <h1>Join the Veloxo beta</h1>
     <p class="sub">Be one of the first riders and clubs to use Veloxo. We'll send you the app and ask what you think.</p>
     <ul class="perks">
@@ -37,6 +71,13 @@
       <li><b>Your plan</b> for your next event, on Wahoo, Zwift or Garmin</li>
       <li><b>Direct line</b> to us: your feedback shapes what we build</li>
     </ul>
+    <svg class="join-art" viewBox="0 0 480 170" aria-hidden="true" focusable="false">
+      <circle cx="372" cy="62" r="40" class="j-sun"/>
+      <path class="h3" d="M0 112c80-30 160-26 240-8s170-30 240-14v80H0z"/>
+      <path class="h2" d="M0 136c110-24 220-4 330-12s120-6 150 0v46H0z"/>
+      <path class="road" d="M-10 158c160-12 330 6 500-4"/>
+      <use href="#cyclist" x="150" y="96" width="92" height="59"/>
+    </svg>
   </div>
 
   <div class="form-card">
@@ -71,11 +112,11 @@
 
       <div class="field club-only" hidden>
         <label for="f-club">Club name</label>
-        <input id="f-club" name="club_name" maxlength="120" placeholder="e.g. Chennai Cycling Club">
+        <input id="f-club" name="club_name" maxlength="120" placeholder="e.g. Riverside Riders">
       </div>
       <div class="field club-only" hidden>
         <label for="f-note">Which events do you run? <span class="opt">optional</span></label>
-        <input id="f-note" name="note" maxlength="500" placeholder="e.g. Monthly cyclothon on ECR, Sunday group rides">
+        <input id="f-note" name="note" maxlength="500" placeholder="e.g. Monthly cyclothon, Sunday group rides">
       </div>
 
       <fieldset class="field">
@@ -101,8 +142,8 @@
       </fieldset>
 
       <div class="field">
-        <label for="f-city">City</label>
-        <input id="f-city" name="city" autocomplete="address-level2" maxlength="60" value="Chennai">
+        <label for="f-city">City <span class="opt">optional</span></label>
+        <input id="f-city" name="city" autocomplete="address-level2" maxlength="60" placeholder="Where you ride">
       </div>
 
       <!-- Bots fill this; people never see it. -->
@@ -126,20 +167,46 @@
       </ol>
       <a class="btn ghost" href="index.html">Back to home</a>
     </div>
+
+    <!-- Android, once the Play links are set in BETA below: get the app right away. -->
+    <div class="done get-app" hidden tabindex="-1">
+      <div class="done-badge" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 12.5l4 4 9-9"/></svg>
+      </div>
+      <h2>You're in. Get the app</h2>
+      <p class="done-text">Three quick steps on your Android phone. Use the Google account you use on the Play Store.</p>
+      <ol class="app-steps">
+        <li><span class="n" aria-hidden="true">1</span><div><b>Join the Veloxo testers group</b><small>Tap "Join group" on the Google Groups page.</small></div><a class="btn ghost" data-link="group" target="_blank" rel="noopener">Join group</a></li>
+        <li><span class="n" aria-hidden="true">2</span><div><b>Become a tester</b><small>Opens Google Play. Tap "Become a tester".</small></div><a class="btn ghost" data-link="optin" target="_blank" rel="noopener">Become a tester</a></li>
+        <li><span class="n" aria-hidden="true">3</span><div><b>Install Veloxo</b><small>It can take a few minutes to show after step 2.</small></div><a class="btn primary" data-link="store" target="_blank" rel="noopener">Install from Play Store</a></li>
+      </ol>
+      <p class="hint">Then sign up in the app. Tell us what you love and what's confusing, any time from Settings → Send feedback.</p>
+    </div>
   </div>
 </div>
 
 </main>
 <footer><div class="wrap">
-  <div><img src="assets/veloxo-wordmark-white.png" alt="Veloxo"><div>Cycling training and events · Chennai, India</div></div>
+  <div><img src="assets/veloxo-wordmark-white.png" alt="Veloxo"><div>Cycling training and events</div></div>
   <nav aria-label="Footer"><a href="support.html">Support</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="delete-account.html">Delete your account</a></nav>
-  <div class="fine">Veloxo is an independent project by Vasanth Sankar, built in Chennai. © 2026 Veloxo.</div>
+  <div class="fine">Veloxo is an independent project by Vasanth Sankar. © 2026 Veloxo.</div>
 </div></footer>
 
 <script>
   // Sends the form to Veloxo's backend (Supabase Edge Function beta-signup), then shows "You're on the list".
   (function () {
     var ENDPOINT = 'https://xswtyoiocwafeekkznox.supabase.co/functions/v1/beta-signup';
+    // Play closed testing (tester list = a Google Group anyone can join). While group or optin is empty, Android
+    // sign-ups see "We'll send you the app"; once both are set they get the three steps straight away.
+    var BETA = {
+      group: '', // Google Group join page, e.g. https://groups.google.com/g/veloxo-testers
+      optin: '', // Play Console → Closed testing → Testers → "Join on the web" link
+      store: 'https://play.google.com/store/apps/details?id=in.veloxo.app'
+    };
+    var instant = !!(BETA.group && BETA.optin);
+    var getApp = document.querySelector('.get-app');
+    getApp.querySelectorAll('[data-link]').forEach(function (a) { a.href = BETA[a.getAttribute('data-link')]; });
+    if (instant) document.querySelector('.join-intro .sub').textContent = 'Be one of the first riders and clubs to use Veloxo. Sign up and get the Android app straight away.';
     var form = document.getElementById('beta');
     var done = document.querySelector('.done');
     var btn = form.querySelector('.submit');
@@ -186,7 +253,9 @@
         .then(function (r) { return r.json().catch(function () { return {}; }).then(function (body) { return { ok: r.ok, body: body }; }); })
         .then(function (res) {
           if (res.ok) {
-            form.hidden = true; done.hidden = false; done.focus();
+            form.hidden = true;
+            if (instant && data.platform === 'android') { getApp.hidden = false; getApp.focus(); return; }
+            done.hidden = false; done.focus();
             if (data.platform === 'iphone') done.querySelector('.done-text').textContent = "Thanks! The beta is Android-only for now. We'll email you as soon as the iPhone app is ready.";
             return;
           }
