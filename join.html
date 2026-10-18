@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Join the beta · Veloxo</title>
+<meta name="description" content="Join the Veloxo beta in Chennai: a training plan for your goal, Velo your SI coach, and Chennai's cycling events in one app.">
+<meta property="og:title" content="Join the Veloxo beta">
+<meta property="og:description" content="Riders and cycling clubs in Chennai: try Veloxo before everyone else.">
+<meta property="og:image" content="https://veloxo.heyminmini.in/assets/app-icon-512.png">
+<link rel="canonical" href="https://veloxo.heyminmini.in/join.html">
+<link rel="icon" href="assets/app-icon-512.png">
+<meta name="theme-color" content="#0d1b45">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="wrap">
+  <a class="logo" href="index.html" aria-label="Veloxo home">
+    <picture><source srcset="assets/veloxo-wordmark-white.png" media="(prefers-color-scheme: dark)"><img src="assets/veloxo-wordmark-dark.png" alt="Veloxo"></picture>
+  </a>
+  <nav aria-label="Main"><a href="index.html">Home</a><a href="support.html">Support</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav>
+  <a class="pill-cta" href="join.html" aria-current="page">Join the beta</a>
+</div></header>
+<main id="main">
+
+<div class="wrap join">
+  <div class="join-intro">
+    <span class="eyebrow"><span class="live" aria-hidden="true"></span>Android beta · Chennai</span>
+    <h1>Join the Veloxo beta</h1>
+    <p class="sub">Be one of the first riders and clubs to use Veloxo. We'll send you the app and ask what you think.</p>
+    <ul class="perks">
+      <li><b>Free</b> while we test, including Velo, your SI coach</li>
+      <li><b>Your plan</b> for your next event, on Wahoo, Zwift or Garmin</li>
+      <li><b>Direct line</b> to us: your feedback shapes what we build</li>
+    </ul>
+  </div>
+
+  <div class="form-card">
+    <form id="beta" novalidate>
+      <fieldset class="field">
+        <legend>I'm joining as</legend>
+        <div class="seg" role="radiogroup">
+          <label><input type="radio" name="role" value="rider" checked><span><b>Rider</b><small>Training plans, Velo, events</small></span></label>
+          <label><input type="radio" name="role" value="club"><span><b>Club organiser</b><small>Publish events, collect fees</small></span></label>
+        </div>
+        <p class="err" data-for="role"></p>
+      </fieldset>
+
+      <div class="field">
+        <label for="f-name">Your name</label>
+        <input id="f-name" name="name" autocomplete="name" maxlength="80" required placeholder="e.g. Karthik Subramanian">
+        <p class="err" data-for="name"></p>
+      </div>
+
+      <div class="field">
+        <label for="f-email">Email</label>
+        <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="200" required placeholder="you@example.com">
+        <p class="err" data-for="email"></p>
+      </div>
+
+      <div class="field">
+        <label for="f-phone">WhatsApp number <span class="opt">optional</span></label>
+        <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="16" placeholder="+91 98400 12345">
+        <p class="hint">The quickest way for us to send you the app.</p>
+        <p class="err" data-for="phone"></p>
+      </div>
+
+      <div class="field club-only" hidden>
+        <label for="f-club">Club name</label>
+        <input id="f-club" name="club_name" maxlength="120" placeholder="e.g. Chennai Cycling Club">
+      </div>
+      <div class="field club-only" hidden>
+        <label for="f-note">Which events do you run? <span class="opt">optional</span></label>
+        <input id="f-note" name="note" maxlength="500" placeholder="e.g. Monthly cyclothon on ECR, Sunday group rides">
+      </div>
+
+      <fieldset class="field">
+        <legend>Your phone</legend>
+        <div class="pills" role="radiogroup">
+          <label><input type="radio" name="platform" value="android" checked><span>Android</span></label>
+          <label><input type="radio" name="platform" value="iphone"><span>iPhone</span></label>
+        </div>
+        <p class="hint iphone-note" hidden>The beta is Android-only for now. Join anyway and we'll tell you when the iPhone app is ready.</p>
+        <p class="err" data-for="platform"></p>
+      </fieldset>
+
+      <fieldset class="field rider-only">
+        <legend>What do you ride with? <span class="opt">optional</span></legend>
+        <div class="pills" role="radiogroup">
+          <label><input type="radio" name="device" value="wahoo"><span>Wahoo</span></label>
+          <label><input type="radio" name="device" value="garmin"><span>Garmin</span></label>
+          <label><input type="radio" name="device" value="zwift"><span>Zwift</span></label>
+          <label><input type="radio" name="device" value="coros"><span>COROS</span></label>
+          <label><input type="radio" name="device" value="other"><span>Other</span></label>
+          <label><input type="radio" name="device" value="none"><span>Just my phone</span></label>
+        </div>
+      </fieldset>
+
+      <div class="field">
+        <label for="f-city">City</label>
+        <input id="f-city" name="city" autocomplete="address-level2" maxlength="60" value="Chennai">
+      </div>
+
+      <!-- Bots fill this; people never see it. -->
+      <div class="hp" aria-hidden="true"><label for="f-web">Website</label><input id="f-web" name="website" tabindex="-1" autocomplete="off"></div>
+
+      <p class="err form-err" role="alert"></p>
+      <button class="btn primary submit" type="submit">Join the beta</button>
+      <p class="fine-print">We'll only use this to send you the beta and ask for feedback. See the <a href="privacy.html">Privacy Policy</a>.</p>
+    </form>
+
+    <div class="done" hidden tabindex="-1">
+      <div class="done-badge" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 12.5l4 4 9-9"/></svg>
+      </div>
+      <h2>You're on the list</h2>
+      <p class="done-text">Thanks! We'll send the Android app to you within a few days, with a short guide to get started.</p>
+      <ol class="next">
+        <li>Watch for a message on WhatsApp or email from Veloxo.</li>
+        <li>Install the app and sign up with the same email.</li>
+        <li>Tell us what you love and what's confusing, any time from Settings → Send feedback.</li>
+      </ol>
+      <a class="btn ghost" href="index.html">Back to home</a>
+    </div>
+  </div>
+</div>
+
+</main>
+<footer><div class="wrap">
+  <div><img src="assets/veloxo-wordmark-white.png" alt="Veloxo"><div>Cycling training and events · Chennai, India</div></div>
+  <nav aria-label="Footer"><a href="support.html">Support</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="delete-account.html">Delete your account</a></nav>
+  <div class="fine">Veloxo is an independent project by Vasanth Sankar, built in Chennai. © 2026 Veloxo.</div>
+</div></footer>
+
+<script>
+  // Sends the form to Veloxo's backend (Supabase Edge Function beta-signup), then shows "You're on the list".
+  (function () {
+    var ENDPOINT = 'https://xswtyoiocwafeekkznox.supabase.co/functions/v1/beta-signup';
+    var form = document.getElementById('beta');
+    var done = document.querySelector('.done');
+    var btn = form.querySelector('.submit');
+    var formErr = form.querySelector('.form-err');
+
+    function val(name) { var el = form.elements[name]; return el ? (el.value || '').trim() : ''; }
+    function checked(name) { var el = form.querySelector('input[name="' + name + '"]:checked'); return el ? el.value : ''; }
+    function showErr(name, msg) {
+      var p = form.querySelector('.err[data-for="' + name + '"]');
+      if (p) p.textContent = msg || '';
+      var input = form.elements[name];
+      if (input && input.setAttribute && input.type !== 'radio') { if (msg) input.setAttribute('aria-invalid', 'true'); else input.removeAttribute('aria-invalid'); }
+    }
+    function clearErrs() { form.querySelectorAll('.err').forEach(function (p) { p.textContent = ''; }); form.querySelectorAll('[aria-invalid]').forEach(function (i) { i.removeAttribute('aria-invalid'); }); }
+
+    // Rider / club changes which questions show; iPhone shows a note.
+    function sync() {
+      var club = checked('role') === 'club';
+      form.querySelectorAll('.club-only').forEach(function (el) { el.hidden = !club; });
+      form.querySelectorAll('.rider-only').forEach(function (el) { el.hidden = club; });
+      form.querySelector('.iphone-note').hidden = checked('platform') !== 'iphone';
+    }
+    form.addEventListener('change', sync);
+    // join.html?role=club (the "List your club" buttons) starts on Club organiser.
+    if (/[?&]role=club\b/.test(location.search)) { form.querySelector('input[value="club"]').checked = true; }
+    sync();
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      clearErrs();
+      var data = {
+        role: checked('role'), name: val('name'), email: val('email'), phone: val('phone'),
+        platform: checked('platform'), device: checked('role') === 'rider' ? checked('device') : '',
+        club_name: val('club_name'), note: val('note'), city: val('city'), website: val('website')
+      };
+      var bad = false;
+      if (data.name.length < 2) { showErr('name', 'Enter your name.'); bad = true; }
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(data.email)) { showErr('email', 'Enter a valid email address.'); bad = true; }
+      if (data.phone && !/^\+?[0-9 ]{8,16}$/.test(data.phone)) { showErr('phone', 'Enter a number like +91 98400 12345, or leave it empty.'); bad = true; }
+      if (bad) { var first = form.querySelector('[aria-invalid="true"]'); if (first) first.focus(); return; }
+
+      btn.disabled = true; btn.textContent = 'Joining…';
+      fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
+        .then(function (r) { return r.json().catch(function () { return {}; }).then(function (body) { return { ok: r.ok, body: body }; }); })
+        .then(function (res) {
+          if (res.ok) {
+            form.hidden = true; done.hidden = false; done.focus();
+            if (data.platform === 'iphone') done.querySelector('.done-text').textContent = "Thanks! The beta is Android-only for now. We'll email you as soon as the iPhone app is ready.";
+            return;
+          }
+          var fields = (res.body && res.body.fields) || {};
+          Object.keys(fields).forEach(function (k) { showErr(k, fields[k]); });
+          if (!Object.keys(fields).length) formErr.textContent = 'Something went wrong on our side. Try again in a minute, or email veloxo.si@gmail.com.';
+        })
+        .catch(function () { formErr.textContent = "Couldn't reach Veloxo. Check your internet connection and try again."; })
+        .then(function () { btn.disabled = false; btn.textContent = 'Join the beta'; });
+    });
+  })();
+</script>
+</body>
+</html>
