@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Veloxo · Cycling training and events</title>
 <meta name="description" content="Veloxo plans your cycling training, sends workouts to Wahoo, Zwift and Garmin, coaches you with Velo, and brings cycling events from local clubs into one app.">
-<meta name="theme-color" content="#0d1b45">
+<meta name="theme-color" content="#1b7bff">
 <meta property="og:title" content="Veloxo · Train for your next ride">
 <meta property="og:description" content="A training plan for your goal, a Sports Intelligence (SI) coach, and cycling events from local clubs in one app.">
 <meta property="og:image" content="https://veloxo.heyminmini.in/assets/app-icon-512.png">
@@ -18,49 +18,200 @@
 <script>document.documentElement.classList.add('js');</script>
 </head>
 <body class="home">
-<!-- Illustration parts, drawn once and reused with use elements. Colours come from the --il-* tokens in styles.css. -->
+<!-- 3D-style icons (gradients + shine + soft shadow), drawn once and reused with use elements. -->
 <svg class="sprite" aria-hidden="true" focusable="false">
-<symbol id="cyclist" viewBox="0 0 220 140">
-  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <!-- wheels -->
-    <g stroke="var(--il-ink)" stroke-width="4.5"><circle cx="50" cy="102" r="33"/><circle cx="170" cy="102" r="33"/></g>
-    <g stroke="var(--il-ink)" stroke-width="1.6" opacity=".35"><circle cx="50" cy="102" r="25"/><circle cx="170" cy="102" r="25"/></g>
-    <g fill="var(--il-ink)" stroke="none"><circle cx="50" cy="102" r="3.5"/><circle cx="170" cy="102" r="3.5"/></g>
-    <!-- far leg (behind the frame) -->
-    <path d="M88 44 L118 63 L92 94" stroke="var(--il-ink2)" stroke-width="9"/>
-    <path d="M87 96 h11" stroke="var(--il-ink2)" stroke-width="5"/>
-    <!-- frame -->
-    <g stroke="var(--il-bike)" stroke-width="5">
-      <path d="M50 102 L102 102 L90 54 Z"/>
-      <path d="M90 54 L152 51 L157 66 L102 102"/>
-      <path d="M157 66 L170 102"/>
-      <path d="M90 54 L88 47"/>
-    </g>
-    <path d="M78 46 h20" stroke="var(--il-ink)" stroke-width="5"/>
-    <circle cx="102" cy="102" r="8" stroke="var(--il-ink)" stroke-width="3"/><path d="M92 94 L112 110" stroke="var(--il-ink)" stroke-width="3"/>
-    <!-- bar: stem and drops -->
-    <path d="M152 51 L163 48 c7 -1 9 5 7 10 c-1 4 -4 6 -8 6" stroke="var(--il-ink)" stroke-width="4.5"/>
-    <!-- torso -->
-    <path d="M88 42 L134 27" stroke="var(--il-jersey)" stroke-width="15"/>
-    <!-- arm -->
-    <path d="M136 28 L155 41 L165 51" stroke="var(--il-jersey2)" stroke-width="7"/>
-    <!-- near leg -->
-    <path d="M88 44 L121 74 L112 110" stroke="var(--il-ink)" stroke-width="10"/>
-    <path d="M108 112 h12" stroke="var(--il-ink)" stroke-width="5.5"/>
-    <!-- head and helmet -->
-    <circle cx="150" cy="17" r="8.5" fill="var(--il-skin)" stroke="none"/>
-    <path d="M139 16 c1 -9 10 -13 18 -10 c4 2 6 5 6 8 l-25 3 z" fill="var(--il-helmet)" stroke="var(--il-helmet)" stroke-width="2"/>
-  </g>
-</symbol>
+  <defs>
+    <linearGradient id="g-blue" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6fb2ff"/><stop offset=".55" stop-color="#1b7bff"/><stop offset="1" stop-color="#0b4fc4"/></linearGradient>
+    <linearGradient id="g-navy" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3b4f86"/><stop offset="1" stop-color="#0b1533"/></linearGradient>
+    <linearGradient id="g-orange" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffc083"/><stop offset=".5" stop-color="#ff8a3d"/><stop offset="1" stop-color="#e2531a"/></linearGradient>
+    <linearGradient id="g-gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff0b0"/><stop offset=".45" stop-color="#ffc83d"/><stop offset="1" stop-color="#d98a06"/></linearGradient>
+    <linearGradient id="g-red" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff9a9a"/><stop offset=".5" stop-color="#f04444"/><stop offset="1" stop-color="#b91c1c"/></linearGradient>
+    <linearGradient id="g-green" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9ef0c4"/><stop offset=".5" stop-color="#2fbf7a"/><stop offset="1" stop-color="#14874f"/></linearGradient>
+    <linearGradient id="g-purple" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c4a8ff"/><stop offset=".5" stop-color="#7c3aed"/><stop offset="1" stop-color="#4c1d95"/></linearGradient>
+    <linearGradient id="g-white" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#dfe6f1"/></linearGradient>
+    <linearGradient id="g-steel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eef2f7"/><stop offset="1" stop-color="#9aa6b8"/></linearGradient>
+    <radialGradient id="g-shine" cx=".3" cy=".25" r=".6"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+    <radialGradient id="g-shadow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#0b1533" stop-opacity=".32"/><stop offset="1" stop-color="#0b1533" stop-opacity="0"/></radialGradient>
+  </defs>
 
-  <symbol id="tree" viewBox="0 0 40 60"><rect x="18" y="34" width="4" height="24" rx="2" fill="var(--il-trunk)"/><circle cx="20" cy="24" r="16" fill="var(--il-tree)"/></symbol>
-  <symbol id="cloud" viewBox="0 0 120 50"><path d="M24 46h76a16 16 0 0 0 0-32 24 24 0 0 0-44-6 18 18 0 0 0-32 14A12 12 0 0 0 24 46z" fill="var(--il-cloud)"/></symbol>
+  <!-- Helmet -->
+  <symbol id="i-helmet" viewBox="0 0 120 120">
+    <ellipse cx="60" cy="100" rx="46" ry="7" fill="url(#g-shadow)"/>
+    <path d="M10 78C10 46 34 22 64 22c28 0 46 22 46 46 0 6-4 10-10 10z" fill="url(#g-blue)"/>
+    <path d="M34 40c6-6 13-9 20-10l2 16-14 6zM62 29c8 1 15 4 20 9l-9 12-11-4zM88 46c4 5 7 11 8 17l-13 1-4-9z" fill="#0b2a66" opacity=".5"/>
+    <path d="M8 78h94c5 0 8 3 8 7s-3 7-8 7H18c-6 0-10-4-10-8z" fill="url(#g-navy)"/>
+    <path d="M96 66c6 0 12 2 16 6l-6 8H96z" fill="url(#g-navy)"/>
+    <path d="M22 60c5-16 20-28 38-30" stroke="#fff" stroke-width="7" stroke-linecap="round" fill="none" opacity=".5"/>
+  </symbol>
+
+  <!-- Water bottle -->
+  <symbol id="i-bottle" viewBox="0 0 120 120">
+    <ellipse cx="60" cy="108" rx="26" ry="6" fill="url(#g-shadow)"/>
+    <rect x="50" y="8" width="20" height="14" rx="5" fill="url(#g-navy)"/>
+    <path d="M42 22h36l4 10v62c0 8-6 12-12 12H50c-6 0-12-4-12-12V32z" fill="url(#g-orange)"/>
+    <rect x="38" y="52" width="44" height="22" fill="#fff" opacity=".92"/>
+    <path d="M48 63h24" stroke="#ff8a3d" stroke-width="5" stroke-linecap="round"/>
+    <path d="M38 40h44M38 86h44" stroke="#e2531a" stroke-width="3" opacity=".6"/>
+    <rect x="44" y="28" width="8" height="66" rx="4" fill="#fff" opacity=".4"/>
+  </symbol>
+
+  <!-- Medal -->
+  <symbol id="i-medal" viewBox="0 0 120 120">
+    <ellipse cx="60" cy="110" rx="30" ry="6" fill="url(#g-shadow)"/>
+    <path d="M34 6h20l14 40H48z" fill="url(#g-blue)"/><path d="M86 6H66L52 46h20z" fill="url(#g-red)"/>
+    <circle cx="60" cy="74" r="32" fill="url(#g-gold)"/>
+    <circle cx="60" cy="74" r="22" fill="none" stroke="#c97a00" stroke-width="3" opacity=".5"/>
+    <path d="M60 60l4.5 9.5 10.5 1.2-7.8 7 2.2 10.3L60 82.8 50.6 88l2.2-10.3-7.8-7 10.5-1.2z" fill="#fff4c2"/>
+    <ellipse cx="48" cy="58" rx="12" ry="7" fill="url(#g-shine)" transform="rotate(-30 48 58)"/>
+  </symbol>
+
+  <!-- Stopwatch -->
+  <symbol id="i-watch" viewBox="0 0 120 120">
+    <ellipse cx="60" cy="110" rx="34" ry="6" fill="url(#g-shadow)"/>
+    <rect x="52" y="6" width="16" height="12" rx="4" fill="url(#g-navy)"/>
+    <rect x="84" y="20" width="12" height="10" rx="3" fill="url(#g-navy)" transform="rotate(40 90 25)"/>
+    <circle cx="60" cy="64" r="40" fill="url(#g-green)"/>
+    <circle cx="60" cy="64" r="30" fill="url(#g-white)"/>
+    <path d="M60 64V42M60 64l14 8" stroke="#0b1533" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="60" cy="64" r="4" fill="#ff8a3d"/>
+    <path d="M60 37v5M87 64h-5M60 91v-5M33 64h5" stroke="#9aa6b8" stroke-width="3" stroke-linecap="round"/>
+    <ellipse cx="40" cy="40" rx="14" ry="8" fill="url(#g-shine)" transform="rotate(-35 40 40)"/>
+  </symbol>
+
+  <!-- Wheel -->
+  <symbol id="i-wheel" viewBox="0 0 120 120">
+    <ellipse cx="60" cy="112" rx="38" ry="5" fill="url(#g-shadow)"/>
+    <circle cx="60" cy="58" r="48" fill="none" stroke="url(#g-navy)" stroke-width="12"/>
+    <circle cx="60" cy="58" r="40" fill="none" stroke="url(#g-steel)" stroke-width="4"/>
+    <g stroke="#9aa6b8" stroke-width="2"><path d="M60 20v76M22 58h76M33 31l54 54M87 31L33 85"/></g>
+    <circle cx="60" cy="58" r="9" fill="url(#g-blue)"/>
+    <path d="M24 36a44 44 0 0 1 30-24" stroke="#fff" stroke-width="5" stroke-linecap="round" fill="none" opacity=".35"/>
+  </symbol>
+
+  <!-- Trophy -->
+  <symbol id="i-trophy" viewBox="0 0 120 120">
+    <ellipse cx="60" cy="110" rx="32" ry="6" fill="url(#g-shadow)"/>
+    <path d="M30 22H16c0 18 8 28 20 30M90 22h14c0 18-8 28-20 30" fill="none" stroke="url(#g-gold)" stroke-width="7"/>
+    <path d="M30 12h60v22c0 20-13 34-30 34S30 54 30 34z" fill="url(#g-gold)"/>
+    <rect x="52" y="66" width="16" height="16" fill="#d98a06"/>
+    <rect x="36" y="82" width="48" height="20" rx="6" fill="url(#g-navy)"/>
+    <rect x="46" y="88" width="28" height="7" rx="3" fill="#ffc83d"/>
+    <ellipse cx="44" cy="28" rx="7" ry="14" fill="url(#g-shine)"/>
+  </symbol>
+
+  <!-- Calendar -->
+  <symbol id="i-calendar" viewBox="0 0 120 120">
+    <ellipse cx="60" cy="110" rx="40" ry="6" fill="url(#g-shadow)"/>
+    <rect x="16" y="20" width="88" height="84" rx="18" fill="url(#g-white)"/>
+    <path d="M16 38c0-10 8-18 18-18h52c10 0 18 8 18 18v6H16z" fill="url(#g-blue)"/>
+    <rect x="34" y="10" width="9" height="22" rx="4.5" fill="url(#g-navy)"/><rect x="77" y="10" width="9" height="22" rx="4.5" fill="url(#g-navy)"/>
+    <rect x="30" y="72" width="10" height="20" rx="4" fill="#cbd5e1"/><rect x="46" y="62" width="10" height="30" rx="4" fill="#93c5fd"/><rect x="62" y="54" width="10" height="38" rx="4" fill="url(#g-orange)"/><rect x="78" y="66" width="10" height="26" rx="4" fill="#93c5fd"/>
+  </symbol>
+
+  <!-- Velo chat bubble -->
+  <symbol id="i-chat" viewBox="0 0 120 120">
+    <ellipse cx="60" cy="110" rx="36" ry="6" fill="url(#g-shadow)"/>
+    <path d="M60 14c26 0 46 17 46 40S86 94 60 94c-6 0-12-1-17-3l-21 11 5-19C18 76 14 66 14 54c0-23 20-40 46-40z" fill="url(#g-blue)"/>
+    <circle cx="40" cy="55" r="7" fill="#fff"/><circle cx="60" cy="55" r="7" fill="#fff"/><circle cx="80" cy="55" r="7" fill="#fff"/>
+    <ellipse cx="40" cy="30" rx="18" ry="8" fill="url(#g-shine)" transform="rotate(-15 40 30)"/>
+  </symbol>
+
+  <!-- Finish flag -->
+  <symbol id="i-flag" viewBox="0 0 120 120">
+    <ellipse cx="40" cy="110" rx="22" ry="5" fill="url(#g-shadow)"/>
+    <rect x="30" y="8" width="8" height="102" rx="4" fill="url(#g-navy)"/>
+    <path d="M38 14c20-8 36 8 64 0v46c-28 8-44-8-64 0z" fill="#fff"/>
+    <path d="M38 14c7-3 13-3 19-1v15c-6-2-12-2-19 1zM76 15c9 2 17 2 26-1v15c-9 3-17 3-26 1zM57 28c6 2 12 3 19 2v15c-7 1-13 0-19-2zM38 44c7-3 13-3 19-1v15c-6-2-12-2-19 1zM76 45c9 2 17 2 26-1v15c-9 3-17 3-26 1z" fill="#0b1533"/>
+    <circle cx="34" cy="8" r="6" fill="url(#g-gold)"/>
+  </symbol>
+
+  <!-- Bike computer -->
+  <symbol id="i-device" viewBox="0 0 120 120">
+    <ellipse cx="60" cy="110" rx="32" ry="6" fill="url(#g-shadow)"/>
+    <rect x="28" y="8" width="64" height="96" rx="20" fill="url(#g-navy)"/>
+    <rect x="36" y="20" width="48" height="56" rx="8" fill="#eaf2ff"/>
+    <text x="60" y="50" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="20" fill="#0d1b45">250</text>
+    <text x="60" y="62" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-weight="700" font-size="7" letter-spacing="1.5" fill="#5f6b7a">WATTS</text>
+    <path d="M42 70l7-4 6 3 7-7 6 4 6-5 5 3" fill="none" stroke="#1b7bff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="48" y="86" width="24" height="7" rx="3.5" fill="url(#g-blue)"/>
+    <rect x="34" y="12" width="10" height="70" rx="5" fill="#fff" opacity=".12"/>
+  </symbol>
+
+  <!-- Mountain -->
+  <symbol id="i-hill" viewBox="0 0 120 120">
+    <ellipse cx="60" cy="106" rx="50" ry="6" fill="url(#g-shadow)"/>
+    <path d="M6 100L44 34l18 28 12-16 40 54z" fill="url(#g-green)"/>
+    <path d="M44 34l-10 18 6 4 4-6 6 6 6-4z" fill="#fff"/>
+    <path d="M74 46l-7 10 4 3 3-4 4 4 3-3z" fill="#fff"/>
+    <path d="M6 100L44 34l6 10-30 56z" fill="#fff" opacity=".18"/>
+  </symbol>
+
+  <!-- Map pin -->
+  <symbol id="i-pin" viewBox="0 0 120 120">
+    <ellipse cx="60" cy="108" rx="22" ry="6" fill="url(#g-shadow)"/>
+    <path d="M60 8c22 0 38 16 38 36 0 26-38 60-38 60S22 70 22 44C22 24 38 8 60 8z" fill="url(#g-red)"/>
+    <circle cx="60" cy="44" r="15" fill="#fff"/>
+    <ellipse cx="44" cy="26" rx="12" ry="7" fill="url(#g-shine)" transform="rotate(-35 44 26)"/>
+  </symbol>
+
+  <!-- Bib / ticket -->
+  <symbol id="i-bib" viewBox="0 0 120 120">
+    <ellipse cx="60" cy="110" rx="40" ry="6" fill="url(#g-shadow)"/>
+    <g transform="rotate(-8 60 60)">
+      <rect x="14" y="22" width="92" height="74" rx="14" fill="url(#g-white)"/>
+      <path d="M14 36c0-8 6-14 14-14h64c8 0 14 6 14 14v4H14z" fill="url(#g-orange)"/>
+      <text x="60" y="80" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="30" fill="#0d1b45">214</text>
+      <circle cx="24" cy="48" r="3.5" fill="none" stroke="#9aa6b8" stroke-width="2"/><circle cx="96" cy="48" r="3.5" fill="none" stroke="#9aa6b8" stroke-width="2"/>
+    </g>
+  </symbol>
+
+  <!-- Group / club (three helmets) -->
+  <symbol id="i-club" viewBox="0 0 120 120">
+    <ellipse cx="60" cy="108" rx="50" ry="6" fill="url(#g-shadow)"/>
+    <g transform="translate(-6 18) scale(.62)"><use href="#i-helmet-body" fill="url(#g-orange)"/></g>
+    <g transform="translate(52 18) scale(.62)"><use href="#i-helmet-body" fill="url(#g-green)"/></g>
+    <g transform="translate(20 34) scale(.72)"><use href="#i-helmet-body" fill="url(#g-purple)"/></g>
+  </symbol>
+  <symbol id="i-helmet-body" viewBox="0 0 120 120">
+    <path d="M14 74c0-30 22-50 50-50 24 0 42 16 44 38 1 8-4 14-12 14H24c-6 0-10 0-10-2z"/>
+    <path d="M14 74h80c6 0 10 4 10 8s-3 6-8 6H22c-5 0-8-4-8-8z" fill="url(#g-navy)"/>
+    <path d="M24 56c4-14 18-24 34-26" stroke="#fff" stroke-width="6" stroke-linecap="round" fill="none" opacity=".55"/>
+  </symbol>
+
+  <!-- Shield (trust) -->
+  <symbol id="i-shield" viewBox="0 0 120 120">
+    <ellipse cx="60" cy="110" rx="30" ry="6" fill="url(#g-shadow)"/>
+    <path d="M60 8l40 14v30c0 26-17 44-40 52-23-8-40-26-40-52V22z" fill="url(#g-blue)"/>
+    <path d="M42 56l12 12 24-24" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M28 28l32-11v20" fill="url(#g-shine)"/>
+  </symbol>
+
+  <!-- Wallet / UPI (money to club) -->
+  <symbol id="i-wallet" viewBox="0 0 120 120">
+    <ellipse cx="60" cy="110" rx="40" ry="6" fill="url(#g-shadow)"/>
+    <rect x="26" y="14" width="56" height="36" rx="8" fill="url(#g-green)" transform="rotate(-10 54 32)"/>
+    <rect x="12" y="34" width="96" height="66" rx="16" fill="url(#g-purple)"/>
+    <rect x="72" y="54" width="36" height="26" rx="10" fill="#4c1d95"/>
+    <circle cx="86" cy="67" r="6" fill="url(#g-gold)"/>
+    <path d="M20 44h70" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".35"/>
+  </symbol>
+
+  <!-- Door / leave -->
+  <symbol id="i-door" viewBox="0 0 120 120">
+    <ellipse cx="60" cy="110" rx="34" ry="6" fill="url(#g-shadow)"/>
+    <rect x="26" y="8" width="60" height="98" rx="10" fill="url(#g-orange)"/>
+    <rect x="34" y="16" width="44" height="84" rx="6" fill="#ffb27a" opacity=".5"/>
+    <circle cx="72" cy="60" r="5" fill="url(#g-gold)"/>
+    <path d="M70 60h40M98 48l12 12-12 12" fill="none" stroke="#0d1b45" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+
 </svg>
 
 <a class="skip" href="#main">Skip to content</a>
 <header class="top"><div class="wrap">
   <a class="logo" href="index.html" aria-label="Veloxo home">
-    <picture><source srcset="assets/veloxo-wordmark-white.png" media="(prefers-color-scheme: dark)"><img src="assets/veloxo-wordmark-dark.png" alt="Veloxo"></picture>
+    <img class="logo-light" src="assets/veloxo-wordmark-white.png" alt="Veloxo">
+    <picture class="logo-dark"><source srcset="assets/veloxo-wordmark-white.png" media="(prefers-color-scheme: dark)"><img src="assets/veloxo-wordmark-dark.png" alt=""></picture>
   </a>
   <nav aria-label="Main"><a href="#riders">Riders</a><a href="#velo">Velo</a><a href="#clubs">Clubs</a><a href="support.html">Support</a></nav>
   <a class="pill-cta" href="join.html">Join the beta</a>
@@ -68,28 +219,75 @@
 
 <main id="main">
 
-<!-- Hero: sky, sun behind the phone, hills and a road along the bottom -->
+<!-- Hero: brand blue with 3D icons at the edges -->
 <section class="hero">
-  <div class="sky" aria-hidden="true">
-    <svg class="cloud c1"><use href="#cloud"/></svg>
-    <svg class="cloud c2"><use href="#cloud"/></svg>
-    <svg class="cloud c3"><use href="#cloud"/></svg>
+  <div class="floaters" aria-hidden="true">
+    <svg class="fl f1"><use href="#i-helmet"/></svg>
+    <svg class="fl f2"><use href="#i-bottle"/></svg>
+    <svg class="fl f3"><use href="#i-medal"/></svg>
+    <svg class="fl f4"><use href="#i-watch"/></svg>
   </div>
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <span class="eyebrow"><span class="live" aria-hidden="true"></span>Now in beta on Android</span>
-      <h1>Train for your next ride <span class="grad">and ride it with us</span></h1>
-      <p class="sub">Veloxo builds a training plan around your goal, puts each workout on the device you already ride with, and brings cyclothons, races and group rides from local clubs into one app.</p>
-      <div class="cta-row">
-        <a class="btn primary" href="join.html">Join the Android beta</a>
-        <a class="btn ghost" href="#clubs">For cycling clubs</a>
-      </div>
-      <div class="works" aria-label="Works with">
-        Works with
-        <span class="chip">Wahoo</span><span class="chip">Zwift</span><span class="chip">Garmin <small>via Intervals.icu</small></span>
-      </div>
+  <div class="wrap hero-in">
+    <span class="eyebrow"><span class="live" aria-hidden="true"></span>Now in beta on Android</span>
+    <h1>Train for your next ride <span>and ride it with us</span></h1>
+    <p class="sub">Veloxo builds a training plan around your goal, puts each workout on the device you already ride with, and brings cyclothons, races and group rides from local clubs into one app.</p>
+    <form class="quick" action="join.html" method="get">
+      <label class="visually-hidden" for="q-email">Email</label>
+      <input id="q-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="Your email">
+      <button class="btn primary" type="submit">Join the Android beta</button>
+    </form>
+    <p class="hero-alt">Run a club? <a href="#clubs">See Veloxo for cycling clubs</a></p>
+    <div class="works" aria-label="Works with">
+      Works with
+      <span class="chip">Wahoo</span><span class="chip">Zwift</span><span class="chip">Garmin <small>via Intervals.icu</small></span>
     </div>
+  </div>
+</section>
 
+<!-- Three big tiles over the hero edge -->
+<div class="wrap tiles">
+  <a class="tile" href="#riders">
+    <span class="tile-k">For your goal</span>
+    <h2>Training plans</h2>
+    <p>Week by week, on your device</p>
+    <svg class="tile-ic" aria-hidden="true"><use href="#i-calendar"/></svg>
+  </a>
+  <a class="tile" href="#velo">
+    <span class="tile-k">SI coach</span>
+    <h2>Velo</h2>
+    <p>Knows your plan and your rides</p>
+    <svg class="tile-ic" aria-hidden="true"><use href="#i-chat"/></svg>
+  </a>
+  <a class="tile" href="#events">
+    <span class="tile-k">From local clubs</span>
+    <h2>Events</h2>
+    <p>Register, pay the club, get your bib</p>
+    <svg class="tile-ic" aria-hidden="true"><use href="#i-medal"/></svg>
+  </a>
+</div>
+
+<!-- Goals: round icon row -->
+<section class="goals-sec"><div class="wrap">
+  <div class="row-head reveal"><h2>What are you training for?</h2></div>
+  <ul class="goals reveal">
+    <li><span class="g-ic sky"><svg><use href="#i-flag"/></svg></span>Cyclothon</li>
+    <li><span class="g-ic peach"><svg><use href="#i-wheel"/></svg></span>Century ride</li>
+    <li><span class="g-ic mint"><svg><use href="#i-watch"/></svg></span>Time trial</li>
+    <li><span class="g-ic lilac"><svg><use href="#i-hill"/></svg></span>Hill climbs</li>
+    <li><span class="g-ic sun"><svg><use href="#i-bottle"/></svg></span>Getting fitter</li>
+    <li><span class="g-ic sky"><svg><use href="#i-club"/></svg></span>Group rides</li>
+    <li><span class="g-ic mint"><svg><use href="#i-device"/></svg></span>Indoor on Zwift</li>
+  </ul>
+</div></section>
+
+<!-- Riders: the phone and what it does -->
+<section id="riders" class="riders"><div class="wrap">
+  <div class="head reveal">
+    <span class="kicker">For riders</span>
+    <h2>Everything for your next event, in one app.</h2>
+    <p class="lead">A plan that fits your level and goal, workouts on your device, and a coach who explains why.</p>
+  </div>
+  <div class="riders-grid">
   <div class="phone-stage" aria-hidden="true">
     <div class="phone-wrap">
     <div class="phone"><div class="screen">
@@ -157,112 +355,38 @@
     <div class="float b"><span class="ok">●</span> Tuesday’s ride synced from Wahoo</div>
     </div>
   </div>
+    <ul class="feats">
+      <li class="reveal"><span class="f-ic sky"><svg><use href="#i-calendar"/></svg></span><div><h3>A plan built for your goal</h3><p>Pick an event or a goal. Veloxo plans base, build, peak and taper weeks around your riding days and level, and rebuilds it when life changes.</p></div></li>
+      <li class="reveal"><span class="f-ic mint"><svg><use href="#i-device"/></svg></span><div><h3>On the device you ride with</h3><p>Each week's workouts go to your Wahoo, or to Zwift and Garmin through Intervals.icu. Finished rides come back and tick off your plan.</p>
+        <div class="chips"><span class="chip">Wahoo</span><span class="chip">Zwift</span><span class="chip">Garmin</span><span class="chip">Intervals.icu</span><span class="chip soon">COROS · soon</span></div></div></li>
+      <li class="reveal"><span class="f-ic lilac"><svg><use href="#i-trophy"/></svg></span><div><h3>Weekly review</h3><p>Every Sunday evening, Velo looks back at your week in plain words and sets up the next one.</p></div></li>
+    </ul>
   </div>
-  <svg class="scene" viewBox="0 0 1440 220" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
-    <path class="h3" d="M0 120C180 70 340 80 520 108S860 60 1080 96s300-26 360-6V220H0z"/>
-    <use href="#tree" x="150" y="88" width="26" height="40"/><use href="#tree" x="178" y="96" width="20" height="30"/>
-    <use href="#tree" x="1210" y="74" width="26" height="40"/><use href="#tree" x="1240" y="84" width="20" height="30"/>
-    <path class="h2" d="M0 156c220-44 420-8 640-22s400-40 600-6 200 10 200 10V220H0z"/>
-    <path class="h1" d="M0 186c300-22 600 10 900-6s420-8 540 0V220H0z"/>
-    <path class="road" d="M-20 206C300 188 700 214 1000 196s340-6 460 0"/>
-    <path class="lane" d="M-20 206C300 188 700 214 1000 196s340-6 460 0"/>
-    <use class="rider" href="#cyclist" x="660" y="146" width="86" height="55"/>
-  </svg>
-</section>
+</div></section>
 
-<!-- Riders -->
-<section id="riders"><div class="wrap">
+<!-- Events: cards like a restaurant row -->
+<section id="events" class="events-sec"><div class="wrap">
   <div class="head reveal">
-    <span class="kicker">For riders</span>
-    <h2>Everything for your next event, in one app.</h2>
-    <p class="lead">A plan that fits your level and goal, workouts on your device, and a coach who explains why.</p>
+    <span class="kicker">Events near you</span>
+    <h2>Cyclothons, races, time trials and group rides.</h2>
+    <p class="lead">From local clubs. Register, pay the club by UPI, get your bib.</p>
   </div>
-  <div class="cards">
-    <article class="card wide sky-t reveal">
-      <div class="art" aria-hidden="true">
-        <svg viewBox="0 0 240 130">
-          <rect x="36" y="18" width="168" height="100" rx="16" class="paper"/>
-          <rect x="36" y="18" width="168" height="26" rx="16" class="blue"/><rect x="36" y="32" width="168" height="12" class="blue"/>
-          <rect x="66" y="10" width="6" height="16" rx="3" class="ink"/><rect x="168" y="10" width="6" height="16" rx="3" class="ink"/>
-          <g class="bars-a"><rect x="54" y="88" width="14" height="18" rx="4" class="grey"/><rect x="76" y="72" width="14" height="34" rx="4" class="lblue"/><rect x="98" y="62" width="14" height="44" rx="4" class="orange"/><rect x="120" y="84" width="14" height="22" rx="4" class="grey"/><rect x="142" y="58" width="14" height="48" rx="4" class="orange"/><rect x="164" y="78" width="14" height="28" rx="4" class="lblue"/></g>
-          <path d="M196 4v34" class="pole"/><path d="M196 6h22l-6 7 6 7h-22" class="flag"/>
-        </svg>
-      </div>
-      <div class="body">
-        <h3>A plan built for your goal</h3>
-        <p>Pick an event or a goal. Veloxo plans base, build, peak and taper weeks around your riding days and level, and rebuilds it when life changes.</p>
-      </div>
+  <div class="ev-cards">
+    <article class="ev-card reveal">
+      <div class="ev-art peach"><svg aria-hidden="true"><use href="#i-wheel"/></svg><span class="ev-tag">Sun · 5:30 AM</span></div>
+      <div class="ev-body"><h3>Sunrise Century</h3><p>Riverside Riders</p><div class="ev-meta"><span>100 km</span><span>Early bird</span></div></div>
     </article>
-
-    <article class="card wide mint-t reveal">
-      <div class="art" aria-hidden="true">
-        <svg viewBox="0 0 240 130">
-          <rect x="86" y="10" width="68" height="110" rx="18" class="ink"/>
-          <rect x="94" y="22" width="52" height="64" rx="8" class="screen-c"/>
-          <text x="120" y="52" text-anchor="middle" class="num">250</text><text x="120" y="66" text-anchor="middle" class="unit">WATTS</text>
-          <path d="M100 78l8-4 6 3 8-8 7 5 7-6 6 3" class="spark"/>
-          <rect x="108" y="96" width="24" height="6" rx="3" class="grey"/>
-          <path d="M170 46a22 22 0 0 1 0 38M182 36a36 36 0 0 1 0 58" class="wave"/>
-          <path d="M70 46a22 22 0 0 0 0 38M58 36a36 36 0 0 0 0 58" class="wave"/>
-        </svg>
-      </div>
-      <div class="body">
-        <h3>On the device you ride with</h3>
-        <p>Each week's workouts go to your Wahoo, or to Zwift and Garmin through Intervals.icu. Finished rides come back and tick off your plan.</p>
-        <div class="chips"><span class="chip">Wahoo</span><span class="chip">Zwift</span><span class="chip">Garmin</span><span class="chip">Intervals.icu</span><span class="chip soon">COROS · soon</span></div>
-      </div>
+    <article class="ev-card reveal">
+      <div class="ev-art sky"><svg aria-hidden="true"><use href="#i-flag"/></svg><span class="ev-tag">Sat · 6:00 AM</span></div>
+      <div class="ev-body"><h3>City Cyclothon</h3><p>Riverside Riders</p><div class="ev-meta"><span>40 / 80 km</span><span>612 riders</span></div></div>
     </article>
-
-    <article class="card peach-t reveal">
-      <div class="art" aria-hidden="true">
-        <svg viewBox="0 0 240 130">
-          <path d="M70 126l34-72h32l34 72z" class="road-c"/><path d="M120 60v10M120 82v12M120 106v14" class="lane-c"/>
-          <rect x="52" y="18" width="10" height="108" rx="4" class="ink"/><rect x="178" y="18" width="10" height="108" rx="4" class="ink"/>
-          <rect x="46" y="14" width="148" height="30" rx="10" class="orange"/>
-          <text x="120" y="35" text-anchor="middle" class="banner">FINISH</text>
-          <path d="M14 62q50 18 92-4M134 58q42 22 92 4" class="string"/>
-          <path d="M24 66l6 12 6-9zM44 70l6 12 6-10zM64 70l6 11 5-11zM150 68l6 12 5-11zM172 72l6 11 6-10zM194 70l6 11 6-11z" class="bunting"/>
-        </svg>
-      </div>
-      <div class="body">
-        <h3>Events near you</h3>
-        <p>Cyclothons, races, time trials and group rides from local clubs. Register, pay the club by UPI, get your bib.</p>
-        <ul class="ev"><li>Sunrise Century <span>100 km</span></li><li>City Cyclothon <span>40 / 80 km</span></li><li>Coastal Time Trial <span>20 km</span></li></ul>
-      </div>
+    <article class="ev-card reveal">
+      <div class="ev-art mint"><svg aria-hidden="true"><use href="#i-watch"/></svg><span class="ev-tag">Sat · 6:30 AM</span></div>
+      <div class="ev-body"><h3>Coastal Time Trial</h3><p>Riverside Riders</p><div class="ev-meta"><span>20 km</span><span>Results live</span></div></div>
     </article>
-
-    <article class="card lilac-t reveal">
-      <div class="art" aria-hidden="true">
-        <svg viewBox="0 0 240 130">
-          <path d="M186 20a22 22 0 1 0 22 30 18 18 0 0 1-22-30z" class="sun-c"/>
-          <path d="M150 22l2 5 5 2-5 2-2 5-2-5-5-2 5-2zM212 76l1.5 4 4 1.5-4 1.5-1.5 4-1.5-4-4-1.5 4-1.5z" class="star"/>
-          <g><rect x="40" y="82" width="18" height="34" rx="5" class="lilac"/><rect x="66" y="68" width="18" height="48" rx="5" class="lilac"/><rect x="92" y="88" width="18" height="28" rx="5" class="lilac"/><rect x="118" y="58" width="18" height="58" rx="5" class="lilac"/><rect x="144" y="74" width="18" height="42" rx="5" class="lilac"/><rect x="170" y="48" width="18" height="68" rx="5" class="blue"/></g>
-          <path d="M30 118h170" class="base"/>
-        </svg>
-      </div>
-      <div class="body">
-        <h3>Weekly review</h3>
-        <p>Every Sunday evening, Velo looks back at your week in plain words and sets up the next one.</p>
-      </div>
-    </article>
-
-    <article class="card sun-t reveal">
-      <div class="art" aria-hidden="true">
-        <svg viewBox="0 0 240 130">
-          <g transform="rotate(-6 120 70)">
-            <rect x="52" y="22" width="136" height="92" rx="12" class="paper"/>
-            <rect x="52" y="22" width="136" height="20" rx="12" class="blue"/><rect x="52" y="32" width="136" height="10" class="blue"/>
-            <text x="120" y="88" text-anchor="middle" class="bib">214</text>
-            <text x="120" y="104" text-anchor="middle" class="unit dark">80 KM · 6:00 AM</text>
-            <circle cx="64" cy="54" r="4" class="pin"/><circle cx="176" cy="54" r="4" class="pin"/><circle cx="64" cy="104" r="4" class="pin"/><circle cx="176" cy="104" r="4" class="pin"/>
-          </g>
-          <path d="M196 70l10 22 10-22" class="ribbon"/><circle cx="206" cy="100" r="14" class="medal"/><circle cx="206" cy="100" r="7" class="medal-in"/>
-        </svg>
-      </div>
-      <div class="body">
-        <h3>Race day, sorted</h3>
-        <p>Your ticket, bib and schedule in one place, then your result and certificate.</p>
-      </div>
+    <article class="ev-card race reveal">
+      <div class="ev-art sun"><svg aria-hidden="true"><use href="#i-bib"/></svg></div>
+      <div class="ev-body"><h3>Race day, sorted</h3><p class="wrap-p">Your ticket, bib and schedule in one place, then your result and certificate.</p></div>
     </article>
   </div>
 </div></section>
@@ -271,7 +395,7 @@
 <section id="velo" class="tight"><div class="wrap">
   <div class="velo reveal">
     <div class="velo-copy">
-      <span class="velo-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-4.6A8 8 0 1 1 21 12z"/></svg></span>
+      <svg class="velo-ic" aria-hidden="true"><use href="#i-chat"/></svg>
       <span class="kicker">Meet Velo · SI coach</span>
       <h2>A Sports Intelligence coach that knows your plan and your rides.</h2>
       <p>Ask why today is easy, how hard to push, what to eat on a long ride, or how to pace your race. Velo answers from your own training, not generic tips.</p>
@@ -285,20 +409,17 @@
   </div>
 </div></section>
 
-<!-- How it works: three stops along a route -->
+<!-- How it works -->
 <section class="how-wrap"><div class="wrap">
   <div class="head center reveal">
     <span class="kicker">How it works</span>
     <h2>From goal to finish line in three steps.</h2>
   </div>
-  <div class="route">
-    <svg class="route-line" viewBox="0 0 1000 80" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M60 40C220 -10 330 90 500 40S780 -10 940 40"/></svg>
-    <ol class="how">
-      <li class="reveal"><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 21V4M6 4h11l-2.5 4.5L17 13H6"/></svg></span><h3>Tell Velo your goal</h3><p>Your level, your riding days and what you're training for: an event, getting fitter, or your own target.</p></li>
-      <li class="reveal"><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="6" cy="16" r="3.5"/><circle cx="18" cy="16" r="3.5"/><path d="M6 16l4-7h6l2 7M10 9l3 7h5M9 6h3"/></svg></span><h3>Ride the workouts</h3><p>They show up on your Wahoo, in Zwift or on your Garmin, with clear targets. No device? Follow them in the app.</p></li>
-      <li class="reveal"><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19h16M7 16v-4M12 16V8M17 16v-7"/></svg></span><h3>Sync, review, improve</h3><p>Rides come back on their own. Velo reviews your week and keeps your plan on track for race day.</p></li>
-    </ol>
-  </div>
+  <ol class="how">
+    <li class="reveal"><span class="stop sky" aria-hidden="true"><svg><use href="#i-pin"/></svg></span><h3>Tell Velo your goal</h3><p>Your level, your riding days and what you're training for: an event, getting fitter, or your own target.</p></li>
+    <li class="reveal"><span class="stop peach" aria-hidden="true"><svg><use href="#i-helmet"/></svg></span><h3>Ride the workouts</h3><p>They show up on your Wahoo, in Zwift or on your Garmin, with clear targets. No device? Follow them in the app.</p></li>
+    <li class="reveal"><span class="stop sun" aria-hidden="true"><svg><use href="#i-trophy"/></svg></span><h3>Sync, review, improve</h3><p>Rides come back on their own. Velo reviews your week and keeps your plan on track for race day.</p></li>
+  </ol>
 </div></section>
 
 <!-- Clubs -->
@@ -315,11 +436,9 @@
     </ul>
   </div>
   <div class="dash-wrap reveal" aria-hidden="true">
-    <svg class="dash-art" viewBox="0 0 240 90" focusable="false">
-      <rect x="20" y="14" width="10" height="76" rx="4" class="ink"/><rect x="210" y="14" width="10" height="76" rx="4" class="ink"/>
-      <rect x="14" y="8" width="212" height="28" rx="10" class="purple"/>
-      <text x="120" y="27" text-anchor="middle" class="banner">START</text>
-    </svg>
+    <svg class="d-ic d1"><use href="#i-club"/></svg>
+    <svg class="d-ic d2"><use href="#i-wallet"/></svg>
+    <svg class="d-ic d3"><use href="#i-trophy"/></svg>
     <div class="dash">
       <div class="h">Riverside Riders</div>
       <div class="t">City Cyclothon 2026</div>
@@ -338,9 +457,9 @@
     <h2>Built to earn your trust.</h2>
   </div>
   <div class="trust">
-    <div class="reveal"><span class="ti" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.8-7 9-4-1.2-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><h3>No ads. Nothing sold.</h3><p>Your data is used only to run Veloxo for you. Read the <a href="privacy.html">Privacy Policy</a>.</p></div>
-    <div class="reveal"><span class="ti" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="3"/><path d="M3 10h18M7 15h4"/></svg></span><h3>Your money goes to the club</h3><p>Entry fees go straight to the organiser's UPI ID. We never see your bank or card details.</p></div>
-    <div class="reveal"><span class="ti" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10 4H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h4M15 16l4-4-4-4M19 12H9"/></svg></span><h3>Leave any time</h3><p>Delete your account from the app or <a href="delete-account.html">from this website</a>, and your data goes with it.</p></div>
+    <div class="reveal"><svg class="t-ic" aria-hidden="true"><use href="#i-shield"/></svg><h3>No ads. Nothing sold.</h3><p>Your data is used only to run Veloxo for you. Read the <a href="privacy.html">Privacy Policy</a>.</p></div>
+    <div class="reveal"><svg class="t-ic" aria-hidden="true"><use href="#i-wallet"/></svg><h3>Your money goes to the club</h3><p>Entry fees go straight to the organiser's UPI ID. We never see your bank or card details.</p></div>
+    <div class="reveal"><svg class="t-ic" aria-hidden="true"><use href="#i-door"/></svg><h3>Leave any time</h3><p>Delete your account from the app or <a href="delete-account.html">from this website</a>, and your data goes with it.</p></div>
   </div>
 </div></section>
 
@@ -356,33 +475,39 @@
   </div>
 </div></section>
 
-<!-- Final CTA: a rider heading for the horizon -->
+<!-- Get the app banner -->
 <div class="final"><div class="wrap">
   <div class="box reveal">
-    <h2>Your next ride starts with a plan.</h2>
-    <p>Join the Android beta, or bring your club's next event to Veloxo.</p>
-    <div class="cta-row">
-      <a class="btn light" href="join.html">Join the beta</a>
-      <a class="btn outline-light" href="join.html?role=club">List your club</a>
+    <div class="box-copy">
+      <h2>Your next ride starts with a plan.</h2>
+      <p>Join the Android beta, or bring your club's next event to Veloxo.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="join.html">Join the beta</a>
+        <a class="btn ghost" href="join.html?role=club">List your club</a>
+      </div>
     </div>
-    <svg class="final-art" viewBox="0 0 1000 120" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
-      <circle cx="800" cy="86" r="54" class="f-sun"/>
-      <path d="M0 96c200-26 380-6 560-16s320-22 440-8v48H0z" class="f-hill"/>
-      <path d="M-10 112c300-14 640 4 1020-6" class="f-road"/>
-      <use href="#cyclist" x="420" y="58" width="80" height="51" class="rider"/>
-    </svg>
+    <div class="box-art" aria-hidden="true">
+      <svg class="b1"><use href="#i-helmet"/></svg><svg class="b2"><use href="#i-medal"/></svg><svg class="b3"><use href="#i-bottle"/></svg><svg class="b4"><use href="#i-flag"/></svg>
+    </div>
   </div>
 </div></div>
 
 </main>
-<footer><div class="wrap">
-  <div><img src="assets/veloxo-wordmark-white.png" alt="Veloxo"><div>Cycling training and events</div></div>
-  <nav aria-label="Footer"><a href="support.html">Support</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="delete-account.html">Delete your account</a></nav>
-  <div class="fine">Veloxo is an independent project by Vasanth Sankar. © 2026 Veloxo.</div>
+<footer><div class="wrap foot">
+  <div class="foot-brand">
+    <img src="assets/veloxo-wordmark-white.png" alt="Veloxo">
+    <p>Cycling training and events</p>
+    <p class="fine">Veloxo is an independent project by Vasanth Sankar. © 2026 Veloxo.</p>
+  </div>
+  <nav class="foot-cols" aria-label="Footer">
+    <div><h3>Veloxo</h3><a href="index.html#riders">For riders</a><a href="index.html#velo">Velo</a><a href="index.html#clubs">For clubs</a><a href="join.html">Join the beta</a></div>
+    <div><h3>Help</h3><a href="support.html">Support</a><a href="mailto:veloxo.si@gmail.com">Email us</a><a href="delete-account.html">Delete your account</a></div>
+    <div><h3>Legal</h3><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></div>
+  </nav>
 </div></footer>
 
 <script>
-  // Header: transparent over the sky, glass once the page scrolls.
+  // Header: white text over the blue hero, white glass once the page scrolls.
   (function () {
     var top = document.querySelector('.top');
     function on() { top.classList.toggle('stuck', window.scrollY > 8); }

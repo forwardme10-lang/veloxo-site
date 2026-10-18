@@ -18,38 +18,191 @@
 </head>
 <body>
 <svg class="sprite" aria-hidden="true" focusable="false">
-<symbol id="cyclist" viewBox="0 0 220 140">
-  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <!-- wheels -->
-    <g stroke="var(--il-ink)" stroke-width="4.5"><circle cx="50" cy="102" r="33"/><circle cx="170" cy="102" r="33"/></g>
-    <g stroke="var(--il-ink)" stroke-width="1.6" opacity=".35"><circle cx="50" cy="102" r="25"/><circle cx="170" cy="102" r="25"/></g>
-    <g fill="var(--il-ink)" stroke="none"><circle cx="50" cy="102" r="3.5"/><circle cx="170" cy="102" r="3.5"/></g>
-    <!-- far leg (behind the frame) -->
-    <path d="M88 44 L118 63 L92 94" stroke="var(--il-ink2)" stroke-width="9"/>
-    <path d="M87 96 h11" stroke="var(--il-ink2)" stroke-width="5"/>
-    <!-- frame -->
-    <g stroke="var(--il-bike)" stroke-width="5">
-      <path d="M50 102 L102 102 L90 54 Z"/>
-      <path d="M90 54 L152 51 L157 66 L102 102"/>
-      <path d="M157 66 L170 102"/>
-      <path d="M90 54 L88 47"/>
+  <defs>
+    <linearGradient id="g-blue" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6fb2ff"/><stop offset=".55" stop-color="#1b7bff"/><stop offset="1" stop-color="#0b4fc4"/></linearGradient>
+    <linearGradient id="g-navy" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3b4f86"/><stop offset="1" stop-color="#0b1533"/></linearGradient>
+    <linearGradient id="g-orange" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffc083"/><stop offset=".5" stop-color="#ff8a3d"/><stop offset="1" stop-color="#e2531a"/></linearGradient>
+    <linearGradient id="g-gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff0b0"/><stop offset=".45" stop-color="#ffc83d"/><stop offset="1" stop-color="#d98a06"/></linearGradient>
+    <linearGradient id="g-red" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff9a9a"/><stop offset=".5" stop-color="#f04444"/><stop offset="1" stop-color="#b91c1c"/></linearGradient>
+    <linearGradient id="g-green" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9ef0c4"/><stop offset=".5" stop-color="#2fbf7a"/><stop offset="1" stop-color="#14874f"/></linearGradient>
+    <linearGradient id="g-purple" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c4a8ff"/><stop offset=".5" stop-color="#7c3aed"/><stop offset="1" stop-color="#4c1d95"/></linearGradient>
+    <linearGradient id="g-white" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#dfe6f1"/></linearGradient>
+    <linearGradient id="g-steel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eef2f7"/><stop offset="1" stop-color="#9aa6b8"/></linearGradient>
+    <radialGradient id="g-shine" cx=".3" cy=".25" r=".6"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+    <radialGradient id="g-shadow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#0b1533" stop-opacity=".32"/><stop offset="1" stop-color="#0b1533" stop-opacity="0"/></radialGradient>
+  </defs>
+
+  <!-- Helmet -->
+  <symbol id="i-helmet" viewBox="0 0 120 120">
+    <ellipse cx="60" cy="100" rx="46" ry="7" fill="url(#g-shadow)"/>
+    <path d="M10 78C10 46 34 22 64 22c28 0 46 22 46 46 0 6-4 10-10 10z" fill="url(#g-blue)"/>
+    <path d="M34 40c6-6 13-9 20-10l2 16-14 6zM62 29c8 1 15 4 20 9l-9 12-11-4zM88 46c4 5 7 11 8 17l-13 1-4-9z" fill="#0b2a66" opacity=".5"/>
+    <path d="M8 78h94c5 0 8 3 8 7s-3 7-8 7H18c-6 0-10-4-10-8z" fill="url(#g-navy)"/>
+    <path d="M96 66c6 0 12 2 16 6l-6 8H96z" fill="url(#g-navy)"/>
+    <path d="M22 60c5-16 20-28 38-30" stroke="#fff" stroke-width="7" stroke-linecap="round" fill="none" opacity=".5"/>
+  </symbol>
+
+  <!-- Water bottle -->
+  <symbol id="i-bottle" viewBox="0 0 120 120">
+    <ellipse cx="60" cy="108" rx="26" ry="6" fill="url(#g-shadow)"/>
+    <rect x="50" y="8" width="20" height="14" rx="5" fill="url(#g-navy)"/>
+    <path d="M42 22h36l4 10v62c0 8-6 12-12 12H50c-6 0-12-4-12-12V32z" fill="url(#g-orange)"/>
+    <rect x="38" y="52" width="44" height="22" fill="#fff" opacity=".92"/>
+    <path d="M48 63h24" stroke="#ff8a3d" stroke-width="5" stroke-linecap="round"/>
+    <path d="M38 40h44M38 86h44" stroke="#e2531a" stroke-width="3" opacity=".6"/>
+    <rect x="44" y="28" width="8" height="66" rx="4" fill="#fff" opacity=".4"/>
+  </symbol>
+
+  <!-- Medal -->
+  <symbol id="i-medal" viewBox="0 0 120 120">
+    <ellipse cx="60" cy="110" rx="30" ry="6" fill="url(#g-shadow)"/>
+    <path d="M34 6h20l14 40H48z" fill="url(#g-blue)"/><path d="M86 6H66L52 46h20z" fill="url(#g-red)"/>
+    <circle cx="60" cy="74" r="32" fill="url(#g-gold)"/>
+    <circle cx="60" cy="74" r="22" fill="none" stroke="#c97a00" stroke-width="3" opacity=".5"/>
+    <path d="M60 60l4.5 9.5 10.5 1.2-7.8 7 2.2 10.3L60 82.8 50.6 88l2.2-10.3-7.8-7 10.5-1.2z" fill="#fff4c2"/>
+    <ellipse cx="48" cy="58" rx="12" ry="7" fill="url(#g-shine)" transform="rotate(-30 48 58)"/>
+  </symbol>
+
+  <!-- Stopwatch -->
+  <symbol id="i-watch" viewBox="0 0 120 120">
+    <ellipse cx="60" cy="110" rx="34" ry="6" fill="url(#g-shadow)"/>
+    <rect x="52" y="6" width="16" height="12" rx="4" fill="url(#g-navy)"/>
+    <rect x="84" y="20" width="12" height="10" rx="3" fill="url(#g-navy)" transform="rotate(40 90 25)"/>
+    <circle cx="60" cy="64" r="40" fill="url(#g-green)"/>
+    <circle cx="60" cy="64" r="30" fill="url(#g-white)"/>
+    <path d="M60 64V42M60 64l14 8" stroke="#0b1533" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="60" cy="64" r="4" fill="#ff8a3d"/>
+    <path d="M60 37v5M87 64h-5M60 91v-5M33 64h5" stroke="#9aa6b8" stroke-width="3" stroke-linecap="round"/>
+    <ellipse cx="40" cy="40" rx="14" ry="8" fill="url(#g-shine)" transform="rotate(-35 40 40)"/>
+  </symbol>
+
+  <!-- Wheel -->
+  <symbol id="i-wheel" viewBox="0 0 120 120">
+    <ellipse cx="60" cy="112" rx="38" ry="5" fill="url(#g-shadow)"/>
+    <circle cx="60" cy="58" r="48" fill="none" stroke="url(#g-navy)" stroke-width="12"/>
+    <circle cx="60" cy="58" r="40" fill="none" stroke="url(#g-steel)" stroke-width="4"/>
+    <g stroke="#9aa6b8" stroke-width="2"><path d="M60 20v76M22 58h76M33 31l54 54M87 31L33 85"/></g>
+    <circle cx="60" cy="58" r="9" fill="url(#g-blue)"/>
+    <path d="M24 36a44 44 0 0 1 30-24" stroke="#fff" stroke-width="5" stroke-linecap="round" fill="none" opacity=".35"/>
+  </symbol>
+
+  <!-- Trophy -->
+  <symbol id="i-trophy" viewBox="0 0 120 120">
+    <ellipse cx="60" cy="110" rx="32" ry="6" fill="url(#g-shadow)"/>
+    <path d="M30 22H16c0 18 8 28 20 30M90 22h14c0 18-8 28-20 30" fill="none" stroke="url(#g-gold)" stroke-width="7"/>
+    <path d="M30 12h60v22c0 20-13 34-30 34S30 54 30 34z" fill="url(#g-gold)"/>
+    <rect x="52" y="66" width="16" height="16" fill="#d98a06"/>
+    <rect x="36" y="82" width="48" height="20" rx="6" fill="url(#g-navy)"/>
+    <rect x="46" y="88" width="28" height="7" rx="3" fill="#ffc83d"/>
+    <ellipse cx="44" cy="28" rx="7" ry="14" fill="url(#g-shine)"/>
+  </symbol>
+
+  <!-- Calendar -->
+  <symbol id="i-calendar" viewBox="0 0 120 120">
+    <ellipse cx="60" cy="110" rx="40" ry="6" fill="url(#g-shadow)"/>
+    <rect x="16" y="20" width="88" height="84" rx="18" fill="url(#g-white)"/>
+    <path d="M16 38c0-10 8-18 18-18h52c10 0 18 8 18 18v6H16z" fill="url(#g-blue)"/>
+    <rect x="34" y="10" width="9" height="22" rx="4.5" fill="url(#g-navy)"/><rect x="77" y="10" width="9" height="22" rx="4.5" fill="url(#g-navy)"/>
+    <rect x="30" y="72" width="10" height="20" rx="4" fill="#cbd5e1"/><rect x="46" y="62" width="10" height="30" rx="4" fill="#93c5fd"/><rect x="62" y="54" width="10" height="38" rx="4" fill="url(#g-orange)"/><rect x="78" y="66" width="10" height="26" rx="4" fill="#93c5fd"/>
+  </symbol>
+
+  <!-- Velo chat bubble -->
+  <symbol id="i-chat" viewBox="0 0 120 120">
+    <ellipse cx="60" cy="110" rx="36" ry="6" fill="url(#g-shadow)"/>
+    <path d="M60 14c26 0 46 17 46 40S86 94 60 94c-6 0-12-1-17-3l-21 11 5-19C18 76 14 66 14 54c0-23 20-40 46-40z" fill="url(#g-blue)"/>
+    <circle cx="40" cy="55" r="7" fill="#fff"/><circle cx="60" cy="55" r="7" fill="#fff"/><circle cx="80" cy="55" r="7" fill="#fff"/>
+    <ellipse cx="40" cy="30" rx="18" ry="8" fill="url(#g-shine)" transform="rotate(-15 40 30)"/>
+  </symbol>
+
+  <!-- Finish flag -->
+  <symbol id="i-flag" viewBox="0 0 120 120">
+    <ellipse cx="40" cy="110" rx="22" ry="5" fill="url(#g-shadow)"/>
+    <rect x="30" y="8" width="8" height="102" rx="4" fill="url(#g-navy)"/>
+    <path d="M38 14c20-8 36 8 64 0v46c-28 8-44-8-64 0z" fill="#fff"/>
+    <path d="M38 14c7-3 13-3 19-1v15c-6-2-12-2-19 1zM76 15c9 2 17 2 26-1v15c-9 3-17 3-26 1zM57 28c6 2 12 3 19 2v15c-7 1-13 0-19-2zM38 44c7-3 13-3 19-1v15c-6-2-12-2-19 1zM76 45c9 2 17 2 26-1v15c-9 3-17 3-26 1z" fill="#0b1533"/>
+    <circle cx="34" cy="8" r="6" fill="url(#g-gold)"/>
+  </symbol>
+
+  <!-- Bike computer -->
+  <symbol id="i-device" viewBox="0 0 120 120">
+    <ellipse cx="60" cy="110" rx="32" ry="6" fill="url(#g-shadow)"/>
+    <rect x="28" y="8" width="64" height="96" rx="20" fill="url(#g-navy)"/>
+    <rect x="36" y="20" width="48" height="56" rx="8" fill="#eaf2ff"/>
+    <text x="60" y="50" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="20" fill="#0d1b45">250</text>
+    <text x="60" y="62" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-weight="700" font-size="7" letter-spacing="1.5" fill="#5f6b7a">WATTS</text>
+    <path d="M42 70l7-4 6 3 7-7 6 4 6-5 5 3" fill="none" stroke="#1b7bff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="48" y="86" width="24" height="7" rx="3.5" fill="url(#g-blue)"/>
+    <rect x="34" y="12" width="10" height="70" rx="5" fill="#fff" opacity=".12"/>
+  </symbol>
+
+  <!-- Mountain -->
+  <symbol id="i-hill" viewBox="0 0 120 120">
+    <ellipse cx="60" cy="106" rx="50" ry="6" fill="url(#g-shadow)"/>
+    <path d="M6 100L44 34l18 28 12-16 40 54z" fill="url(#g-green)"/>
+    <path d="M44 34l-10 18 6 4 4-6 6 6 6-4z" fill="#fff"/>
+    <path d="M74 46l-7 10 4 3 3-4 4 4 3-3z" fill="#fff"/>
+    <path d="M6 100L44 34l6 10-30 56z" fill="#fff" opacity=".18"/>
+  </symbol>
+
+  <!-- Map pin -->
+  <symbol id="i-pin" viewBox="0 0 120 120">
+    <ellipse cx="60" cy="108" rx="22" ry="6" fill="url(#g-shadow)"/>
+    <path d="M60 8c22 0 38 16 38 36 0 26-38 60-38 60S22 70 22 44C22 24 38 8 60 8z" fill="url(#g-red)"/>
+    <circle cx="60" cy="44" r="15" fill="#fff"/>
+    <ellipse cx="44" cy="26" rx="12" ry="7" fill="url(#g-shine)" transform="rotate(-35 44 26)"/>
+  </symbol>
+
+  <!-- Bib / ticket -->
+  <symbol id="i-bib" viewBox="0 0 120 120">
+    <ellipse cx="60" cy="110" rx="40" ry="6" fill="url(#g-shadow)"/>
+    <g transform="rotate(-8 60 60)">
+      <rect x="14" y="22" width="92" height="74" rx="14" fill="url(#g-white)"/>
+      <path d="M14 36c0-8 6-14 14-14h64c8 0 14 6 14 14v4H14z" fill="url(#g-orange)"/>
+      <text x="60" y="80" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="30" fill="#0d1b45">214</text>
+      <circle cx="24" cy="48" r="3.5" fill="none" stroke="#9aa6b8" stroke-width="2"/><circle cx="96" cy="48" r="3.5" fill="none" stroke="#9aa6b8" stroke-width="2"/>
     </g>
-    <path d="M78 46 h20" stroke="var(--il-ink)" stroke-width="5"/>
-    <circle cx="102" cy="102" r="8" stroke="var(--il-ink)" stroke-width="3"/><path d="M92 94 L112 110" stroke="var(--il-ink)" stroke-width="3"/>
-    <!-- bar: stem and drops -->
-    <path d="M152 51 L163 48 c7 -1 9 5 7 10 c-1 4 -4 6 -8 6" stroke="var(--il-ink)" stroke-width="4.5"/>
-    <!-- torso -->
-    <path d="M88 42 L134 27" stroke="var(--il-jersey)" stroke-width="15"/>
-    <!-- arm -->
-    <path d="M136 28 L155 41 L165 51" stroke="var(--il-jersey2)" stroke-width="7"/>
-    <!-- near leg -->
-    <path d="M88 44 L121 74 L112 110" stroke="var(--il-ink)" stroke-width="10"/>
-    <path d="M108 112 h12" stroke="var(--il-ink)" stroke-width="5.5"/>
-    <!-- head and helmet -->
-    <circle cx="150" cy="17" r="8.5" fill="var(--il-skin)" stroke="none"/>
-    <path d="M139 16 c1 -9 10 -13 18 -10 c4 2 6 5 6 8 l-25 3 z" fill="var(--il-helmet)" stroke="var(--il-helmet)" stroke-width="2"/>
-  </g>
-</symbol>
+  </symbol>
+
+  <!-- Group / club (three helmets) -->
+  <symbol id="i-club" viewBox="0 0 120 120">
+    <ellipse cx="60" cy="108" rx="50" ry="6" fill="url(#g-shadow)"/>
+    <g transform="translate(-6 18) scale(.62)"><use href="#i-helmet-body" fill="url(#g-orange)"/></g>
+    <g transform="translate(52 18) scale(.62)"><use href="#i-helmet-body" fill="url(#g-green)"/></g>
+    <g transform="translate(20 34) scale(.72)"><use href="#i-helmet-body" fill="url(#g-purple)"/></g>
+  </symbol>
+  <symbol id="i-helmet-body" viewBox="0 0 120 120">
+    <path d="M14 74c0-30 22-50 50-50 24 0 42 16 44 38 1 8-4 14-12 14H24c-6 0-10 0-10-2z"/>
+    <path d="M14 74h80c6 0 10 4 10 8s-3 6-8 6H22c-5 0-8-4-8-8z" fill="url(#g-navy)"/>
+    <path d="M24 56c4-14 18-24 34-26" stroke="#fff" stroke-width="6" stroke-linecap="round" fill="none" opacity=".55"/>
+  </symbol>
+
+  <!-- Shield (trust) -->
+  <symbol id="i-shield" viewBox="0 0 120 120">
+    <ellipse cx="60" cy="110" rx="30" ry="6" fill="url(#g-shadow)"/>
+    <path d="M60 8l40 14v30c0 26-17 44-40 52-23-8-40-26-40-52V22z" fill="url(#g-blue)"/>
+    <path d="M42 56l12 12 24-24" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M28 28l32-11v20" fill="url(#g-shine)"/>
+  </symbol>
+
+  <!-- Wallet / UPI (money to club) -->
+  <symbol id="i-wallet" viewBox="0 0 120 120">
+    <ellipse cx="60" cy="110" rx="40" ry="6" fill="url(#g-shadow)"/>
+    <rect x="26" y="14" width="56" height="36" rx="8" fill="url(#g-green)" transform="rotate(-10 54 32)"/>
+    <rect x="12" y="34" width="96" height="66" rx="16" fill="url(#g-purple)"/>
+    <rect x="72" y="54" width="36" height="26" rx="10" fill="#4c1d95"/>
+    <circle cx="86" cy="67" r="6" fill="url(#g-gold)"/>
+    <path d="M20 44h70" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".35"/>
+  </symbol>
+
+  <!-- Door / leave -->
+  <symbol id="i-door" viewBox="0 0 120 120">
+    <ellipse cx="60" cy="110" rx="34" ry="6" fill="url(#g-shadow)"/>
+    <rect x="26" y="8" width="60" height="98" rx="10" fill="url(#g-orange)"/>
+    <rect x="34" y="16" width="44" height="84" rx="6" fill="#ffb27a" opacity=".5"/>
+    <circle cx="72" cy="60" r="5" fill="url(#g-gold)"/>
+    <path d="M70 60h40M98 48l12 12-12 12" fill="none" stroke="#0d1b45" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+
 </svg>
 <a class="skip" href="#main">Skip to content</a>
 <header class="top"><div class="wrap">
@@ -71,13 +224,7 @@
       <li><b>Your plan</b> for your next event, on Wahoo, Zwift or Garmin</li>
       <li><b>Direct line</b> to us: your feedback shapes what we build</li>
     </ul>
-    <svg class="join-art" viewBox="0 0 480 170" aria-hidden="true" focusable="false">
-      <circle cx="372" cy="62" r="40" class="j-sun"/>
-      <path class="h3" d="M0 112c80-30 160-26 240-8s170-30 240-14v80H0z"/>
-      <path class="h2" d="M0 136c110-24 220-4 330-12s120-6 150 0v46H0z"/>
-      <path class="road" d="M-10 158c160-12 330 6 500-4"/>
-      <use href="#cyclist" x="150" y="96" width="92" height="59"/>
-    </svg>
+    <div class="join-art" aria-hidden="true"><svg class="j1"><use href="#i-helmet"/></svg><svg class="j2"><use href="#i-medal"/></svg><svg class="j3"><use href="#i-bottle"/></svg></div>
   </div>
 
   <div class="form-card">
@@ -186,10 +333,17 @@
 </div>
 
 </main>
-<footer><div class="wrap">
-  <div><img src="assets/veloxo-wordmark-white.png" alt="Veloxo"><div>Cycling training and events</div></div>
-  <nav aria-label="Footer"><a href="support.html">Support</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="delete-account.html">Delete your account</a></nav>
-  <div class="fine">Veloxo is an independent project by Vasanth Sankar. © 2026 Veloxo.</div>
+<footer><div class="wrap foot">
+  <div class="foot-brand">
+    <img src="assets/veloxo-wordmark-white.png" alt="Veloxo">
+    <p>Cycling training and events</p>
+    <p class="fine">Veloxo is an independent project by Vasanth Sankar. © 2026 Veloxo.</p>
+  </div>
+  <nav class="foot-cols" aria-label="Footer">
+    <div><h3>Veloxo</h3><a href="index.html#riders">For riders</a><a href="index.html#velo">Velo</a><a href="index.html#clubs">For clubs</a><a href="join.html">Join the beta</a></div>
+    <div><h3>Help</h3><a href="support.html">Support</a><a href="mailto:veloxo.si@gmail.com">Email us</a><a href="delete-account.html">Delete your account</a></div>
+    <div><h3>Legal</h3><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></div>
+  </nav>
 </div></footer>
 
 <script>
@@ -231,6 +385,9 @@
     }
     form.addEventListener('change', sync);
     // join.html?role=club (the "List your club" buttons) starts on Club organiser.
+    // join.html?email=… (the email box on the home page) fills in the email.
+    var em = /[?&]email=([^&]*)/.exec(location.search);
+    if (em) form.elements.email.value = decodeURIComponent(em[1].replace(/\+/g, ' '));
     if (/[?&]role=club\b/.test(location.search)) { form.querySelector('input[value="club"]').checked = true; }
     sync();
 
