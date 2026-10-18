@@ -494,3 +494,89 @@ footer { background: #0b1533; color: rgba(255, 255, 255, 0.72); padding: 64px 0 
 .join-art .j2 { width: 130px; height: 130px; left: 40%; top: 50px; }
 .join-art .j3 { width: 120px; height: 120px; right: 6%; top: 24px; transform: rotate(8deg); }
 @media (max-width: 860px) { .join-art { display: none; } }
+
+/* ── Calm variant (index-calm.html, body.calm): same page, quieter.
+ *    Smaller still icons, tighter corners, neutral panels instead of pastels, no bobbing. ── */
+.calm .fl, .calm .d-ic, .calm .box-art svg, .calm .float { animation: none; }
+.calm .fl { width: 150px; height: 150px; filter: drop-shadow(0 14px 18px rgba(5, 20, 60, 0.28)); }
+.calm .fl.f1 { left: 4%; top: 150px; transform: rotate(-8deg); }
+.calm .fl.f3 { right: 4%; top: 140px; }
+.calm .fl.f2, .calm .fl.f4 { display: none; }
+.calm .hero h1 span { color: #cfe3ff; }
+.calm .hero { background: linear-gradient(180deg, #0f62e6 0%, #0b57d0 100%); }
+.calm .tile { border-radius: 22px; box-shadow: 0 18px 40px -26px rgba(13, 27, 69, 0.35), 0 1px 3px rgba(13, 27, 69, 0.06); }
+.calm .tile-ic { width: 110px; height: 110px; right: 14px; bottom: 14px; }
+.calm .tile:hover, .calm .ev-card:hover, .calm .feats li:hover { transform: translateY(-2px); }
+.calm .tile:hover .tile-ic, .calm .ev-card:hover .ev-art svg { transform: none; }
+.calm .sky, .calm .peach, .calm .mint, .calm .lilac, .calm .sun { background: var(--soft); }
+.calm .g-ic { width: 112px; height: 112px; border: 1px solid var(--line); background: var(--card); }
+.calm .g-ic svg { width: 70px; height: 70px; }
+.calm .feats li { border-radius: 18px; }
+.calm .f-ic { border-radius: 14px; }
+.calm .ev-card { border-radius: 18px; }
+.calm .ev-art { height: 150px; border-bottom: 1px solid var(--line); }
+.calm .ev-art svg { width: 96px; height: 96px; }
+.calm .ev-tag { background: var(--card); color: var(--ink); border: 1px solid var(--line); }
+.calm .velo { border-radius: 24px; background: #0d1b45; }
+.calm .velo-ic { width: 72px; height: 72px; filter: none; }
+.calm .stop { width: 108px; height: 108px; border: 1px solid var(--line); background: var(--card); }
+.calm .stop svg { width: 68px; height: 68px; }
+.calm .stop::after { width: 28px; height: 28px; font-size: 13px; }
+.calm .dash { border-radius: 20px; }
+.calm .d-ic.d1 { width: 100px; height: 100px; } .calm .d-ic.d2 { width: 88px; height: 88px; } .calm .d-ic.d3 { display: none; }
+.calm .trust > div { border-radius: 18px; }
+.calm .t-ic { width: 76px; height: 76px; }
+.calm .faq details { border-radius: 14px; }
+.calm .final .box { border-radius: 24px; background: var(--soft); border: 1px solid var(--line); }
+.calm .box-art svg { filter: drop-shadow(0 12px 14px rgba(13, 27, 69, 0.18)); }
+.calm .box-art .b1 { width: 140px; height: 140px; left: 2%; top: 60px; transform: rotate(-6deg); }
+.calm .box-art .b2 { width: 130px; height: 130px; left: 38%; right: auto; top: 54px; }
+.calm .box-art .b3 { width: 120px; height: 120px; left: auto; right: 2%; top: 64px; bottom: auto; }
+.calm .box-art .b4 { display: none; }
+@media (max-width: 1100px) { .calm .fl { display: none; } }
+
+/* ── integrations strip, why row, pricing, guide card ── */
+.logos-sec { padding: 72px 0 0; }
+.logos-k { text-align: center; margin: 0 0 18px; font-size: 13px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+.logos { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+.logos li { display: grid; gap: 2px; text-align: center; padding: 16px 10px; border: 1px solid var(--line); border-radius: 16px; background: var(--card); }
+.logos b { font-size: 19px; font-weight: 800; letter-spacing: -0.02em; color: var(--ink); }
+.logos small { font-size: 12.5px; color: var(--muted); }
+.logos .soon { border-style: dashed; background: transparent; }
+.logos .soon b { color: var(--muted); }
+.why-sec { padding: 96px 0 0; }
+.why { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.why > div { padding: 8px 10px; text-align: center; }
+.why h3 { margin: 0 0 6px; font-size: 20px; }
+.why p { margin: 0 auto; color: var(--muted); font-size: 16px; max-width: 320px; }
+.pricing-sec { padding-bottom: 40px; }
+.prices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: stretch; }
+.price { position: relative; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 28px 26px; }
+.price.pro { border: 2px solid var(--blue); box-shadow: 0 20px 44px -28px rgba(27, 123, 255, 0.55); }
+.price .badge { position: absolute; top: -12px; left: 24px; background: var(--blue); color: #fff; font-size: 12.5px; font-weight: 800; padding: 4px 12px; border-radius: 999px; }
+.price.club .badge { background: var(--purple); }
+.price h3 { margin: 0; font-size: 20px; }
+.price .amt { margin: 6px 0 16px; font-size: 38px; font-weight: 800; letter-spacing: -0.03em; color: var(--ink); line-height: 1.1; }
+.price .amt small { font-size: 16px; font-weight: 600; color: var(--muted); letter-spacing: 0; }
+.price ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.price li { position: relative; padding-left: 26px; color: var(--text); font-size: 15.5px; }
+.price li::before { content: ""; position: absolute; left: 0; top: 7px; width: 14px; height: 8px; border-left: 2.6px solid var(--blue); border-bottom: 2.6px solid var(--blue); transform: rotate(-45deg); border-radius: 1px; }
+.price.club li::before { border-color: var(--purple); }
+@media (prefers-color-scheme: dark) { .price.club li::before { border-color: #b69cff; } }
+.guide-card { display: grid; grid-template-columns: 96px 1fr; gap: 22px; align-items: center; max-width: 780px; margin: 0 auto; padding: 22px 26px; border: 1px solid var(--line); border-radius: 18px; background: var(--card); text-decoration: none; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.guide-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+.guide-card .t-ic { width: 84px; height: 84px; margin: 0; }
+.guide-card .kicker { margin-bottom: 4px; }
+.guide-card h3 { margin: 0 0 4px; font-size: 20px; }
+.guide-card p { margin: 0; color: var(--muted); font-size: 16px; }
+.calm .join-art { background: var(--soft); border: 1px solid var(--line); border-radius: 18px; }
+@media (max-width: 980px) {
+  .logos { grid-template-columns: repeat(3, 1fr); }
+  .why, .prices { grid-template-columns: 1fr; gap: 28px; }
+}
+@media (max-width: 720px) {
+  .logos-sec { padding-top: 56px; }
+  .logos { grid-template-columns: repeat(2, 1fr); }
+  .guide-card { grid-template-columns: 64px 1fr; gap: 16px; padding: 18px; }
+  .guide-card .t-ic { width: 60px; height: 60px; }
+}
