@@ -1,4 +1,4 @@
-// Veloxo home page: nav state, scroll reveal, stacked cards, word highlight, Velo chat playback, stat count-up.
+// Veloxo home page: nav state, scroll reveal, stacked cards, word highlight, Velo chat playback.
 (function(){
   var root=document.documentElement; root.classList.add('js');
   var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -85,17 +85,4 @@
     co.observe(chat);
   }
   document.getElementById('replay').addEventListener('click',play);
-
-  // Stat count-up when first seen (final values are already in the HTML)
-  if('IntersectionObserver' in window && !reduce){
-    var nums=[].slice.call(document.querySelectorAll('.stat .num'));
-    var so=new IntersectionObserver(function(es){es.forEach(function(e){
-      if(!e.isIntersecting) return; so.unobserve(e.target);
-      var el=e.target, txt=el.textContent, m=txt.match(/^(\D*)(\d+)(\D*)$/); if(!m) return;
-      var end=+m[2], t0=null;
-      function step(ts){ if(!t0)t0=ts; var k=Math.min(1,(ts-t0)/900); el.textContent=m[1]+Math.round(end*k)+m[3]; if(k<1) requestAnimationFrame(step); }
-      if(end>0) requestAnimationFrame(step);
-    });},{threshold:.6});
-    nums.forEach(function(n){so.observe(n);});
-  }
 })();
