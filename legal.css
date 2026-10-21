@@ -1,0 +1,174 @@
+/*
+ * Veloxo legal pages (Privacy Policy, Terms of Use, Delete your account).
+ * Matches the 2026 landing design: Manrope, white paper + mist bands, black footer,
+ * pill buttons with a blue dot, thin rules between sections. Light only, like the landing page.
+ */
+:root{
+  color-scheme: light;
+  --paper:#FFFFFF;
+  --mist:#F5F6F8;
+  --line:#E7E9ED;
+  --ink:#0B0C0F;
+  --text:#2B2F36;
+  --muted:#6C717C;
+  --soft:#9AA0AB;
+  --night:#000000;
+  --night-line:#24262C;
+  --night-muted:#8B909A;
+  --blue:#2F6BFF;
+  --blue-deep:#1B49C9;
+  --blue-soft:#EEF3FF;
+  --font:"Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --wrap:1180px;
+  --gutter-l:max(20px, env(safe-area-inset-left, 0px));
+  --gutter-r:max(20px, env(safe-area-inset-right, 0px));
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+h1,h2,h3{margin:0;font-weight:500;letter-spacing:-.035em;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:calc(var(--wrap) + 40px);margin-inline:auto;padding-left:var(--gutter-l);padding-right:var(--gutter-r)}
+.eyebrow{font-size:13px;font-weight:500;color:var(--muted);letter-spacing:.02em;display:inline-flex;align-items:center;gap:14px}
+.eyebrow.rule::before{content:"";width:44px;height:1px;background:currentColor;opacity:.7}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:8px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--blue);color:#fff;padding:8px 14px;border-radius:999px;z-index:60}
+.skip:focus{left:12px}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:16px;height:52px;padding:0 6px 0 24px;border-radius:999px;font-weight:500;font-size:16px;white-space:nowrap;transition:background .3s}
+.btn .dot{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--blue);color:#fff;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.btn .dot svg{width:16px;height:16px}
+.btn:hover .dot{transform:rotate(45deg)}
+.btn.dark{background:var(--ink);color:#fff}
+.btn.grey{background:var(--mist);color:var(--ink);border:1px solid var(--line)}
+.btn.plain{padding:0 24px;background:var(--paper);color:var(--ink);border:1px solid var(--line)}
+.btn.plain:hover{background:var(--mist)}
+
+/* ---------- Nav (the landing page's solid state) ---------- */
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--line);padding-top:env(safe-area-inset-top,0px)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;gap:24px}
+.nav .left{display:flex;align-items:center;gap:28px;min-width:0}
+.logo{font-weight:800;font-size:22px;letter-spacing:-.04em;display:flex;align-items:center;gap:10px}
+.logo svg{width:22px;height:22px;color:var(--blue)}
+.nav .sep{width:1px;height:22px;background:currentColor;opacity:.25}
+.nav .links{display:flex;gap:30px;font-size:15px}
+.nav .links a{position:relative}
+.nav .links a::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.nav .links a:hover::after{transform:scaleX(1)}
+.nav .cta{height:44px;padding:0 20px;border-radius:999px;background:var(--blue);color:#fff;display:inline-flex;align-items:center;font-size:15px;font-weight:500;white-space:nowrap;transition:background .3s}
+.nav .cta:hover{background:var(--blue-deep)}
+
+/* ---------- Page head ---------- */
+.lhead{padding-block:96px 56px;border-bottom:1px solid var(--line)}
+.lhead .wrap{display:grid;gap:22px}
+.lhead h1{font-size:clamp(44px,6vw,80px);line-height:1.02}
+.lhead .lede{font-size:clamp(17px,1.4vw,19px);color:var(--muted);max-width:620px}
+.lhead .meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;margin-top:6px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px}
+.tabs a{border:1px solid var(--line);border-radius:999px;padding:9px 16px;font-size:14px;font-weight:500;background:var(--paper);transition:background .2s,border-color .2s}
+.tabs a:hover{background:var(--mist)}
+.tabs a[aria-current="page"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.updated{font-size:14px;color:var(--muted)}
+
+/* ---------- In short (three columns, like the landing "Your data" band) ---------- */
+.short{background:var(--mist);padding-block:72px}
+.short h2{font-size:clamp(28px,3vw,40px);line-height:1.1;margin:16px 0 40px}
+.tcols{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,4vw,56px)}
+.tcol{border-top:1px solid #D9DCE2;padding-top:28px;display:grid;gap:10px;align-content:start;min-width:0}
+.tcol .k{font-size:13px;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums}
+.tcol h3{font-size:22px;letter-spacing:-.02em}
+.tcol p{color:var(--muted)}
+.tcol a{color:var(--blue);text-decoration:underline;text-underline-offset:3px}
+
+/* ---------- Document body: sticky contents + readable column ---------- */
+.ldoc{padding-block:88px 120px}
+.ldoc .wrap{display:grid;grid-template-columns:240px minmax(0,1fr);gap:clamp(40px,7vw,110px);align-items:start}
+.toc{position:sticky;top:110px;display:grid;gap:4px;font-size:14px}
+.toc b{font-size:13px;font-weight:600;color:var(--muted);letter-spacing:.02em;margin-bottom:10px}
+.toc a{display:grid;grid-template-columns:28px 1fr;padding:7px 0;color:var(--muted);transition:color .2s}
+.toc a span{font-variant-numeric:tabular-nums;color:var(--soft)}
+.toc a:hover{color:var(--ink)}
+.content{max-width:760px;color:var(--text)}
+.content > p.intro{font-size:19px;line-height:1.55;color:var(--ink);letter-spacing:-.01em}
+.content > p.intro + p.intro{margin-top:16px}
+.sec{display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px;padding-block:40px;border-top:1px solid var(--line)}
+.content > p.intro + .sec,.content > .sec:first-child{margin-top:48px}
+.sec:last-child{border-bottom:1px solid var(--line)}
+.sec .k{font-size:13px;font-weight:600;color:var(--muted);padding-top:9px;font-variant-numeric:tabular-nums}
+.sec .b{display:grid;gap:14px;min-width:0}
+.sec h2{font-size:clamp(24px,2.4vw,30px);line-height:1.15;color:var(--ink)}
+.sec h3{font-size:18px;letter-spacing:-.015em;color:var(--ink);margin-top:6px}
+.content a:not(.btn){color:var(--blue);text-decoration:underline;text-underline-offset:3px}
+.content strong{color:var(--ink);font-weight:600}
+.content ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.content ul li{position:relative;padding-left:22px}
+.content ul li::before{content:"";position:absolute;left:2px;top:.72em;width:7px;height:7px;border-radius:50%;background:var(--blue)}
+.todo{background:#FFF4D6;color:#7A5600;border-radius:6px;padding:1px 6px;font-size:14px}
+
+/* tables */
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:18px;-webkit-overflow-scrolling:touch}
+.content table{width:100%;border-collapse:collapse;font-size:15px;min-width:560px}
+.content th,.content td{text-align:left;vertical-align:top;padding:14px 16px;border-bottom:1px solid var(--line)}
+.content tr:last-child td{border-bottom:0}
+.content th{background:var(--mist);color:var(--ink);font-weight:600;font-size:14px}
+.content td:first-child{color:var(--ink);font-weight:600;width:26%}
+
+/* numbered steps */
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:0;counter-reset:s;border-top:1px solid var(--line)}
+.steps li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);color:var(--ink)}
+.steps li::before{content:counter(s,decimal-leading-zero);font-size:13px;font-weight:600;color:var(--muted);padding-top:3px;font-variant-numeric:tabular-nums}
+
+/* delete page: two ways */
+.ways{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.way{border-radius:26px;padding:28px;display:grid;gap:16px;align-content:start;background:var(--paper);box-shadow:0 30px 80px -40px rgba(15,20,40,.22),0 0 0 1px rgba(15,20,40,.06);min-width:0}
+.way .tag{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+.way h3{font-size:clamp(24px,2.4vw,30px);line-height:1.12;margin:0}
+.way p{color:var(--muted)}
+.way .btn{justify-self:start}
+.note{background:var(--mist);border-radius:20px;padding:20px 22px;display:grid;gap:10px}
+.note h3{margin:0;font-size:17px}
+
+/* contact band at the end */
+.ask{background:var(--mist);padding-block:96px}
+.ask .wrap{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:end}
+.ask h2{font-size:clamp(32px,4vw,52px);line-height:1.05;margin-top:16px}
+.ask p{color:var(--muted);margin-top:14px;max-width:520px}
+.ask .actions{display:flex;flex-wrap:wrap;gap:12px}
+
+/* ---------- Footer (black, like the landing page) ---------- */
+footer{background:var(--night);color:#fff;padding-block:90px calc(48px + env(safe-area-inset-bottom,0px))}
+.foot{display:grid;grid-template-columns:1.4fr auto auto;gap:clamp(40px,8vw,120px)}
+.foot .about{display:grid;gap:18px;align-content:start;max-width:380px}
+.foot .about p{color:var(--night-muted);font-size:15px}
+.fcol{display:grid;gap:14px;align-content:start;font-size:15px}
+.fcol h4{margin:0 0 6px;font-weight:500;font-size:16px}
+.fcol a{color:var(--night-muted);transition:color .2s}
+.fcol a:hover,.fcol a[aria-current="page"]{color:#fff}
+.legal{margin-top:70px;padding-top:26px;border-top:1px solid var(--night-line);color:var(--night-muted);font-size:13px}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 980px){
+  .nav .links,.nav .sep{display:none}
+  .ldoc .wrap{grid-template-columns:1fr}
+  .toc{display:none}
+  .tcols{grid-template-columns:1fr}
+  .ways{grid-template-columns:1fr}
+  .ask .wrap{grid-template-columns:1fr;align-items:start}
+  .foot{grid-template-columns:1fr 1fr}
+  .foot .about{grid-column:1/-1}
+}
+@media (max-width: 560px){
+  .nav .wrap{height:64px}
+  .lhead{padding-block:56px 40px}
+  .short,.ask{padding-block:64px}
+  .ldoc{padding-block:56px 80px}
+  .sec{grid-template-columns:1fr;gap:6px;padding-block:32px}
+  .sec .k{padding-top:0}
+  .content > p.intro{font-size:17px}
+  .way{padding:22px;border-radius:22px}
+  .btn{height:50px}
+}
