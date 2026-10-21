@@ -2,269 +2,318 @@
 <html lang="en-IN">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Veloxo · Cycling training and events in Chennai</title>
-<meta name="description" content="Veloxo plans your cycling training, sends workouts to Wahoo, Zwift and Garmin, coaches you with Velo, and brings Chennai's cycling events into one app.">
-<meta name="theme-color" content="#0d1b45">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Veloxo · Train for your next ride</title>
+<meta name="description" content="A training plan for your goal, workouts on your Wahoo, Zwift or Garmin, Velo your Sports Intelligence (SI) coach, and Chennai's cycling events in one app.">
 <meta property="og:title" content="Veloxo · Train for your next ride">
 <meta property="og:description" content="A training plan for your goal, a Sports Intelligence (SI) coach, and Chennai's cycling events in one app.">
-<meta property="og:image" content="https://veloxo.heyminmini.in/assets/app-icon-512.png">
+<meta property="og:image" content="https://veloxo.heyminmini.in/assets/home/hero.jpg">
 <link rel="canonical" href="https://veloxo.heyminmini.in/">
 <link rel="icon" href="assets/app-icon-512.png">
+<meta name="theme-color" content="#000000">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
-<link rel="stylesheet" href="styles.css">
-<script>document.documentElement.classList.add('js');</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="home.css">
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
-<header class="top"><div class="wrap">
-  <a class="logo" href="index.html" aria-label="Veloxo home">
-    <picture><source srcset="assets/veloxo-wordmark-white.png" media="(prefers-color-scheme: dark)"><img src="assets/veloxo-wordmark-dark.png" alt="Veloxo"></picture>
-  </a>
-  <nav aria-label="Main"><a href="#riders">Riders</a><a href="#velo">Velo</a><a href="#clubs">Clubs</a><a href="support.html">Support</a></nav>
-  <a class="pill-cta" href="join.html">Join the beta</a>
-</div></header>
-
-<main id="main">
-
-<!-- Hero -->
-<div class="hero"><div class="wrap">
-  <div>
-    <span class="eyebrow"><span class="live" aria-hidden="true"></span>Now testing with riders in Chennai</span>
-    <h1>Train for your next ride <span class="grad">and ride it with us</span></h1>
-    <p class="sub">Veloxo builds a training plan around your goal, puts each workout on the device you already ride with, and brings Chennai's cyclothons, races and group rides into one app.</p>
-    <div class="cta-row">
-      <a class="btn primary" href="join.html">Join the Android beta</a>
-      <a class="btn ghost" href="#clubs">For cycling clubs</a>
+<a class="skip" href="#top">Skip to content</a>
+<header class="nav" id="nav">
+  <div class="wrap">
+    <div class="left">
+      <a class="logo" href="index.html" aria-label="Veloxo home">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5.5" cy="17" r="3.5"/><circle cx="18.5" cy="17" r="3.5"/><path d="M5.5 17 9.5 9h7l2 8M9.5 9 12 17l4.5-8M14 5h3"/></svg>
+        Veloxo
+      </a>
+      <span class="sep" aria-hidden="true"></span>
+      <nav class="links" aria-label="Sections">
+        <a href="#riders">Riders</a>
+        <a href="#velo">Velo</a>
+        <a href="#clubs">Clubs</a>
+        <a href="support.html">Support</a>
+      </nav>
     </div>
-    <div class="works" aria-label="Works with">
-      Works with
-      <span class="chip">Wahoo</span><span class="chip">Zwift</span><span class="chip">Garmin <small>via Intervals.icu</small></span>
-    </div>
+    <a class="cta" href="join.html">Join the beta</a>
   </div>
+</header>
 
-  <div class="phone-stage" aria-hidden="true">
-    <div class="phone-wrap">
-    <div class="phone"><div class="screen">
-      <div class="sbar"><b>9:41</b><i class="cam"></i><span class="sys"><svg viewBox="0 0 18 12"><path d="M1 11h2V8H1zM5 11h2V6H5zM9 11h2V3.5H9zM13 11h2V1h-2z" fill="currentColor"/></svg><svg viewBox="0 0 24 12" class="batt"><rect x=".5" y=".5" width="20" height="11" rx="3" fill="none" stroke="currentColor"/><rect x="2.5" y="2.5" width="13" height="7" rx="1.5" fill="currentColor"/><path d="M22 4v4" stroke="currentColor" stroke-linecap="round"/></svg></span></div>
-      <div class="scr">
-        <div class="scr-top">
-          <div><b>My plan</b><span>Hi Vasanth, here’s your training.</span></div>
-          <svg class="bell" viewBox="0 0 24 24"><path d="M6 8.5a6 6 0 0 1 12 0c0 6.5 2.5 8.5 2.5 8.5h-17S6 15 6 8.5M10.3 20.5a1.9 1.9 0 0 0 3.4 0"/></svg>
-          <span class="avatar">VS</span>
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <img class="bg" src="assets/home/hero.jpg" alt="Cyclist riding fast on an open road">
+    <div class="float sync"><span class="live" aria-hidden="true"></span>Tuesday’s ride synced from Wahoo</div>
+    <div class="float note"><b>VELO</b>Hard day today. Ride after 5 PM when it’s cooler, and eat well at lunch.</div>
+    <div class="wrap">
+      <div class="hero-copy hero-anim">
+        <span class="eyebrow rule">Now testing with riders in Chennai</span>
+        <h1>Train for your next ride <em>and ride it with us</em></h1>
+        <p class="lede">Veloxo builds a training plan around your goal, puts each workout on the device you already ride with, and brings Chennai’s cyclothons, races and group rides into one app.</p>
+        <div class="actions">
+          <a class="btn light" href="join.html">Join the Android beta <span class="dot"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4.5 11.5 11.5 4.5M5.5 4.5h6v6"/></svg></span></a>
+          <a class="btn ghost" href="#clubs">For cycling clubs</a>
         </div>
-        <div class="goal">
-          <div class="goal-row">
-            <div>
-              <div class="k">RACE IN</div>
-              <div class="big">3 weeks</div>
-              <div class="s">Thiruporur ITT · Sat 8 Nov · 20 km</div>
-              <div class="w">Week 5 of 8</div>
+        <div class="works">
+          <small>Works with</small>
+          <div class="brands"><span>Wahoo</span><span>Zwift</span><span>Garmin</span><span>via Intervals.icu</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO + STATS -->
+  <section class="intro">
+    <div class="wrap">
+      <div class="intro-top">
+        <p class="statement rv">A plan that fits your level and goal, <span>workouts on your device, and a coach who explains why. Everything for your next event, in one app.</span></p>
+        <div class="intro-phone rv"><img loading="lazy" src="assets/home/app-plan.jpg" alt="Veloxo app showing My plan: race in 3 weeks, this week's workouts"></div>
+      </div>
+      <div class="stats">
+        <div class="stat rv"><span class="num">4</span><span class="lab">Training phases</span><span class="sub">Base, build, peak and taper</span></div>
+        <div class="stat rv"><span class="num">4</span><span class="lab">Ways to ride it</span><span class="sub">Wahoo, Zwift, Garmin, Intervals.icu</span></div>
+        <div class="stat rv"><span class="num">1</span><span class="lab">App for it all</span><span class="sub">Plan, coach and Chennai’s events</span></div>
+        <div class="stat rv"><span class="num">₹0</span><span class="lab">Rider money we hold</span><span class="sub">Entry fees go straight to the club</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RIDERS: stacked cards -->
+  <section class="riders" id="riders">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow">For riders</span>
+        <h2>Everything for your next event</h2>
+        <p>A plan that fits your level and goal, workouts on your device, and a coach who explains why.</p>
+      </div>
+      <div class="stack">
+        <!-- 1 -->
+        <article class="card" style="--i:0">
+          <div class="media" style="background:#fff">
+            <img loading="lazy" src="assets/home/plan.jpg" alt="Rider on a mountain road surrounded by training plan panels">
+          </div>
+          <div class="body">
+            <span class="tag">Your plan</span>
+            <h3>A plan built for your goal</h3>
+            <p>Pick an event or a goal. Veloxo plans your weeks and rebuilds the plan when life changes.</p>
+            <ul class="checks">
+              <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3.5 9.5 3.5 3.5 7.5-8"/></svg>Base, build, peak and taper weeks</li>
+              <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3.5 9.5 3.5 3.5 7.5-8"/></svg>Planned around your riding days and level</li>
+              <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3.5 9.5 3.5 3.5 7.5-8"/></svg>Rebuilt when life changes</li>
+            </ul>
+            <a class="btn grey" href="join.html">Join the beta <span class="dot"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4.5 11.5 11.5 4.5M5.5 4.5h6v6"/></svg></span></a>
+          </div>
+        </article>
+        <!-- 2 -->
+        <article class="card" style="--i:1">
+          <div class="media">
+            <img loading="lazy" src="assets/home/device.jpg" alt="Bike computer showing a Threshold Intervals workout, surrounded by Wahoo, Zwift, Garmin, Intervals.icu and COROS">
+          </div>
+          <div class="body">
+            <span class="tag">Your device</span>
+            <h3>On the device you ride with</h3>
+            <p>Each week’s workouts go to your Wahoo, or to Zwift and Garmin through Intervals.icu. Finished rides come back and tick off your plan.</p>
+            <div class="chips"><span class="chip">Wahoo</span><span class="chip">Zwift</span><span class="chip">Garmin</span><span class="chip">Intervals.icu</span><span class="chip soon">COROS · soon</span></div>
+            <a class="btn grey" href="join.html">Join the beta <span class="dot"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4.5 11.5 11.5 4.5M5.5 4.5h6v6"/></svg></span></a>
+          </div>
+        </article>
+        <!-- 3 -->
+        <article class="card" style="--i:2">
+          <div class="media" style="background:#fff">
+            <img loading="lazy" src="assets/home/events.jpg" alt="Riders heading to a finish line, with route, bib and UPI payment panels">
+          </div>
+          <div class="body">
+            <span class="tag">Chennai’s events</span>
+            <h3>Cyclothons, races and group rides</h3>
+            <p>Time trials and group rides too. Register, pay the club by UPI, get your bib.</p>
+            <div class="events">
+              <div>OMR Century <span>100 km</span></div>
+              <div>ECR Cyclothon <span>40 / 80 km</span></div>
+              <div>Thiruporur ITT <span>20 km</span></div>
             </div>
-            <div class="ring">
-              <svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="23" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="5"/><circle cx="28" cy="28" r="23" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-dasharray="58 145" transform="rotate(-90 28 28)"/></svg>
-              <div class="t">12/30<small>done</small></div>
-            </div>
+            <a class="btn grey" href="join.html">Join the beta <span class="dot"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4.5 11.5 11.5 4.5M5.5 4.5h6v6"/></svg></span></a>
           </div>
-          <div class="phases"><i style="flex:3" class="past"><b></b>Base</i><i style="flex:3" class="now"><b></b>Build</i><i style="flex:1"><b></b>Peak</i><i style="flex:1"><b></b>Taper</i></div>
-        </div>
-        <div class="wk">
-          <div><span class="lbl">THIS WEEK</span><b>13 – 19 Oct</b><small>1h of 4h 35m ridden</small></div>
-          <span class="done">1 of 3 done</span>
-          <span class="arr"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></span>
-          <span class="arr"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></span>
-        </div>
-        <div class="day">
-          <div class="d"><small>TUE</small>14</div>
-          <div class="c">
-            <div class="tt"><span class="muted">Endurance ride</span><span class="tag ok">Done</span></div>
-            <div class="dd">Steady and chatty, all the way</div>
-            <div class="shape faded"><i style="flex:1;height:35%;background:#cbd5e1"></i><i style="flex:5;height:55%;background:#93c5fd"></i><i style="flex:1;height:35%;background:#cbd5e1"></i></div>
+        </article>
+        <!-- 4 -->
+        <article class="card" style="--i:3">
+          <div class="media" style="background:#fff">
+            <img loading="lazy" src="assets/home/review.jpg" alt="Riders on a group ride, then a rider resting while weekly review panels show training load and progress">
           </div>
-        </div>
-        <div class="day today">
-          <div class="d"><small>THU</small>16</div>
-          <div class="c">
-            <div class="tt">Threshold intervals<span class="tag hard">Hard</span></div>
-            <div class="dd">3 × 10 min hard, 5 min easy between</div>
-            <div class="shape"><i style="flex:2;height:35%;background:#cbd5e1"></i><i style="flex:2;height:86%;background:#fdba74"></i><i style="flex:1;height:55%;background:#93c5fd"></i><i style="flex:2;height:86%;background:#fdba74"></i><i style="flex:1;height:55%;background:#93c5fd"></i><i style="flex:2;height:86%;background:#fdba74"></i><i style="flex:2;height:35%;background:#cbd5e1"></i></div>
-            <div class="mark">Mark as done</div>
+          <div class="body">
+            <span class="tag">Weekly review</span>
+            <h3>Your week, in plain words</h3>
+            <p>Every Sunday evening, Velo looks back at your week in plain words and sets up the next one.</p>
+            <ul class="checks">
+              <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3.5 9.5 3.5 3.5 7.5-8"/></svg>Every Sunday evening</li>
+              <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3.5 9.5 3.5 3.5 7.5-8"/></svg>A look back at what you rode</li>
+              <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3.5 9.5 3.5 3.5 7.5-8"/></svg>Next week set up for you</li>
+            </ul>
+            <a class="btn grey" href="join.html">Join the beta <span class="dot"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4.5 11.5 11.5 4.5M5.5 4.5h6v6"/></svg></span></a>
           </div>
+        </article>
+        <!-- 5 -->
+        <article class="card" style="--i:4">
+          <div class="media" style="background:#fff">
+            <img loading="lazy" src="assets/home/raceday.jpg" alt="Rider celebrating at the finish line, with ticket, schedule, result and certificate panels">
+          </div>
+          <div class="body">
+            <span class="tag">Race day</span>
+            <h3>Race day, sorted</h3>
+            <p>Your ticket, bib and schedule in one place, then your result and certificate.</p>
+            <ul class="checks">
+              <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3.5 9.5 3.5 3.5 7.5-8"/></svg>Ticket, bib and schedule together</li>
+              <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3.5 9.5 3.5 3.5 7.5-8"/></svg>Your result after the finish</li>
+              <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3.5 9.5 3.5 3.5 7.5-8"/></svg>Your certificate, in the app</li>
+            </ul>
+            <a class="btn grey" href="join.html">Join the beta <span class="dot"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4.5 11.5 11.5 4.5M5.5 4.5h6v6"/></svg></span></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- VELO COACH -->
+  <section class="velo" id="velo">
+    <div class="wrap velo-grid">
+      <div class="velo-copy rv">
+        <span class="eyebrow">Meet Velo · SI coach</span>
+        <h2>A Sports Intelligence coach that knows your plan and your rides.</h2>
+        <p class="velo-sub">Ask why today is easy, how hard to push, what to eat on a long ride, or how to pace your race. Velo answers from your own training, not generic tips.</p>
+        <button class="replay" type="button" id="replay">Replay the conversation ↺</button>
+      </div>
+      <div class="chat rv" aria-label="Example conversation with Velo">
+        <div class="chat-head">
+          <span class="vavatar" aria-hidden="true">V</span>
+          <div><b>Velo</b><small><i aria-hidden="true"></i>Knows your plan · Week 5 of 8</small></div>
         </div>
-        <div class="day rest">
-          <div class="d"><small>FRI</small>17</div>
-          <div class="c"><div class="tt"><span class="muted">Rest day</span><span class="tag rst">Rest</span></div><div class="dd">Mobility 15 min, or a short walk</div></div>
+        <div class="chat-body" id="chat">
+          <span class="day">Tuesday</span>
+          <p class="msg me">I’m tired today. Should I still do intervals?</p>
+          <p class="msg velo-m"><span class="who">VELO</span>You rode 2h 40m on Sunday, more than planned. Swap today for an easy 45 min spin and move the intervals to Thursday. You’ll get more out of them.</p>
+          <p class="msg me">What should I eat for the 80 km?</p>
+          <p class="msg velo-m"><span class="who">VELO</span>Something every 20 minutes: a banana or a bar, and a bottle an hour. Start before you feel hungry.</p>
+          <span class="day">Thursday · Threshold intervals</span>
+          <p class="msg velo-m"><span class="who">VELO</span>Hard day today. Ride after 5 PM when it’s cooler, and eat well at lunch.</p>
         </div>
-        <div class="day">
-          <div class="d"><small>SAT</small>18</div>
-          <div class="c"><div class="tt">Long ride<span class="tag easy">Steady</span></div><div class="dd">2 h on ECR, start before 6 AM</div></div>
+        <div class="chat-foot" aria-hidden="true">
+          <span>Ask Velo about your training…</span>
+          <button type="button" tabindex="-1"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
         </div>
       </div>
-      <div class="tabs">
-        <span class="on"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>Plan</span>
-        <span class="fab"><i><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-4.6A8 8 0 1 1 21 12z"/></svg></i>Velo</span>
-        <span><svg viewBox="0 0 24 24"><path d="M5 21V4M5 4h12l-2.2 4.2L17 12.5H5"/></svg>Events</span>
-      </div>
-    </div></div>
-    <div class="float a"><span class="who">Velo</span>Hard day today. Ride after 5 PM when it’s cooler, and eat well at lunch.</div>
-    <div class="float b"><span class="ok">●</span> Tuesday’s ride synced from Wahoo</div>
     </div>
-  </div>
-</div></div>
+  </section>
 
-<!-- Riders: bento -->
-<section id="riders"><div class="wrap">
-  <div class="reveal">
-    <span class="kicker">For riders</span>
-    <h2>Everything for your next event, in one app.</h2>
-    <p class="lead">A plan that fits your level and goal, workouts on your device, and a coach who explains why.</p>
-  </div>
-  <div class="bento">
-    <div class="tile blue t-4 reveal">
-      <h3>A plan built for your goal</h3>
-      <p>Pick an event or a goal. Veloxo plans base, build, peak and taper weeks around your riding days and level, and rebuilds it when life changes.</p>
-      <div class="viz">
-        <div class="bars" aria-hidden="true"><i style="height:40%"></i><i style="height:22%"></i><i class="on" style="height:62%"></i><i style="height:22%"></i><i class="on" style="height:80%"></i><i style="height:30%"></i><i class="on" style="height:100%"></i></div>
-        <div class="days" aria-hidden="true"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div>
+  <!-- HOW IT WORKS (black) -->
+  <section class="how" id="how">
+    <div class="wrap">
+      <div class="head rv">
+        <span class="eyebrow rule">How it works</span>
+        <h2>From goal to finish line in three steps.</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="txt"><span class="n">01</span><p class="big" data-split><span class="hi">Tell Velo your goal.</span> <span class="dim">Your level, your riding days and what you’re training for: an event, getting fitter, or your own target.</span></p></div>
+          <div class="ph rv"><img loading="lazy" src="assets/home/step-goal.jpg" alt="Coach and rider talking through a goal"></div>
+        </div>
+        <div class="step">
+          <div class="txt"><span class="n">02</span><p class="big" data-split><span class="hi">Ride the workouts.</span> <span class="dim">They show up on your Wahoo, in Zwift or on your Garmin, with clear targets. No device? Follow them in the app.</span></p></div>
+          <div class="ph rv"><img loading="lazy" src="assets/home/step-ride.jpg" alt="Cyclist on a workout"></div>
+        </div>
+        <div class="step">
+          <div class="txt"><span class="n">03</span><p class="big" data-split><span class="hi">Sync, review, improve.</span> <span class="dim">Rides come back on their own. Velo reviews your week and keeps your plan on track for race day.</span></p></div>
+          <div class="ph rv"><img loading="lazy" src="assets/home/step-sync.jpg" alt="Focused athlete on race day"></div>
+        </div>
       </div>
     </div>
-    <div class="tile t-2 reveal">
-      <h3>On the device you ride with</h3>
-      <p>Each week's workouts go to your Wahoo, or to Zwift and Garmin through Intervals.icu. Finished rides come back and tick off your plan.</p>
-      <div class="viz devices"><span class="chip">Wahoo</span><span class="chip">Zwift</span><span class="chip">Garmin</span><span class="chip">Intervals.icu</span><span class="chip soon">COROS · soon</span></div>
-    </div>
-    <div class="tile t-2 reveal">
-      <h3>Chennai's events</h3>
-      <p>Cyclothons, races, time trials and group rides. Register, pay the club by UPI, get your bib.</p>
-      <div class="viz ev"><div>OMR Century <span>100 km</span></div><div>ECR Cyclothon <span>40 / 80 km</span></div><div>Thiruporur ITT <span>20 km</span></div></div>
-    </div>
-    <div class="tile t-2 reveal">
-      <h3>Weekly review</h3>
-      <p>Every Sunday evening, Velo looks back at your week in plain words and sets up the next one.</p>
-      <div class="viz"><div class="bars light" aria-hidden="true" style="height:84px"><i style="height:45%"></i><i style="height:60%"></i><i style="height:38%"></i><i style="height:70%"></i><i style="height:55%"></i><i class="on" style="height:90%"></i></div></div>
-    </div>
-    <div class="tile t-2 reveal">
-      <h3>Race day, sorted</h3>
-      <p>Your ticket, bib and schedule in one place, then your result and certificate.</p>
-      <div class="viz"><div class="ticket"><div><small>BIB NUMBER</small><span class="bib">#214</span></div><div style="text-align:right;font-size:13px;font-weight:700">80 km<br>6:00 AM</div></div></div>
-    </div>
-  </div>
-</div></section>
+  </section>
 
-<!-- Velo -->
-<section id="velo" style="padding-top:0"><div class="wrap">
-  <div class="bento">
-    <div class="tile navy t-3 reveal" style="padding:34px">
-      <span class="kicker" style="color:#8fbaff">Meet Velo · SI coach</span>
-      <h3 style="font-size:clamp(26px,3.4vw,38px);line-height:1.1;letter-spacing:-0.03em">A Sports Intelligence coach that knows your plan and your rides.</h3>
-      <p>Ask why today is easy, how hard to push, what to eat on a long ride, or how to pace your race. Velo answers from your own training, not generic tips.</p>
-    </div>
-    <div class="tile navy t-3 reveal" style="padding:28px">
-      <div class="chat">
-        <div class="bubble me">I'm tired today. Should I still do intervals?</div>
-        <div class="bubble velo">You rode 2h 40m on Sunday, more than planned. Swap today for an easy 45 min spin and move the intervals to Thursday. You'll get more out of them.</div>
-        <div class="bubble me">What should I eat for the 80 km?</div>
-        <div class="bubble velo">Something every 20 minutes: a banana or a bar, and a bottle an hour. Start before you feel hungry.</div>
+  <!-- CLUBS -->
+  <section class="clubs" id="clubs">
+    <div class="wrap clubs-grid">
+      <div>
+        <span class="eyebrow rule">For cycling clubs</span>
+        <h2>Run your events without spreadsheets.</h2>
+        <p class="lede">Publish, collect entry fees, check riders in and publish results from your phone.</p>
+        <ul class="feat">
+          <li class="rv"><span class="k">01</span><div><h3>Publish in minutes</h3><p>Distances, slots and fees, early bird, race-day schedule, route support and rules.</p></div></li>
+          <li class="rv"><span class="k">02</span><div><h3>Get paid directly</h3><p>Riders pay your club’s UPI ID. You confirm each payment and they get a bib. Veloxo never holds rider money.</p></div></li>
+          <li class="rv"><span class="k">03</span><div><h3>Race day and results</h3><p>Attendance by bib, finish times, results and certificates, plus updates pushed to riders.</p></div></li>
+          <li class="rv"><span class="k">04</span><div><h3>Bring your team</h3><p>Invite volunteers for attendance and results. Payments stay with the club owner.</p></div></li>
+        </ul>
+        <a class="btn dark" href="join.html?role=club">List your club <span class="dot"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4.5 11.5 11.5 4.5M5.5 4.5h6v6"/></svg></span></a>
+      </div>
+      <div class="club-visual rv">
+        <img loading="lazy" src="assets/home/clubs.jpg" alt="Rider crossing a finish line at sunset">
+        <div class="dash">
+          <div class="club">Chennai Cycling Club</div>
+          <div class="ev">ECR Cyclothon 2026</div>
+          <div class="tiles">
+            <div><b>612</b><small>registered</small></div>
+            <div><b>₹7.4L</b><small>collected</small></div>
+            <div><b>188</b><small>slots left</small></div>
+          </div>
+          <div class="prog"><i></i></div>
+          <div class="prog-l"><span>72% full</span><span>Closes 15 Nov</span></div>
+          <div class="confirm">3 payments to confirm <span>Review</span></div>
+        </div>
       </div>
     </div>
-  </div>
-</div></section>
+  </section>
 
-<!-- How it works -->
-<section style="padding-top:0"><div class="wrap">
-  <div class="center reveal">
-    <span class="kicker">How it works</span>
-    <h2>From goal to finish line in three steps.</h2>
-  </div>
-  <ol class="how" style="padding:0;margin:32px 0 0">
-    <li class="reveal"><h3>Tell Velo your goal</h3><p>Your level, your riding days and what you're training for: an event, getting fitter, or your own target.</p></li>
-    <li class="reveal"><h3>Ride the workouts</h3><p>They show up on your Wahoo, in Zwift or on your Garmin, with clear targets. No device? Follow them in the app.</p></li>
-    <li class="reveal"><h3>Sync, review, improve</h3><p>Rides come back on their own. Velo reviews your week and keeps your plan on track for race day.</p></li>
-  </ol>
-</div></section>
-
-<!-- Clubs -->
-<section class="clubs" id="clubs"><div class="wrap split">
-  <div class="reveal">
-    <span class="kicker">For cycling clubs</span>
-    <h2>Run your events without spreadsheets.</h2>
-    <p class="lead" style="margin-bottom:28px">Publish, collect entry fees, check riders in and publish results from your phone.</p>
-    <ul class="list">
-      <li><span class="ic" aria-hidden="true">1</span><div><h3>Publish in minutes</h3><p>Distances, slots and fees, early bird, race-day schedule, route support and rules.</p></div></li>
-      <li><span class="ic" aria-hidden="true">2</span><div><h3>Get paid directly</h3><p>Riders pay your club's UPI ID. You confirm each payment and they get a bib. Veloxo never holds rider money.</p></div></li>
-      <li><span class="ic" aria-hidden="true">3</span><div><h3>Race day and results</h3><p>Attendance by bib, finish times, results and certificates, plus updates pushed to riders.</p></div></li>
-      <li><span class="ic" aria-hidden="true">4</span><div><h3>Bring your team</h3><p>Invite volunteers for attendance and results. Payments stay with the club owner.</p></div></li>
-    </ul>
-  </div>
-  <div class="dash reveal" aria-hidden="true">
-    <div class="h">Chennai Cycling Club</div>
-    <div class="t">ECR Cyclothon 2026</div>
-    <div class="stats"><div class="stat"><b>612</b><span>registered</span></div><div class="stat"><b>₹7.4L</b><span>collected</span></div><div class="stat"><b>188</b><span>slots left</span></div></div>
-    <div class="meter"><i></i></div>
-    <div class="row"><span>72% full</span><span>Closes 15 Nov</span></div>
-    <div class="pay">3 payments to confirm <span>Review</span></div>
-  </div>
-</div></section>
-
-<!-- Trust -->
-<section><div class="wrap">
-  <div class="center reveal">
-    <span class="kicker">Your data</span>
-    <h2>Built to earn your trust.</h2>
-  </div>
-  <div class="trust" style="margin-top:32px">
-    <div class="reveal"><h3>No ads. Nothing sold.</h3><p>Your data is used only to run Veloxo for you. Read the <a href="privacy.html">Privacy Policy</a>.</p></div>
-    <div class="reveal"><h3>Your money goes to the club</h3><p>Entry fees go straight to the organiser's UPI ID. We never see your bank or card details.</p></div>
-    <div class="reveal"><h3>Leave any time</h3><p>Delete your account from the app or <a href="delete-account.html">from this website</a>, and your data goes with it.</p></div>
-  </div>
-</div></section>
-
-<!-- FAQ -->
-<section style="padding-top:0"><div class="wrap">
-  <div class="center reveal"><h2>Questions</h2></div>
-  <div class="faq" style="margin-top:28px">
-    <details class="reveal"><summary>Is Veloxo free?</summary><p>Yes, while we test. Velo Pro (more coaching) and Organiser Pro (more events a year) come later, and you'll always be told before anything costs money.</p></details>
-    <details class="reveal"><summary>Do I need a bike computer?</summary><p>No. You can follow every workout in the app and mark it done. With a Wahoo, Zwift or a Garmin (through Intervals.icu), workouts go to your device and rides sync back on their own.</p></details>
-    <details class="reveal"><summary>Does Veloxo record my rides?</summary><p>No. Your device or Zwift records the ride. Veloxo plans, coaches and reads the finished ride back.</p></details>
-    <details class="reveal"><summary>Is it only for Chennai?</summary><p>For now. Training works anywhere, but the events are Chennai clubs while we test. More cities will follow.</p></details>
-    <details class="reveal"><summary>How do I get the app?</summary><p>The Android app is in testing. <a href="join.html">Join the beta</a> and we'll send it to you, or email <a href="mailto:veloxo.si@gmail.com">veloxo.si@gmail.com</a>. iPhone comes later.</p></details>
-  </div>
-</div></section>
-
-<!-- Final CTA -->
-<div class="final"><div class="wrap">
-  <div class="box reveal">
-    <h2>Your next ride starts with a plan.</h2>
-    <p>Join the Android beta, or bring your club's next event to Veloxo.</p>
-    <div class="cta-row">
-      <a class="btn light" href="join.html">Join the beta</a>
-      <a class="btn outline-light" href="join.html?role=club">List your club</a>
+  <!-- TRUST -->
+  <section class="trust" id="data">
+    <div class="wrap">
+      <div class="top rv">
+        <div><span class="eyebrow rule">Your data</span><h2>Built to earn your trust.</h2></div>
+        <p>No ads, no selling your data, and no rider money passing through us.</p>
+      </div>
+      <div class="tcols">
+        <div class="tcol rv"><h3>No ads. Nothing sold.</h3><p>Your data is used only to run Veloxo for you. Read the <a href="privacy.html">Privacy Policy</a>.</p></div>
+        <div class="tcol rv"><h3>Your money goes to the club</h3><p>Entry fees go straight to the organiser’s UPI ID. We never see your bank or card details.</p></div>
+        <div class="tcol rv"><h3>Leave any time</h3><p>Delete your account from the app or <a href="delete-account.html">from this website</a>, and your data goes with it.</p></div>
+      </div>
     </div>
-  </div>
-</div></div>
+  </section>
 
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="wrap">
+      <div class="sec-head rv"><span class="eyebrow">FAQ</span><h2>Questions</h2></div>
+      <div class="faq-list">
+        <details><summary>Is Veloxo free?<span class="pm"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 1v12M1 7h12"/></svg></span></summary><p class="ans">Yes, while we test. Velo Pro (more coaching) and Organiser Pro (more events a year) come later, and you’ll always be told before anything costs money.</p></details>
+        <details><summary>Do I need a bike computer?<span class="pm"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 1v12M1 7h12"/></svg></span></summary><p class="ans">No. Workouts go to your Wahoo, or to Zwift and Garmin through Intervals.icu. No device? Follow them in the app.</p></details>
+        <details><summary>Does Veloxo record my rides?<span class="pm"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 1v12M1 7h12"/></svg></span></summary><p class="ans">Your device or Zwift records the ride. Finished rides come back to Veloxo on their own and tick off your plan.</p></details>
+        <details><summary>Is it only for Chennai?<span class="pm"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 1v12M1 7h12"/></svg></span></summary><p class="ans">For now. Training works anywhere, but the events are Chennai clubs while we test. More cities will follow.</p></details>
+        <details><summary>How do I get the app?<span class="pm"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 1v12M1 7h12"/></svg></span></summary><p class="ans">Veloxo is in beta on Android. <a href="join.html">Join the beta</a> and we’ll send you the app. More answers on the <a href="support.html">Support</a> page.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final" id="join">
+    <img src="assets/home/final.jpg" alt="" loading="lazy">
+    <div class="wrap">
+      <h2 class="rv">Your next ride starts with a plan.</h2>
+      <p class="rv">Join the Android beta, or bring your club’s next event to Veloxo.</p>
+      <div class="actions rv">
+        <a class="btn light" href="join.html">Join the beta <span class="dot"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4.5 11.5 11.5 4.5M5.5 4.5h6v6"/></svg></span></a>
+        <a class="btn ghost" href="join.html?role=club">List your club</a>
+      </div>
+    </div>
+  </section>
 </main>
-<footer><div class="wrap">
-  <div><img src="assets/veloxo-wordmark-white.png" alt="Veloxo"><div>Cycling training and events · Chennai, India</div></div>
-  <nav aria-label="Footer"><a href="support.html">Support</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="delete-account.html">Delete your account</a></nav>
-  <div class="fine">Veloxo is an independent project by Vasanth Sankar, built in Chennai. © 2026 Veloxo.</div>
-</div></footer>
 
-<script>
-  // Fade sections in as they scroll into view (skipped when the visitor prefers less motion; content shows without JS).
-  (function () {
-    var els = document.querySelectorAll('.reveal');
-    if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      els.forEach(function (e) { e.classList.add('in'); });
-      return;
-    }
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-    els.forEach(function (e) { io.observe(e); });
-  })();
-</script>
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="about">
+        <a class="logo" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5.5" cy="17" r="3.5"/><circle cx="18.5" cy="17" r="3.5"/><path d="M5.5 17 9.5 9h7l2 8M9.5 9 12 17l4.5-8M14 5h3"/></svg>Veloxo</a>
+        <p>Cycling training and events · Chennai, India</p>
+      </div>
+      <div class="fcol"><h4>Sections</h4><a href="#riders">Riders</a><a href="#velo">Velo</a><a href="#clubs">Clubs</a><a href="support.html">Support</a><a href="join.html">Join the beta</a></div>
+      <div class="fcol"><h4>Legal</h4><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="delete-account.html">Delete your account</a></div>
+    </div>
+    <p class="legal">Veloxo is an independent project by Vasanth Sankar, built in Chennai. © 2026 Veloxo.</p>
+  </div>
+</footer>
+<script src="home.js"></script>
 </body>
 </html>

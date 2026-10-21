@@ -1,7 +1,7 @@
 /*
- * Veloxo legal pages (Privacy Policy, Terms of Use, Delete your account).
- * Matches the 2026 landing design: Manrope, white paper + mist bands, black footer,
- * pill buttons with a blue dot, thin rules between sections. Light only, like the landing page.
+ * Veloxo subpages: Privacy Policy, Terms of Use, Delete your account, Support, Join the beta.
+ * Matches the 2026 home page (home.css): Manrope, white paper + mist bands, black footer,
+ * pill buttons with a blue dot, thin rules between sections. Light only, like the home page.
  */
 :root{
   color-scheme: light;
@@ -24,6 +24,7 @@
   --gutter-r:max(20px, env(safe-area-inset-right, 0px));
 }
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html{scroll-behavior:smooth;scroll-padding-top:96px;-webkit-text-size-adjust:100%}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
@@ -171,4 +172,105 @@ footer{background:var(--night);color:#fff;padding-block:90px calc(48px + env(saf
   .content > p.intro{font-size:17px}
   .way{padding:22px;border-radius:22px}
   .btn{height:50px}
+}
+
+/* ---------- Support: help cards + FAQ (the home page's accordion) ---------- */
+.hcards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.hcard{border-radius:26px;padding:28px;display:grid;gap:12px;align-content:start;background:var(--paper);box-shadow:0 30px 80px -40px rgba(15,20,40,.22),0 0 0 1px rgba(15,20,40,.06);min-width:0}
+.hcard .tag{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+.hcard h3{font-size:24px;line-height:1.15;letter-spacing:-.02em}
+.hcard p{color:var(--muted)}
+.hcard .btn{justify-self:start;margin-top:6px}
+.faq{padding-block:96px 120px}
+.faq .head{display:grid;gap:16px;margin-bottom:40px}
+.faq h2{font-size:clamp(32px,4vw,52px);line-height:1.05}
+.faq-list{max-width:860px}
+.faq h3.grp{font-size:13px;font-weight:600;color:var(--muted);letter-spacing:.02em;margin:48px 0 4px}
+.faq h3.grp:first-child{margin-top:0}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;font-size:clamp(18px,1.6vw,21px);font-weight:500;letter-spacing:-.015em}
+.faq summary::-webkit-details-marker{display:none}
+.faq .pm{flex:none;width:36px;height:36px;border-radius:10px;background:var(--mist);display:grid;place-items:center;transition:transform .35s cubic-bezier(.2,.7,.2,1),background .3s}
+.faq .pm svg{width:14px;height:14px}
+.faq details[open] .pm{transform:rotate(45deg);background:var(--ink);color:#fff}
+.faq .ans{color:var(--muted);padding:0 60px 24px 0;font-size:16px;max-width:680px}
+.faq .ans a{color:var(--blue);text-decoration:underline;text-underline-offset:3px}
+
+/* ---------- Join the beta: photo band + form card ---------- */
+.jhero{position:relative;color:#fff;background:#0d0f14;overflow:hidden}
+.jhero > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 50%}
+.jhero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,10,16,.82) 0%,rgba(8,10,16,.6) 45%,rgba(8,10,16,.25) 100%)}
+.jhero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1fr minmax(0,500px);gap:clamp(32px,6vw,96px);align-items:start;padding-block:96px 110px}
+.jcopy{display:grid;gap:24px;align-content:start;padding-top:24px;text-shadow:0 1px 14px rgba(0,0,0,.35)}
+.jcopy .eyebrow{color:#fff}
+.jcopy h1{font-size:clamp(44px,5.6vw,76px);line-height:1.02}
+.jcopy h1 em{font-style:normal;color:#D6E2FF}
+.jcopy .lede{font-size:clamp(16px,1.35vw,18px);line-height:1.6;max-width:500px;color:rgba(255,255,255,.94)}
+.live{width:8px;height:8px;border-radius:50%;background:#22C55E;animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,197,94,.55)}70%{box-shadow:0 0 0 10px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
+@media (prefers-reduced-motion: reduce){.live{animation:none}}
+.perks{list-style:none;margin:6px 0 0;padding:0 0 0 24px;border-left:1px solid rgba(255,255,255,.55);display:grid;gap:12px}
+.perks li{display:flex;gap:12px;align-items:flex-start;font-size:16px}
+.perks svg{flex:none;width:18px;height:18px;margin-top:3px}
+.perks b{font-weight:700}
+.fcard{background:var(--paper);color:var(--ink);border-radius:30px;padding:clamp(22px,3vw,34px);box-shadow:0 40px 90px -30px rgba(0,0,0,.55)}
+.fcard h2{font-size:28px;line-height:1.15;margin-bottom:6px}
+.fcard .sub{color:var(--muted);font-size:15px;margin-bottom:22px}
+.field{border:0;margin:0 0 18px;padding:0;min-width:0}
+.field > label,.field legend{display:block;font-size:14px;font-weight:600;margin-bottom:8px;padding:0}
+.opt{font-weight:500;color:var(--soft);font-size:13px;margin-left:4px}
+.field input:not([type=radio]){width:100%;height:52px;border-radius:14px;border:1px solid var(--line);background:var(--mist);padding:0 16px;font:inherit;font-size:16px;color:var(--ink);transition:border-color .2s,background .2s,box-shadow .2s}
+.field input:not([type=radio])::placeholder{color:var(--soft)}
+.field input:not([type=radio]):focus{outline:none;background:var(--paper);border-color:var(--blue);box-shadow:0 0 0 4px rgba(47,107,255,.14)}
+.field input[aria-invalid=true]{border-color:#DC2626;background:#FEF2F2}
+.hint{font-size:13px;color:var(--muted);margin-top:6px}
+.err{font-size:13px;color:#B91C1C;margin-top:6px}
+.err:empty{display:none}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.seg label,.pills label{position:relative;cursor:pointer}
+.seg input,.pills input{position:absolute;opacity:0;width:1px;height:1px}
+.seg span{display:grid;gap:2px;height:100%;border:1px solid var(--line);border-radius:16px;padding:14px 16px;transition:border-color .2s,background .2s,box-shadow .2s}
+.seg b{font-size:16px;font-weight:600}
+.seg small{font-size:13px;color:var(--muted)}
+.seg input:checked + span{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pills span{display:inline-flex;align-items:center;height:42px;border:1px solid var(--line);border-radius:999px;padding:0 16px;font-size:15px;font-weight:500;transition:background .2s,color .2s,border-color .2s}
+.pills label:hover span{background:var(--mist)}
+.pills input:checked + span{background:var(--ink);border-color:var(--ink);color:#fff}
+.seg input:focus-visible + span,.pills input:focus-visible + span{outline:2px solid var(--blue);outline-offset:2px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.submit{width:100%;justify-content:space-between;border:0;cursor:pointer;font-family:inherit;margin-top:6px}
+.submit:disabled{opacity:.6;cursor:progress}
+.fine-print{font-size:13px;color:var(--muted);margin-top:14px}
+.fine-print a{color:var(--blue);text-decoration:underline;text-underline-offset:3px}
+.form-err{margin:0 0 10px}
+.done{display:grid;gap:16px;outline:none}
+.done-badge{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:var(--blue);color:#fff}
+.done h2{font-size:32px;margin:0}
+.done-text{color:var(--muted)}
+.done .steps li{color:var(--ink)}
+.done .btn{justify-self:start}
+.app-steps{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.app-steps li{display:grid;grid-template-columns:32px 1fr;gap:4px 12px;align-items:start;padding:16px;border:1px solid var(--line);border-radius:18px}
+.app-steps .n{width:32px;height:32px;border-radius:50%;background:var(--ink);color:#fff;font-weight:700;font-size:14px;display:grid;place-items:center}
+.app-steps b{display:block;font-weight:600}
+.app-steps small{display:block;color:var(--muted);font-size:13.5px}
+.app-steps .btn{grid-column:2;justify-self:start;height:44px;font-size:15px;margin-top:8px}
+.app-steps .btn.blue{background:var(--blue);color:#fff;padding:0 20px}
+
+/* what happens next (join) */
+.next3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,4vw,56px)}
+
+@media (max-width: 980px){
+  .hcards,.next3{grid-template-columns:1fr}
+  .jhero .wrap{grid-template-columns:1fr;padding-block:64px 72px}
+  .jcopy{padding-top:0}
+}
+@media (max-width: 560px){
+  .faq{padding-block:64px 80px}
+  .faq .ans{padding-right:0}
+  .hcard{padding:22px;border-radius:22px}
+  .jhero::after{background:linear-gradient(180deg,rgba(8,10,16,.55),rgba(8,10,16,.85) 60%,#0d0f14)}
+  .seg{grid-template-columns:1fr}
+  .fcard{border-radius:24px}
 }
