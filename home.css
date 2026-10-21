@@ -1,6 +1,6 @@
 /*
  * Veloxo home page (2026-10-21 design). Shared tokens match pages.css (legal, support, join).
- * Layout: Perform-style editorial scroll. Full-bleed photo hero -> white statement + stats -> stacked sticky feature cards -> coach quote -> black "how it works" story -> clubs -> trust -> FAQ -> full-bleed CTA -> black footer. One look (light page, deliberate dark bands).
+ * Layout: Perform-style editorial scroll. Full-bleed photo hero -> white statement + app screen -> stacked sticky feature cards -> coach quote -> black "how it works" story -> clubs -> trust -> FAQ -> full-bleed CTA -> black footer. One look (light page, deliberate dark bands).
  */
 :root{
   color-scheme: light;
@@ -55,7 +55,6 @@ p{margin:0}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;gap:24px}
 .nav .left{display:flex;align-items:center;gap:28px;min-width:0}
 .logo{font-weight:800;font-size:22px;letter-spacing:-.04em;display:flex;align-items:center;gap:10px}
-.logo svg{width:22px;height:22px;color:var(--blue)}
 .nav .sep{width:1px;height:22px;background:currentColor;opacity:.45}
 .nav .links{display:flex;gap:30px;font-size:15px;opacity:.92}
 .nav .links a{position:relative}
@@ -101,11 +100,6 @@ section{position:relative}
 .intro-img img{width:100%;height:100%;object-fit:cover;object-position:50% 25%}
 .intro-phone{justify-self:center;width:100%;max-width:440px;margin-block:-40px}
 .intro-phone img{width:100%;height:auto;mix-blend-mode:multiply}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,4vw,56px);margin-top:90px}
-.stat{border-top:1px solid var(--line);padding-top:44px;display:grid;gap:8px;min-width:0}
-.stat .num{font-size:clamp(44px,4.6vw,64px);font-weight:400;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
-.stat .lab{font-size:15px;font-weight:500}
-.stat .sub{font-size:13px;color:var(--muted)}
 
 /* ---------- Riders: stacked cards ---------- */
 .riders{padding-block:40px 120px}
@@ -287,7 +281,6 @@ footer{background:var(--night);color:#fff;padding-block:90px calc(48px + env(saf
   .intro-top,.clubs-grid,.trust .top,.velo-grid{grid-template-columns:1fr}
   .intro-phone{max-width:360px;margin-block:0}
   .trust .top p{justify-self:start}
-  .stats{grid-template-columns:repeat(2,1fr);row-gap:40px}
   .card,.card.wide{grid-template-columns:1fr;gap:18px;padding:12px;border-radius:24px}
   .card .media{aspect-ratio:4/3;border-radius:16px}
   .card .body{padding:2px 8px 12px;gap:12px}
@@ -310,8 +303,6 @@ footer{background:var(--night);color:#fff;padding-block:90px calc(48px + env(saf
   .hero .wrap{padding-block:clamp(330px,52vh,410px) 56px}
   .hero h1{font-size:clamp(40px,11vw,52px)}
   .intro,.velo,.clubs,.trust,.faq{padding-block:84px}
-  .stats{margin-top:56px}
-  .stat{padding-top:24px}
   .bars{height:62px}
   .widget{left:10px;right:10px;bottom:10px;padding:14px}
   .bib strong{font-size:34px}

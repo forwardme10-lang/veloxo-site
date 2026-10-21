@@ -54,7 +54,6 @@ p{margin:0}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;gap:24px}
 .nav .left{display:flex;align-items:center;gap:28px;min-width:0}
 .logo{font-weight:800;font-size:22px;letter-spacing:-.04em;display:flex;align-items:center;gap:10px}
-.logo svg{width:22px;height:22px;color:var(--blue)}
 .nav .sep{width:1px;height:22px;background:currentColor;opacity:.25}
 .nav .links{display:flex;gap:30px;font-size:15px}
 .nav .links a{position:relative}
