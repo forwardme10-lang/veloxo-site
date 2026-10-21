@@ -139,7 +139,7 @@
             <a class="btn plain" href="index.html">Back to home</a>
           </div>
 
-          <!-- Android, once the Play links are set in BETA below: get the app right away. -->
+          <!-- Android, once the Play links for the role are set in BETA below: get the app right away. -->
           <div class="done get-app" hidden tabindex="-1">
             <div class="done-badge" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 12.5l4 4 9-9"/></svg>
@@ -149,7 +149,7 @@
             <ol class="app-steps">
               <li><span class="n" aria-hidden="true">1</span><div><b>Join the Veloxo testers group</b><small>Tap "Join group" on the Google Groups page.</small></div><a class="btn plain" data-link="group" target="_blank" rel="noopener">Join group</a></li>
               <li><span class="n" aria-hidden="true">2</span><div><b>Become a tester</b><small>Opens Google Play. Tap "Become a tester".</small></div><a class="btn plain" data-link="optin" target="_blank" rel="noopener">Become a tester</a></li>
-              <li><span class="n" aria-hidden="true">3</span><div><b>Install Veloxo</b><small>It can take a few minutes to show after step 2.</small></div><a class="btn blue" data-link="store" target="_blank" rel="noopener">Install from Play Store</a></li>
+              <li><span class="n" aria-hidden="true">3</span><div><b>Install <span class="app-name">Veloxo</span></b><small>It can take a few minutes to show after step 2.</small></div><a class="btn blue" data-link="store" target="_blank" rel="noopener">Install from Play Store</a></li>
             </ol>
             <p class="hint">Then sign up in the app. Tell us what you love and what's confusing, any time from Settings → Send feedback.</p>
           </div>
@@ -201,17 +201,31 @@
   // Sends the form to Veloxo's backend (Supabase Edge Function beta-signup), then shows "You're on the list".
   (function () {
     var ENDPOINT = 'https://xswtyoiocwafeekkznox.supabase.co/functions/v1/beta-signup';
-    // Play closed testing (tester list = a Google Group anyone can join). While group or optin is empty, Android
-    // sign-ups see "We'll send you the app"; once both are set they get the three steps straight away.
+    // Play closed testing. Two apps (riders: Veloxo, clubs: Veloxo Organiser) share one tester list, a Google Group
+    // anyone can join. While the group or a role's optin is empty, that role's Android sign-ups see "We'll send you
+    // the app"; once both are set they get the three steps straight away.
     var BETA = {
       group: '', // Google Group join page, e.g. https://groups.google.com/g/veloxo-testers
-      optin: '', // Play Console → Closed testing → Testers → "Join on the web" link
-      store: 'https://play.google.com/store/apps/details?id=in.veloxo.app'
+      rider: {
+        app: 'Veloxo',
+        optin: '', // Play Console → Veloxo → Closed testing → Testers → "Join on the web" link
+        store: 'https://play.google.com/store/apps/details?id=in.veloxo.app'
+      },
+      club: {
+        app: 'Veloxo Organiser',
+        optin: '', // Play Console → Veloxo Organiser → Closed testing → Testers → "Join on the web" link
+        store: 'https://play.google.com/store/apps/details?id=in.veloxo.organiser'
+      }
     };
-    var instant = !!(BETA.group && BETA.optin);
+    function ready(role) { return !!(BETA.group && BETA[role] && BETA[role].optin); }
     var getApp = document.querySelector('.get-app');
-    getApp.querySelectorAll('[data-link]').forEach(function (a) { a.href = BETA[a.getAttribute('data-link')]; });
-    if (instant) document.querySelector('.jcopy .lede').textContent = 'Be one of the first riders and clubs to use Veloxo. Sign up and get the Android app straight away.';
+    function showGetApp(role) {
+      var links = { group: BETA.group, optin: BETA[role].optin, store: BETA[role].store };
+      getApp.querySelectorAll('[data-link]').forEach(function (a) { a.href = links[a.getAttribute('data-link')]; });
+      getApp.querySelector('.app-name').textContent = BETA[role].app;
+      getApp.hidden = false; getApp.focus();
+    }
+    if (ready('rider') && ready('club')) document.querySelector('.jcopy .lede').textContent = 'Be one of the first riders and clubs to use Veloxo. Sign up and get the Android app straight away.';
     var form = document.getElementById('beta');
     var done = document.querySelector('.done');
     var btn = form.querySelector('.submit');
@@ -261,7 +275,7 @@
           if (res.ok) {
             form.hidden = true;
             document.querySelectorAll('.form-title').forEach(function (el) { el.hidden = true; });
-            if (instant && data.platform === 'android') { getApp.hidden = false; getApp.focus(); return; }
+            if (data.platform === 'android' && ready(data.role)) { showGetApp(data.role); return; }
             done.hidden = false; done.focus();
             if (data.platform === 'iphone') done.querySelector('.done-text').textContent = "Thanks! The beta is Android-only for now. We'll email you as soon as the iPhone app is ready.";
             return;
