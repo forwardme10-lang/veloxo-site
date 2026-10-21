@@ -73,9 +73,9 @@
               <tr><td>Body and performance</td><td>Weight, height, FTP (power), maximum heart rate</td><td>To set workout targets (power and heart-rate zones)</td></tr>
               <tr><td>Emergency and medical</td><td>Emergency contact name and phone, blood group, medical notes (all optional)</td><td>Shared with the club running an event you registered for, for your safety on race day</td></tr>
               <tr><td>Profile photo</td><td>A photo you choose to add (optional)</td><td>Shown on your profile. It’s stored at a link that isn’t listed anywhere, but anyone who has the link can open it. Remove it any time in Edit profile</td></tr>
-              <tr><td>Training</td><td>Your goal, riding days, training plan, workouts marked done</td><td>To build and adapt your plan</td></tr>
+              <tr><td>Training</td><td>Your goal, riding days, training plan, workouts marked done, and the changes Velo makes to your plan (kept so they can be undone)</td><td>To build and adapt your plan</td></tr>
               <tr><td>Rides from your device</td><td>For each ride: start time, duration, distance, average power, average heart rate, climbing. Only after you connect Wahoo or Intervals.icu (which can bring rides from Zwift, Garmin and other services you link there)</td><td>To track your training and adapt your plan</td></tr>
-              <tr><td>Velo (SI coach: Sports Intelligence, built on AI)</td><td>The messages you send Velo and its replies</td><td>To answer you; Velo also sees your profile, plan and recent rides to give relevant advice</td></tr>
+              <tr><td>Velo (SI coach: Sports Intelligence, built on AI)</td><td>The messages you send Velo, its replies, your weekly reviews, and the 👍 / 👎 you give a reply</td><td>To answer you; Velo also sees your profile, plan and recent rides to give relevant advice. Ratings help us improve Velo’s answers</td></tr>
               <tr><td>Events</td><td>Registrations, the distance you chose, bib number, attendance, finish time and rank</td><td>To register you, check you in on race day and publish results</td></tr>
               <tr><td>Payments</td><td>Amount and the UPI transaction number (UTR) you enter</td><td>So the club can confirm your entry fee. Veloxo never receives your money or your bank or card details</td></tr>
               <tr><td>Clubs (organisers)</td><td>Club name, city, website, UPI ID and payee name, team members</td><td>To run your club’s events and receive entry fees</td></tr>
@@ -105,7 +105,7 @@
             <div class="table-wrap"><table>
               <tr><th>Provider</th><th>For</th><th>Where</th></tr>
               <tr><td>Supabase</td><td>Database, sign-in and app back end</td><td>Mumbai, India</td></tr>
-              <tr><td>Anthropic (Claude)</td><td>Writing Velo’s replies. Your messages and the training context are sent with each question; Anthropic does not use them to train its models</td><td>United States</td></tr>
+              <tr><td>Anthropic (Claude)</td><td>Writing Velo’s replies and weekly reviews. Your messages and the training context are sent with each question; Anthropic does not use them to train its models</td><td>United States</td></tr>
               <tr><td>Google</td><td>Sign in with Google (if you choose it) and Firebase Cloud Messaging for notifications</td><td>Global</td></tr>
               <tr><td>Expo</td><td>App updates and sending notifications</td><td>United States</td></tr>
               <tr><td>Wahoo</td><td>Sending workouts and reading rides, only if you connect a Wahoo account</td><td>United States</td></tr>
@@ -123,6 +123,7 @@
               <li>Device connections are removed as soon as you disconnect them.</li>
               <li>Beta sign-ups from the website are deleted when the beta ends, or sooner if you email us to remove yours.</li>
               <li>Database backups are overwritten within 7 days.</li>
+              <li>If we delete an account for you (for example after an email request), we keep a short record that we did it: the email address, name, club names and the date.</li>
             </ul>
           </div>
         </section>
