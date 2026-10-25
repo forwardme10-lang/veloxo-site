@@ -7,8 +7,8 @@
 <meta name="description" content="Join the Veloxo beta: a training plan for your goal, Velo your SI coach, and cycling events near you in one app.">
 <meta property="og:title" content="Join the Veloxo beta">
 <meta property="og:description" content="Riders and cycling clubs: try Veloxo before everyone else.">
-<meta property="og:image" content="https://veloxo.heyminmini.in/assets/home/hero.jpg">
-<link rel="canonical" href="https://veloxo.heyminmini.in/join.html">
+<meta property="og:image" content="https://veloxo.in/assets/home/hero.jpg">
+<link rel="canonical" href="https://veloxo.in/join.html">
 <link rel="icon" href="assets/app-icon-512.png">
 <meta name="theme-color" content="#ffffff">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -177,7 +177,7 @@
         <p>Read the common questions, or email us and we’ll get back to you.</p>
       </div>
       <div class="actions">
-        <a class="btn dark" href="mailto:veloxo.si@gmail.com">Email Veloxo <span class="dot"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4.5 11.5 11.5 4.5M5.5 4.5h6v6"/></svg></span></a>
+        <a class="btn dark" href="mailto:support@veloxo.in">Email Veloxo <span class="dot"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4.5 11.5 11.5 4.5M5.5 4.5h6v6"/></svg></span></a>
         <a class="btn plain" href="support.html">Support</a>
       </div>
     </div>
@@ -282,7 +282,7 @@
           }
           var fields = (res.body && res.body.fields) || {};
           Object.keys(fields).forEach(function (k) { showErr(k, fields[k]); });
-          if (!Object.keys(fields).length) formErr.textContent = 'Something went wrong on our side. Try again in a minute, or email veloxo.si@gmail.com.';
+          if (!Object.keys(fields).length) formErr.textContent = 'Something went wrong on our side. Try again in a minute, or email support@veloxo.in.';
         })
         .catch(function () { formErr.textContent = "Couldn't reach Veloxo. Check your internet connection and try again."; })
         .then(function () { btn.disabled = false; label.textContent = 'Join the beta'; });
