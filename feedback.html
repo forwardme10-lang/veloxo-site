@@ -277,9 +277,9 @@
 </footer>
 <script>
   (function () {
-    // Where feedback goes. Leave empty to hand it to the visitor's email app (mailto). Once a backend endpoint exists
-    // (e.g. a Supabase Edge Function "beta-feedback" that accepts this JSON), put its URL here.
-    var ENDPOINT = '';
+    // Sends the answers to Veloxo's backend (Supabase Edge Function beta-feedback → table beta_feedback).
+    // Empty, or the server can't be reached: the answers go to the visitor's email app instead (mailto).
+    var ENDPOINT = 'https://xswtyoiocwafeekkznox.supabase.co/functions/v1/beta-feedback';
     var TO = 'support@veloxo.in';
 
     var form = document.getElementById('feedback');
@@ -356,7 +356,7 @@
       if (bad) { var first = form.querySelector('.err:not(:empty)'); if (first) first.closest('.field').scrollIntoView({ behavior: 'smooth', block: 'center' }); return; }
       if (d.website) { finish(sent); return; } // bot
 
-      if (!ENDPOINT) {
+      function byEmail() {
         var text = asText(d);
         var subject = 'Veloxo beta feedback · ' + MOODS[d.mood] + (d.role === 'club' ? ' · Club' : ' · Rider');
         var href = 'mailto:' + TO + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(text);
@@ -369,16 +369,24 @@
         };
         finish(byMail);
         location.href = href;
-        return;
       }
+      if (!ENDPOINT) { byEmail(); return; }
 
       btn.disabled = true; label.textContent = 'Sending…';
       fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(d) })
-        .then(function (r) {
-          if (r.ok) { finish(sent); return; }
-          formErr.textContent = 'Something went wrong on our side. Try again in a minute, or email support@veloxo.in.';
+        .then(function (r) { return r.json().catch(function () { return {}; }).then(function (body) { return { status: r.status, ok: r.ok, body: body }; }); })
+        .then(function (res) {
+          if (res.ok) { finish(sent); return; }
+          var fields = (res.body && res.body.fields) || {};
+          if (res.status === 422 && Object.keys(fields).length) {
+            Object.keys(fields).forEach(function (k) { showErr(k, fields[k]); });
+            if (!form.querySelector('.err:not(:empty)')) formErr.textContent = Object.keys(fields).map(function (k) { return fields[k]; }).join(' ');
+            return;
+          }
+          if (res.status === 429) { formErr.textContent = "You've sent a lot of feedback in the last hour. Thank you! Try again a little later, or email support@veloxo.in."; return; }
+          byEmail(); // our side failed: don't lose their answers
         })
-        .catch(function () { formErr.textContent = "Couldn't reach Veloxo. Check your internet connection and try again."; })
+        .catch(function () { byEmail(); })
         .then(function () { btn.disabled = false; label.textContent = 'Send feedback'; });
     });
   })();
