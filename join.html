@@ -40,7 +40,7 @@
     <img src="assets/home/hero.jpg" alt="">
     <div class="wrap">
       <div class="jcopy">
-        <span class="eyebrow"><span class="live" aria-hidden="true"></span>Android beta · Open now</span>
+        <span class="eyebrow"><span class="live" aria-hidden="true"></span>Android + iPhone beta · Open now</span>
         <h1>Join the Veloxo beta <em>and ride it first</em></h1>
         <p class="lede">Be one of the first riders and clubs to use Veloxo. We’ll send you the app and ask what you think.</p>
         <ul class="perks">
@@ -97,7 +97,7 @@
                   <label><input type="radio" name="platform" value="android" checked><span>Android</span></label>
                   <label><input type="radio" name="platform" value="iphone"><span>iPhone</span></label>
                 </div>
-                <p class="hint iphone-note" hidden>The beta is Android-only for now. Join anyway and we'll tell you when the iPhone app is ready.</p>
+                <p class="hint iphone-note" hidden>On iPhone the beta runs through TestFlight, Apple's free app for testing new apps. It needs iOS 16.4 or newer.</p>
                 <p class="err" data-for="platform"></p>
               </fieldset>
 
@@ -151,6 +151,20 @@
               <li><span class="n" aria-hidden="true">1</span><div><b>Join the Veloxo testers group</b><small>Tap "Join group" on the Google Groups page.</small></div><a class="btn plain" data-link="group" target="_blank" rel="noopener">Join group</a></li>
               <li><span class="n" aria-hidden="true">2</span><div><b>Become a tester</b><small>Opens Google Play. Tap "Become a tester".</small></div><a class="btn plain" data-link="optin" target="_blank" rel="noopener">Become a tester</a></li>
               <li><span class="n" aria-hidden="true">3</span><div><b>Install <span class="app-name">Veloxo</span></b><small>It can take a few minutes to show after step 2.</small></div><a class="btn blue" data-link="store" target="_blank" rel="noopener">Install from Play Store</a></li>
+            </ol>
+            <p class="hint">Then sign up in the app. Tell us what you love and what's confusing, any time from Settings → Send feedback.</p>
+          </div>
+
+          <!-- iPhone: TestFlight public link for the role, set in TESTFLIGHT below. -->
+          <div class="done get-ios" hidden tabindex="-1">
+            <div class="done-badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 12.5l4 4 9-9"/></svg>
+            </div>
+            <h2>You're in. Get the app</h2>
+            <p class="done-text">Two quick steps on your iPhone (iOS 16.4 or newer).</p>
+            <ol class="app-steps">
+              <li><span class="n" aria-hidden="true">1</span><div><b>Install TestFlight</b><small>Apple's free app for testing new apps.</small></div><a class="btn plain" href="https://apps.apple.com/app/testflight/id899247664" target="_blank" rel="noopener">Get TestFlight</a></li>
+              <li><span class="n" aria-hidden="true">2</span><div><b>Install <span class="app-name">Veloxo</span></b><small>Open this link on your iPhone, then tap "Accept" and "Install" in TestFlight.</small></div><a class="btn blue" data-link="testflight" target="_blank" rel="noopener">Open in TestFlight</a></li>
             </ol>
             <p class="hint">Then sign up in the app. Tell us what you love and what's confusing, any time from Settings → Send feedback.</p>
           </div>
@@ -218,6 +232,18 @@
         store: 'https://play.google.com/store/apps/details?id=in.veloxo.organiser'
       }
     };
+    // iPhone: TestFlight public links (App Store Connect → TestFlight → group → Public Link).
+    var TESTFLIGHT = {
+      rider: { app: 'Veloxo', link: 'https://testflight.apple.com/join/EPnSGKtY' },
+      club: { app: 'Veloxo Organiser', link: 'https://testflight.apple.com/join/tvtWv7VP' }
+    };
+    var getIos = document.querySelector('.get-ios');
+    function showGetIos(role) {
+      var t = TESTFLIGHT[role];
+      getIos.querySelector('[data-link="testflight"]').href = t.link;
+      getIos.querySelector('.app-name').textContent = t.app;
+      getIos.hidden = false; getIos.focus();
+    }
     function ready(role) { return !!(BETA.group && BETA[role] && BETA[role].optin); }
     var getApp = document.querySelector('.get-app');
     function showGetApp(role) {
@@ -226,7 +252,7 @@
       getApp.querySelector('.app-name').textContent = BETA[role].app;
       getApp.hidden = false; getApp.focus();
     }
-    if (ready('rider') && ready('club')) document.querySelector('.jcopy .lede').textContent = 'Be one of the first riders and clubs to use Veloxo. Sign up and get the Android app straight away.';
+    if (ready('rider') && ready('club')) document.querySelector('.jcopy .lede').textContent = 'Be one of the first riders and clubs to use Veloxo. Sign up and get the app straight away on Android or iPhone.';
     var form = document.getElementById('beta');
     var done = document.querySelector('.done');
     var btn = form.querySelector('.submit');
@@ -277,8 +303,8 @@
             form.hidden = true;
             document.querySelectorAll('.form-title').forEach(function (el) { el.hidden = true; });
             if (data.platform === 'android' && ready(data.role)) { showGetApp(data.role); return; }
+            if (data.platform === 'iphone' && TESTFLIGHT[data.role]) { showGetIos(data.role); return; }
             done.hidden = false; done.focus();
-            if (data.platform === 'iphone') done.querySelector('.done-text').textContent = "Thanks! The beta is Android-only for now. We'll email you as soon as the iPhone app is ready.";
             return;
           }
           var fields = (res.body && res.body.fields) || {};
