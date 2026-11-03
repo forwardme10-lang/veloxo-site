@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Beta feedback · Veloxo</title>
+<meta name="description" content="Tell the Veloxo team how the beta feels, what you need and what we should improve.">
+<meta property="og:title" content="Tell us what you think of Veloxo">
+<meta property="og:description" content="Two minutes of feedback from beta riders and clubs shapes what we build next.">
+<meta property="og:image" content="https://veloxo.in/assets/home/hero.jpg">
+<link rel="canonical" href="https://veloxo.in/feedback.html">
+<link rel="icon" href="assets/app-icon-512.png">
+<meta name="theme-color" content="#ffffff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="pages.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <div class="wrap">
+    <div class="left">
+      <a class="logo" href="index.html" aria-label="Veloxo home">Veloxo</a>
+      <span class="sep" aria-hidden="true"></span>
+      <nav class="links" aria-label="Sections">
+        <a href="index.html#riders">Riders</a>
+        <a href="index.html#velo">Velo</a>
+        <a href="index.html#clubs">Clubs</a>
+        <a href="compare.html">Compare</a>
+        <a href="support.html">Support</a>
+      </nav>
+    </div>
+    <a class="cta" href="join.html">Join the beta</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="lhead">
+    <div class="wrap">
+      <span class="eyebrow rule">Beta feedback</span>
+      <h1>Tell us what you think</h1>
+      <p class="lede">Two minutes, a few taps. What you love, what's confusing and what's missing decides what we build next. Every answer is read by a person.</p>
+    </div>
+  </section>
+
+  <section class="fbwrap">
+    <div class="wrap">
+      <div class="fcard fb">
+        <form id="feedback" novalidate>
+
+          <h2 class="fbh"><span class="k">01</span>About you</h2>
+
+          <fieldset class="field">
+            <legend>I use Veloxo as</legend>
+            <div class="seg" role="radiogroup">
+              <label><input type="radio" name="role" value="rider" checked><span><b>Rider</b><small>Veloxo app</small></span></label>
+              <label><input type="radio" name="role" value="club"><span><b>Club organiser</b><small>Veloxo Organiser app</small></span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>Your phone</legend>
+            <div class="pills" role="radiogroup">
+              <label><input type="radio" name="platform" value="android" checked><span>Android</span></label>
+              <label><input type="radio" name="platform" value="iphone"><span>iPhone</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>How long have you used it?</legend>
+            <div class="pills" role="radiogroup">
+              <label><input type="radio" name="usage" value="just installed"><span>Just installed</span></label>
+              <label><input type="radio" name="usage" value="under a week"><span>Under a week</span></label>
+              <label><input type="radio" name="usage" value="1–4 weeks"><span>1–4 weeks</span></label>
+              <label><input type="radio" name="usage" value="over a month"><span>Over a month</span></label>
+            </div>
+          </fieldset>
+
+          <h2 class="fbh"><span class="k">02</span>How it feels</h2>
+
+          <fieldset class="field">
+            <legend>Overall, how do you feel about Veloxo?</legend>
+            <div class="moods" role="radiogroup">
+              <label><input type="radio" name="mood" value="1"><span><i aria-hidden="true">😞</i>Frustrated</span></label>
+              <label><input type="radio" name="mood" value="2"><span><i aria-hidden="true">😕</i>Not great</span></label>
+              <label><input type="radio" name="mood" value="3"><span><i aria-hidden="true">😐</i>Okay</span></label>
+              <label><input type="radio" name="mood" value="4"><span><i aria-hidden="true">🙂</i>Good</span></label>
+              <label><input type="radio" name="mood" value="5"><span><i aria-hidden="true">😍</i>Love it</span></label>
+            </div>
+            <p class="err" data-for="mood"></p>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>Which parts have you tried? <span class="opt">pick any</span></legend>
+            <div class="pills rider-only">
+              <label><input type="checkbox" name="used" value="Training plan"><span>Training plan</span></label>
+              <label><input type="checkbox" name="used" value="Velo coach"><span>Velo, the coach</span></label>
+              <label><input type="checkbox" name="used" value="Wahoo / Zwift / Garmin sync"><span>Wahoo / Zwift / Garmin</span></label>
+              <label><input type="checkbox" name="used" value="Finding events"><span>Finding events</span></label>
+              <label><input type="checkbox" name="used" value="Entering and paying for an event"><span>Entering an event</span></label>
+              <label><input type="checkbox" name="used" value="Ride history and progress"><span>Ride history</span></label>
+            </div>
+            <div class="pills club-only" hidden>
+              <label><input type="checkbox" name="used" value="Club profile"><span>Club profile</span></label>
+              <label><input type="checkbox" name="used" value="Publishing an event"><span>Publishing an event</span></label>
+              <label><input type="checkbox" name="used" value="Registrations and UPI payments"><span>Registrations &amp; UPI</span></label>
+              <label><input type="checkbox" name="used" value="Rider list and check-in"><span>Rider list</span></label>
+              <label><input type="checkbox" name="used" value="Notifying riders"><span>Notifying riders</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>How easy is it to use?</legend>
+            <div class="pills" role="radiogroup">
+              <label><input type="radio" name="ease" value="very easy"><span>Very easy</span></label>
+              <label><input type="radio" name="ease" value="mostly easy"><span>Mostly easy</span></label>
+              <label><input type="radio" name="ease" value="took some figuring out"><span>Took some figuring out</span></label>
+              <label><input type="radio" name="ease" value="hard"><span>Hard</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="field rider-only">
+            <legend>How useful is Velo's coaching for you?</legend>
+            <div class="pills" role="radiogroup">
+              <label><input type="radio" name="velo" value="very useful"><span>Very useful</span></label>
+              <label><input type="radio" name="velo" value="somewhat useful"><span>Somewhat</span></label>
+              <label><input type="radio" name="velo" value="not useful"><span>Not useful</span></label>
+              <label><input type="radio" name="velo" value="haven't tried"><span>Haven't tried</span></label>
+            </div>
+          </fieldset>
+
+          <h2 class="fbh"><span class="k">03</span>In your words</h2>
+
+          <div class="field">
+            <label for="f-like">What do you like most?</label>
+            <textarea id="f-like" name="like" rows="3" maxlength="1500" placeholder="e.g. The plan fits around my weekday rides"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="f-confusing">What's confusing or frustrating?</label>
+            <textarea id="f-confusing" name="confusing" rows="3" maxlength="1500" placeholder="e.g. I couldn't find where to change my riding days"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="f-need">What do you need that Veloxo doesn't do yet?</label>
+            <textarea id="f-need" name="need" rows="3" maxlength="1500" placeholder="e.g. Strava sync, Tamil language, group ride plans"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="f-improve">If you could change one thing, what would it be?</label>
+            <textarea id="f-improve" name="improve" rows="2" maxlength="1000"></textarea>
+          </div>
+
+          <fieldset class="field">
+            <legend>Did anything break or not work?</legend>
+            <div class="pills" role="radiogroup">
+              <label><input type="radio" name="bug" value="no" checked><span>No</span></label>
+              <label><input type="radio" name="bug" value="yes"><span>Yes</span></label>
+            </div>
+          </fieldset>
+          <div class="field bug-only" hidden>
+            <label for="f-bugtext">What were you doing, and what happened?</label>
+            <textarea id="f-bugtext" name="bug_detail" rows="3" maxlength="1500" placeholder="e.g. Tapped Sync with Wahoo, it spun and then said 'Something went wrong'"></textarea>
+            <p class="hint">A screenshot helps a lot. Send it from the app: Settings → Send feedback.</p>
+          </div>
+
+          <h2 class="fbh"><span class="k">04</span>Looking ahead</h2>
+
+          <fieldset class="field">
+            <legend>How likely are you to recommend Veloxo to a riding friend?</legend>
+            <div class="nps" role="radiogroup">
+              <label><input type="radio" name="nps" value="0"><span>0</span></label>
+              <label><input type="radio" name="nps" value="1"><span>1</span></label>
+              <label><input type="radio" name="nps" value="2"><span>2</span></label>
+              <label><input type="radio" name="nps" value="3"><span>3</span></label>
+              <label><input type="radio" name="nps" value="4"><span>4</span></label>
+              <label><input type="radio" name="nps" value="5"><span>5</span></label>
+              <label><input type="radio" name="nps" value="6"><span>6</span></label>
+              <label><input type="radio" name="nps" value="7"><span>7</span></label>
+              <label><input type="radio" name="nps" value="8"><span>8</span></label>
+              <label><input type="radio" name="nps" value="9"><span>9</span></label>
+              <label><input type="radio" name="nps" value="10"><span>10</span></label>
+            </div>
+            <div class="nps-ends" aria-hidden="true"><span>Not likely</span><span>Very likely</span></div>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>After the beta, would you pay for Veloxo?</legend>
+            <div class="pills" role="radiogroup">
+              <label><input type="radio" name="pay" value="yes"><span>Yes</span></label>
+              <label><input type="radio" name="pay" value="maybe, depends on price"><span>Maybe, depends on price</span></label>
+              <label><input type="radio" name="pay" value="no, only if free"><span>Only if it's free</span></label>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label for="f-other">Anything else? <span class="opt">optional</span></label>
+            <textarea id="f-other" name="other" rows="2" maxlength="1500"></textarea>
+          </div>
+
+          <h2 class="fbh"><span class="k">05</span>Can we follow up?</h2>
+
+          <div class="field">
+            <label for="f-name">Your name <span class="opt">optional</span></label>
+            <input id="f-name" name="name" autocomplete="name" maxlength="80">
+          </div>
+          <div class="field">
+            <label for="f-email">Email <span class="opt">optional</span></label>
+            <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="200" placeholder="you@example.com">
+            <p class="hint">Add it if you're happy for us to reply or ask a quick follow-up question. Leave it empty to stay anonymous.</p>
+            <p class="err" data-for="email"></p>
+          </div>
+
+          <!-- Bots fill this; people never see it. -->
+          <div class="hp" aria-hidden="true"><label for="f-web">Website</label><input id="f-web" name="website" tabindex="-1" autocomplete="off"></div>
+
+          <p class="err form-err" role="alert"></p>
+          <button class="btn dark submit" type="submit"><span class="lbl">Send feedback</span> <span class="dot"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4.5 11.5 11.5 4.5M5.5 4.5h6v6"/></svg></span></button>
+          <p class="fine-print">We only use this to improve Veloxo. See the <a href="privacy.html">Privacy Policy</a>.</p>
+        </form>
+
+        <!-- Sent to the backend. -->
+        <div class="done sent" hidden tabindex="-1">
+          <div class="done-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 12.5l4 4 9-9"/></svg>
+          </div>
+          <h2>Thank you!</h2>
+          <p class="done-text">We read every answer. If you left your email, we may write back with a quick question.</p>
+          <a class="btn plain" href="index.html">Back to home</a>
+        </div>
+
+        <!-- No backend yet: hand off to the email app, with copy as a fallback. -->
+        <div class="done by-mail" hidden tabindex="-1">
+          <div class="done-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 12.5l4 4 9-9"/></svg>
+          </div>
+          <h2>Almost done: tap Send</h2>
+          <p class="done-text">Your email app should open with your feedback filled in, addressed to support@veloxo.in. Tap Send and it reaches us.</p>
+          <div class="mail-actions">
+            <a class="btn dark mail-link">Open email again</a>
+            <button class="btn plain copy" type="button">Copy feedback</button>
+          </div>
+          <p class="hint copy-hint">Email app didn't open? Copy your feedback and paste it into an email to support@veloxo.in, or a WhatsApp message to us.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ask">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow rule">Something urgent?</span>
+        <h2>Stuck or need help now?</h2>
+        <p>For a problem with a payment, an event entry or your account, email us and a person will reply.</p>
+      </div>
+      <div class="actions">
+        <a class="btn dark" href="mailto:support@veloxo.in">Email Veloxo <span class="dot"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4.5 11.5 11.5 4.5M5.5 4.5h6v6"/></svg></span></a>
+        <a class="btn plain" href="support.html">Support</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="about">
+        <a class="logo" href="index.html">Veloxo</a>
+        <p>Cycling training and events</p>
+      </div>
+      <div class="fcol"><h4>Sections</h4><a href="index.html#riders">Riders</a><a href="index.html#velo">Velo</a><a href="index.html#clubs">Clubs</a><a href="compare.html">Compare</a><a href="support.html">Support</a><a href="join.html">Join the beta</a><a href="feedback.html" aria-current="page">Beta feedback</a></div>
+      <div class="fcol"><h4>Legal</h4><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="delete-account.html">Delete your account</a></div>
+    </div>
+    <p class="legal">Crafted by a cyclist to help every rider train with knowledge, not guesswork. © 2026 Veloxo.</p>
+  </div>
+</footer>
+<script>
+  (function () {
+    // Sends the answers to Veloxo's backend (Supabase Edge Function beta-feedback → table beta_feedback).
+    // Empty, or the server can't be reached: the answers go to the visitor's email app instead (mailto).
+    var ENDPOINT = 'https://xswtyoiocwafeekkznox.supabase.co/functions/v1/beta-feedback';
+    var TO = 'support@veloxo.in';
+
+    var form = document.getElementById('feedback');
+    var btn = form.querySelector('.submit');
+    var label = btn.querySelector('.lbl');
+    var formErr = form.querySelector('.form-err');
+    var sent = document.querySelector('.sent');
+    var byMail = document.querySelector('.by-mail');
+
+    function val(name) { var el = form.elements[name]; return el && el.value !== undefined ? (el.value || '').trim() : ''; }
+    function checked(name) { var el = form.querySelector('input[name="' + name + '"]:checked'); return el ? el.value : ''; }
+    function all(name) { return Array.prototype.map.call(form.querySelectorAll('input[name="' + name + '"]:checked'), function (i) { return i.value; }); }
+    function showErr(name, msg) { var p = form.querySelector('.err[data-for="' + name + '"]'); if (p) p.textContent = msg || ''; }
+
+    // Rider / club changes which questions show; "Yes, something broke" asks for details.
+    function sync() {
+      var club = checked('role') === 'club';
+      form.querySelectorAll('.club-only').forEach(function (el) { el.hidden = !club; });
+      form.querySelectorAll('.rider-only').forEach(function (el) { el.hidden = club; });
+      // Untick answers for the role that's now hidden so they aren't sent.
+      form.querySelectorAll(club ? '.rider-only input' : '.club-only input').forEach(function (i) { i.checked = false; });
+      form.querySelector('.bug-only').hidden = checked('bug') !== 'yes';
+      if (checked('mood')) showErr('mood');
+    }
+    form.addEventListener('change', sync);
+    // feedback.html?role=club (e.g. from the Organiser app) starts on Club organiser.
+    if (/[?&]role=club\b/.test(location.search)) form.querySelector('input[name="role"][value="club"]').checked = true;
+    if (/[?&]platform=iphone\b/.test(location.search)) form.querySelector('input[name="platform"][value="iphone"]').checked = true;
+    sync();
+
+    var MOODS = { 1: 'Frustrated', 2: 'Not great', 3: 'Okay', 4: 'Good', 5: 'Love it' };
+    function asText(d) {
+      var lines = [
+        'Role: ' + (d.role === 'club' ? 'Club organiser' : 'Rider') + ' · ' + (d.platform === 'iphone' ? 'iPhone' : 'Android'),
+        d.usage && 'Using it for: ' + d.usage,
+        'Overall: ' + d.mood + '/5 (' + MOODS[d.mood] + ')',
+        d.used.length && 'Tried: ' + d.used.join(', '),
+        d.ease && 'Ease of use: ' + d.ease,
+        d.velo && 'Velo coaching: ' + d.velo,
+        d.like && '\nLike most:\n' + d.like,
+        d.confusing && '\nConfusing or frustrating:\n' + d.confusing,
+        d.need && '\nNeed that is missing:\n' + d.need,
+        d.improve && '\nOne thing to change:\n' + d.improve,
+        d.bug === 'yes' && '\nSomething broke:\n' + (d.bug_detail || '(no details)'),
+        d.nps !== '' && '\nWould recommend: ' + d.nps + '/10',
+        d.pay && 'Would pay after beta: ' + d.pay,
+        d.other && '\nAnything else:\n' + d.other,
+        (d.name || d.email) && '\nFrom: ' + [d.name, d.email].filter(Boolean).join(' · ')
+      ];
+      return lines.filter(Boolean).join('\n');
+    }
+
+    function finish(panel) {
+      form.hidden = true;
+      panel.hidden = false; panel.focus();
+      window.scrollTo({ top: panel.getBoundingClientRect().top + window.scrollY - 120, behavior: 'smooth' });
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      showErr('mood'); showErr('email'); formErr.textContent = '';
+      var d = {
+        role: checked('role'), platform: checked('platform'), usage: checked('usage'), mood: checked('mood'),
+        used: all('used'), ease: checked('ease'), velo: checked('role') === 'rider' ? checked('velo') : '',
+        like: val('like'), confusing: val('confusing'), need: val('need'), improve: val('improve'),
+        bug: checked('bug'), bug_detail: checked('bug') === 'yes' ? val('bug_detail') : '',
+        nps: checked('nps'), pay: checked('pay'), other: val('other'),
+        name: val('name'), email: val('email'), website: val('website'),
+        page: location.href
+      };
+      var bad = false;
+      if (!d.mood) { showErr('mood', 'Pick how you feel about Veloxo overall.'); bad = true; }
+      if (d.email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.email)) { showErr('email', 'Enter a valid email address, or leave it empty.'); bad = true; }
+      if (bad) { var first = form.querySelector('.err:not(:empty)'); if (first) first.closest('.field').scrollIntoView({ behavior: 'smooth', block: 'center' }); return; }
+      if (d.website) { finish(sent); return; } // bot
+
+      function byEmail() {
+        var text = asText(d);
+        var subject = 'Veloxo beta feedback · ' + MOODS[d.mood] + (d.role === 'club' ? ' · Club' : ' · Rider');
+        var href = 'mailto:' + TO + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(text);
+        byMail.querySelector('.mail-link').href = href;
+        byMail.querySelector('.copy').onclick = function () {
+          var b = this;
+          function ok() { b.textContent = 'Copied'; setTimeout(function () { b.textContent = 'Copy feedback'; }, 2000); }
+          if (navigator.clipboard) navigator.clipboard.writeText(text).then(ok, function () { window.prompt('Copy your feedback:', text); });
+          else window.prompt('Copy your feedback:', text);
+        };
+        finish(byMail);
+        location.href = href;
+      }
+      if (!ENDPOINT) { byEmail(); return; }
+
+      btn.disabled = true; label.textContent = 'Sending…';
+      fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(d) })
+        .then(function (r) { return r.json().catch(function () { return {}; }).then(function (body) { return { status: r.status, ok: r.ok, body: body }; }); })
+        .then(function (res) {
+          if (res.ok) { finish(sent); return; }
+          var fields = (res.body && res.body.fields) || {};
+          if (res.status === 422 && Object.keys(fields).length) {
+            Object.keys(fields).forEach(function (k) { showErr(k, fields[k]); });
+            if (!form.querySelector('.err:not(:empty)')) formErr.textContent = Object.keys(fields).map(function (k) { return fields[k]; }).join(' ');
+            return;
+          }
+          if (res.status === 429) { formErr.textContent = "You've sent a lot of feedback in the last hour. Thank you! Try again a little later, or email support@veloxo.in."; return; }
+          byEmail(); // our side failed: don't lose their answers
+        })
+        .catch(function () { byEmail(); })
+        .then(function () { btn.disabled = false; label.textContent = 'Send feedback'; });
+    });
+  })();
+</script>
+</body>
+</html>
