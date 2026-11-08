@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Download · Veloxo</title>
+<meta name="description" content="A file shared from Veloxo.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../assets/app-icon-512.png">
+<meta name="theme-color" content="#f3f5f2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap">
+<style>
+  /* veloxo.in/f/<code>: a short download link from Veloxo (exports, licence cards). The code is the key. */
+  :root { --ink: #1f2226; --muted: #5f6b7a; --green: #239a5b; --green-dk: #15803d; --soft: #e9f7ee; --line: #e3e7ec; --bg: #f3f5f2; }
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100vh; background: var(--bg); font-family: Outfit, system-ui, sans-serif; color: var(--ink); }
+  main { max-width: 440px; margin: 0 auto; padding: 32px 16px 40px; display: flex; flex-direction: column; gap: 18px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 20px; text-decoration: none; color: var(--ink); }
+  .brand img { width: 34px; height: 34px; border-radius: 10px; }
+  .card { background: #fff; border-radius: 24px; padding: 22px 20px; box-shadow: 0 10px 30px rgba(20,40,30,.08); display: flex; flex-direction: column; gap: 14px; }
+  .file { display: flex; gap: 14px; align-items: center; }
+  .icon { width: 52px; height: 52px; border-radius: 14px; background: var(--soft); color: var(--green-dk); display: grid; place-items: center; flex-shrink: 0; }
+  .icon.bad { background: #fee2e2; color: #b91c1c; }
+  h1 { font-size: 21px; line-height: 1.25; margin: 0; }
+  .name { font-size: 15px; color: var(--muted); margin-top: 3px; word-break: break-all; }
+  p { margin: 0; font-size: 16px; line-height: 1.5; color: #374151; }
+  .btn { display: block; text-align: center; min-height: 54px; line-height: 54px; border-radius: 999px; background: var(--ink); color: #fff; font-weight: 700; font-size: 16px; text-decoration: none; }
+  .spin { width: 22px; height: 22px; border: 3px solid var(--soft); border-top-color: var(--green); border-radius: 50%; animation: s 0.9s linear infinite; }
+  @keyframes s { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .spin { animation: none; } }
+  .small { font-size: 14px; color: var(--muted); text-align: center; line-height: 1.5; }
+  .hide { display: none; }
+  a { color: var(--green-dk); }
+</style>
+</head>
+<body>
+<main>
+  <a class="brand" href="../index.html"><img src="../assets/app-icon-512.png" alt="" width="34" height="34">Veloxo</a>
+  <div class="card" aria-live="polite">
+    <div class="file">
+      <div class="icon" id="icon"><div class="spin" id="spin"></div></div>
+      <div><h1 id="title">Preparing your file…</h1><div class="name" id="name"></div></div>
+    </div>
+    <p id="line">This takes a second.</p>
+    <a class="btn hide" id="again" href="#" rel="noopener">Download again</a>
+  </div>
+  <p class="small" id="note">Links from Veloxo work for a limited time. Keep the files safe: they can have riders' personal details.</p>
+  <p class="small"><a href="../index.html">Veloxo</a> · plans, events and the Velo SI coach for cyclists in India</p>
+</main>
+<script>
+(function () {
+  var ENDPOINT = 'https://xswtyoiocwafeekkznox.supabase.co/functions/v1/file-link';
+  var DOWN = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>';
+  var CROSS = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+  var $ = function (id) { return document.getElementById(id); };
+  var code = (new URLSearchParams(location.search).get('c') || '').trim().toUpperCase();
+  function show(kind, title, line, name) {
+    var icon = $('icon');
+    icon.className = 'icon' + (kind === 'bad' ? ' bad' : '');
+    icon.innerHTML = kind === 'bad' ? CROSS : DOWN;
+    $('title').textContent = title;
+    $('line').textContent = line;
+    $('name').textContent = name || '';
+  }
+  if (!/^[A-HJ-KM-NP-Z2-9]{8}$/.test(code)) {
+    show('bad', 'This link isn’t right', 'Check that you copied the whole link from the email or the Veloxo app.');
+    return;
+  }
+  fetch(ENDPOINT + '?c=' + encodeURIComponent(code))
+    .then(function (r) { return r.json(); })
+    .then(function (v) {
+      if (v.error === 'expired') {
+        show('bad', 'This link has expired', 'Make a new one in the Veloxo app: the export or Print cards again.', v.label);
+        return;
+      }
+      if (v.error || !v.url) {
+        show('bad', 'File not found', 'This link doesn’t point to a file any more. Make a new one in the Veloxo app.');
+        return;
+      }
+      var until = new Date(v.expires_at).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' });
+      show('ok', v.label || 'Your file', 'Your download has started. The link works until ' + until + '.', v.name);
+      var again = $('again');
+      again.classList.remove('hide');
+      // each download link lasts a minute: Download again asks for a fresh one
+      again.addEventListener('click', function (e) { e.preventDefault(); location.reload(); });
+      location.href = v.url;
+    })
+    .catch(function () {
+      show('bad', 'Couldn’t reach Veloxo', 'Check your internet connection and open the link again.');
+    });
+})();
+</script>
+</body>
+</html>
