@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Licence check · Veloxo</title>
+<meta name="description" content="Check a rider licence issued through Veloxo.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../assets/app-icon-512.png">
+<meta name="theme-color" content="#f7f2e7">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap">
+<style>
+  /* The page behind the QR on a licence card (prototype "Licence card (review)" → public check). */
+  :root { --ink: #121633; --muted: #6f6a5c; --gold: #d8b46a; --gold-lo: #a37b34; --paper: #f4f1ea; }
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100vh; background: var(--paper); font-family: Outfit, system-ui, sans-serif; color: var(--ink); }
+  main { max-width: 440px; margin: 0 auto; padding: 24px 16px 40px; display: flex; flex-direction: column; gap: 16px; }
+  .card { background: #fff; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 30px rgba(60,45,15,.10); }
+  .top { padding: 18px; background: linear-gradient(180deg, #fffdf7, #f1e9d6); border-bottom: 2px solid var(--gold); }
+  .top b { display: block; font-size: 19px; font-weight: 700; }
+  .top span { display: block; font-size: 14px; color: var(--muted); margin-top: 2px; }
+  .stat { margin: 16px 18px 0; border-radius: 16px; padding: 14px 16px; display: flex; gap: 12px; align-items: center; }
+  .stat svg { flex-shrink: 0; }
+  .stat b { display: block; font-size: 20px; font-weight: 700; }
+  .stat span { display: block; font-size: 15px; }
+  .ok { background: #e9f7ee; color: #15803d; }
+  .bad { background: #fee2e2; color: #b91c1c; }
+  .wait { background: #fef3c7; color: #92400e; }
+  .who { display: flex; gap: 16px; align-items: center; padding: 16px 18px 4px; }
+  .who img, .who .ph { width: 84px; height: 104px; border-radius: 14px; object-fit: cover; box-shadow: 0 0 0 2px var(--gold); background: #ece5d5; flex-shrink: 0; }
+  .who b { display: block; font-size: 22px; font-weight: 700; }
+  .who span { display: block; font-size: 16px; color: #4b5563; margin-top: 3px; }
+  .rows { padding: 4px 18px 14px; }
+  .rows div { display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-top: 1px solid #edf0f3; font-size: 16px; }
+  .rows div span { color: #6b7280; white-space: nowrap; }
+  .rows div b { font-weight: 600; text-align: right; }
+  p.small { font-size: 14px; color: var(--muted); text-align: center; line-height: 1.5; margin: 0; }
+  form { display: flex; gap: 8px; }
+  input { flex: 1; min-width: 0; min-height: 52px; border-radius: 14px; border: 1.5px solid #e3e7ec; padding: 0 14px; font: inherit; font-size: 16px; }
+  input:not(:placeholder-shown) { text-transform: uppercase; }
+  button { min-height: 52px; border-radius: 999px; border: 0; padding: 0 20px; background: #1f2226; color: #fff; font: inherit; font-size: 16px; font-weight: 700; cursor: pointer; }
+  .hide { display: none; }
+  a { color: var(--gold-lo); }
+</style>
+</head>
+<body>
+<main>
+  <div class="card" id="result" aria-live="polite">
+    <div class="top"><b id="club">Rider licence check</b><span id="sub">Licences issued through Veloxo</span></div>
+    <div class="stat wait" id="stat"><div><b id="statTitle">Checking…</b><span id="statLine"></span></div></div>
+    <div class="who hide" id="who"><img id="photo" alt="" class="hide"><div class="ph" id="ph"></div><div><b id="name"></b><span id="cat"></span><span id="num"></span></div></div>
+    <div class="rows hide" id="rows">
+      <div><span>Issued by</span><b id="issuer"></b></div>
+      <div><span>Licence year</span><b id="year"></b></div>
+      <div><span>Checked</span><b id="when"></b></div>
+    </div>
+  </div>
+  <form id="ask" class="hide" autocomplete="off">
+    <input id="n" name="n" placeholder="Licence number" aria-label="Licence number" maxlength="24">
+    <button type="submit">Check</button>
+  </form>
+  <p class="small" id="note">Only the name, photo, category and dates are shown here, and only to someone who scans the card's QR code. Date of birth, contact details and ID stay private.</p>
+  <p class="small"><a href="../index.html">Veloxo</a> · plans, events and the Velo SI coach for cyclists in India</p>
+</main>
+<script>
+(function () {
+  var ENDPOINT = 'https://xswtyoiocwafeekkznox.supabase.co/functions/v1/licence-verify';
+  var q = new URLSearchParams(location.search);
+  var n = (q.get('n') || '').trim().toUpperCase();
+  var c = (q.get('c') || '').trim().toLowerCase();
+  var $ = function (id) { return document.getElementById(id); };
+  var TICK = '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.5 12.5l4 4 9-9"/></svg>';
+  var CROSS = '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+  function status(kind, title, line) {
+    var s = $('stat');
+    s.className = 'stat ' + kind;
+    s.innerHTML = (kind === 'ok' ? TICK : kind === 'bad' ? CROSS : '') + '<div><b></b><span></span></div>';
+    s.querySelector('b').textContent = title;
+    s.querySelector('span').textContent = line || '';
+  }
+  $('ask').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var v = $('n').value.trim().toUpperCase();
+    if (v) location.search = '?n=' + encodeURIComponent(v);
+  });
+  if (!/^[A-Z0-9]{2,8}-\d{4}-\d{4,6}$/.test(n)) {
+    status('wait', 'Check a rider licence', 'Scan the QR code on the back of the card, or type the licence number.');
+    $('ask').classList.remove('hide');
+    return;
+  }
+  fetch(ENDPOINT + '?n=' + encodeURIComponent(n) + (c ? '&c=' + encodeURIComponent(c) : ''))
+    .then(function (r) { return r.json(); })
+    .then(function (v) {
+      if (v.error) throw new Error(v.error);
+      if (!v.found) {
+        status('bad', 'No licence with this number', n + ' isn’t a licence issued through Veloxo. Check the number on the card.');
+        $('ask').classList.remove('hide');
+        return;
+      }
+      $('club').textContent = v.club_name;
+      $('sub').textContent = 'Rider licence check' + (v.state_association ? ' · state association' : '');
+      if (v.status === 'valid') status('ok', 'Valid licence', 'Until 31 Dec ' + v.year);
+      else if (v.status === 'not_yet') status('wait', 'Valid from 1 Jan ' + v.year, 'This is next year’s licence.');
+      else status('bad', 'Not valid', 'This licence ended on 31 Dec ' + v.year);
+      $('who').classList.remove('hide');
+      $('name').textContent = v.full_name || 'Licence holder';
+      $('cat').textContent = v.category + (v.gender === 'female' ? ' · Women' : v.gender === 'male' ? ' · Men' : '');
+      $('num').textContent = v.number;
+      if (v.photo_url) { $('photo').src = v.photo_url; $('photo').alt = 'Photo of ' + (v.full_name || 'the rider'); $('photo').classList.remove('hide'); $('ph').classList.add('hide'); }
+      $('rows').classList.remove('hide');
+      $('issuer').textContent = v.club_name;
+      $('year').textContent = String(v.year);
+      $('when').textContent = new Date().toLocaleString('en-IN', { day: 'numeric', month: 'short', year: 'numeric', hour: 'numeric', minute: '2-digit' });
+      if (!v.checked) $('note').textContent = 'Typed in by number: the name and photo show only when you scan the QR code on the card. Date of birth, contact details and ID stay private.';
+    })
+    .catch(function () {
+      status('wait', 'Couldn’t check right now', 'Check your connection and try again.');
+    });
+})();
+</script>
+</body>
+</html>

@@ -40,7 +40,7 @@
       <p class="lede">What the Veloxo apps collect, why, who sees it, and your rights under India’s Digital Personal Data Protection Act, 2023.</p>
       <div class="meta">
         <nav class="tabs" aria-label="Legal pages"><a href="privacy.html" aria-current="page">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="delete-account.html">Delete your account</a></nav>
-        <span class="updated">Last updated 21 October 2026</span>
+        <span class="updated">Last updated 8 November 2026</span>
       </div>
     </div>
   </section>
@@ -79,12 +79,15 @@
               <tr><td>Velo (SI coach: Sports Intelligence, built on AI)</td><td>The messages you send Velo, its replies, your weekly reviews, and the 👍 / 👎 you give a reply</td><td>To answer you; Velo also sees your profile, plan and recent rides to give relevant advice. Ratings help us improve Velo’s answers</td></tr>
               <tr><td>Events</td><td>Registrations, the distance you chose, bib number, attendance, finish time and rank</td><td>To register you, check you in on race day and publish results</td></tr>
               <tr><td>Payments</td><td>Amount and the UPI transaction number (UTR) you enter</td><td>So the club can confirm your entry fee. Veloxo never receives your money or your bank or card details</td></tr>
+              <tr><td>Club licences (optional)</td><td>If you apply for a club or state association licence: your name, date of birth, gender, blood group, district, club, phone, emergency contact, a photo, pictures of both sides of your Aadhaar (masked Aadhaar is fine) and the last 4 digits, a date of birth proof, and the UPI transaction number (UTR) of the fee. For riders under 18: your parent or guardian’s name, relation and email, and when they agreed</td><td>So the club can check who you are and your age category, issue your licence, and enter you in district, state and national races. Your licence also gives you the club’s member price</td></tr>
+              <tr><td>Race entries with ID proof (optional)</td><td>If you enter a race as a rider from another state: your state, team, name, date of birth, gender, pictures of both sides of your Aadhaar and the last 4 digits (and a parent’s consent if you’re under 18)</td><td>So the organising club can check your name and age category instead of a licence</td></tr>
               <tr><td>Clubs (organisers)</td><td>Club name, city, website, UPI ID and payee name, team members</td><td>To run your club’s events and receive entry fees</td></tr>
               <tr><td>Beta sign-up (website)</td><td>Name, email, WhatsApp number (optional), rider or club, club name, phone type, the device you ride with, city</td><td>To send you the beta app and ask for your feedback. Not used for marketing or shared with anyone</td></tr>
               <tr><td>Beta feedback (website)</td><td>Your answers about the app, rider or club, phone type, your name and email only if you add them, and a scrambled code made from your internet address that changes daily</td><td>To improve Veloxo and, if you left your email, to reply to you. The code only stops the form being flooded with spam. Not used for marketing or shared with anyone</td></tr>
               <tr><td>App and device</td><td>Push notification token, which app it belongs to (Veloxo or Veloxo Organiser), notification settings, notifications sent to you, feedback you send</td><td>To send the notifications you’ve chosen and to improve the app</td></tr>
+              <tr><td>Crash reports</td><td>When the app crashes or a screen fails: the error, the screen and the steps just before it, phone model, operating system and app version, and a random account ID (no name, email, phone number or IP address)</td><td>To find and fix bugs</td></tr>
             </table></div>
-            <p>We don’t collect your location, contacts or files. The only photo we store is a profile photo, if you choose to add one.</p>
+            <p>We don’t collect your location or contacts. We store the photos you choose to add: a profile photo, and for a club licence or an ID-proof race entry, your licence photo and ID pictures.</p>
           </div>
         </section>
         <section class="sec" id="who">
@@ -93,7 +96,9 @@
             <h2>Who can see your data</h2>
 <ul>
               <li><strong>You.</strong> Everything above.</li>
-              <li><strong>Clubs you register with.</strong> Your name, contact details, chosen distance, bib, payment status and UTR, attendance, results and emergency details, for that event only.</li>
+              <li><strong>The club whose licence you apply for.</strong> Its owner and team see your application, documents and payment to check them, and your licence details afterwards. They can export a list of licence holders (no Aadhaar numbers) for district, state and national race entries. If the club cancels your licence, it keeps the record (number, dates and reason); if it deletes an application that was never approved, its details and pictures are removed.</li>
+              <li><strong>Anyone who scans the QR code on your licence card.</strong> The club prints your licence card with your photo, name, licence number, category, date of birth, blood group and emergency contact. Its QR code opens a check page on veloxo.in that shows whether your licence is valid, with your name, photo and category. Someone who only types in your licence number sees whether it’s valid and your category, not your name or photo.</li>
+              <li><strong>Clubs you register with.</strong> Your name, mobile number, email, age, gender, club, licence number, chosen distance, kit and sizes, bib, payment status and UTR, attendance, results and emergency details (contact, blood group, medical notes), for that event only. The club’s team can export this list as a spreadsheet to run the event.</li>
               <li><strong>Everyone.</strong> Published results show your first name and last initial, your time and rank. Club and event details are public.</li>
               <li><strong>Veloxo.</strong> To run and support the app (for example to review clubs or answer a support request).</li>
             </ul>
@@ -109,7 +114,9 @@
               <tr><td>Supabase</td><td>Database, sign-in and app back end</td><td>Mumbai, India</td></tr>
               <tr><td>Anthropic (Claude)</td><td>Writing Velo’s replies and weekly reviews. Your messages and the training context are sent with each question; Anthropic does not use them to train its models</td><td>United States</td></tr>
               <tr><td>Google</td><td>Sign in with Google (if you choose it) and Firebase Cloud Messaging for notifications</td><td>Global</td></tr>
+              <tr><td>Resend</td><td>Sending emails: sign-up and password codes, a parent’s consent code, and licence lists and download links to the club that asked</td><td>United States</td></tr>
               <tr><td>Expo</td><td>App updates and sending notifications</td><td>United States</td></tr>
+              <tr><td>Sentry</td><td>Crash reports from the app</td><td>United States</td></tr>
               <tr><td>Wahoo</td><td>Sending workouts and reading rides, only if you connect a Wahoo account</td><td>United States</td></tr>
               <tr><td>Intervals.icu</td><td>Putting planned workouts on your Intervals.icu calendar and reading your rides, only if you connect an Intervals.icu account. Intervals.icu can pass workouts to Zwift or Garmin Connect if you link them there, under its own terms</td><td>Germany</td></tr>
             </table></div>
@@ -123,6 +130,8 @@
 <ul>
               <li>Your account data is kept while your account exists, and deleted when you delete your account (see <a href="delete-account.html">Delete your account</a>).</li>
               <li>Device connections are removed as soon as you disconnect them.</li>
+              <li>Your club licence photo, Aadhaar pictures and date of birth proof are kept while your licence exists, because the club needs them for race entry lists (its team can download them in the race export). Aadhaar pictures for a race entry with ID proof are kept for that event. All of them are deleted when you delete your Veloxo account.</li>
+              <li>Files you or your club download from Veloxo (licence cards, race exports) are shared through short veloxo.in/f/… links that stop working after 7 days (1 hour for your own licence card).</li>
               <li>Beta sign-ups from the website are deleted when the beta ends, or sooner if you email us to remove yours.</li>
               <li>Database backups are overwritten within 7 days.</li>
               <li>If we delete an account for you (for example after an email request), we keep a short record that we did it: the email address, name, club names and the date.</li>
@@ -147,7 +156,7 @@
           <span class="k">06</span>
           <div class="b">
             <h2>Children</h2>
-<p>Veloxo is for people aged 18 and over. We don’t knowingly collect data from children. If you think a child has an account, email us and we’ll delete it.</p>
+<p>Veloxo’s training and coaching are for people aged 18 and over. Riders under 18 can apply for a club licence or enter a race only with their parent’s or guardian’s verifiable consent: we email the parent a code, and they agree by giving it to the rider. We keep the parent’s name, relation, email and the time they agreed, and the consent is asked again every year. If you think a child’s data is held without consent, email us and we’ll delete it.</p>
           </div>
         </section>
         <section class="sec" id="security">

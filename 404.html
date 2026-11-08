@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found · Veloxo</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/assets/app-icon-512.png">
+<script>
+  // veloxo.in/l/TNCA-2026-0142 (the address printed on a licence card) → the licence check page.
+  (function () {
+    var m = location.pathname.match(/^\/l\/([A-Za-z0-9-]{6,24})\/?$/);
+    if (m) location.replace('/l/?n=' + encodeURIComponent(m[1].toUpperCase()));
+    // veloxo.in/f/K7M2QX9P (a short download link from Veloxo) → the download page.
+    var f = location.pathname.match(/^\/f\/([A-Za-z0-9]{8})\/?$/);
+    if (f) location.replace('/f/?c=' + encodeURIComponent(f[1].toUpperCase()));
+  })();
+</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap">
+<link rel="stylesheet" href="/pages.css">
+<style>.nf{max-width:560px;margin:0 auto;padding:96px 16px}.nf h1{margin:0 0 12px}</style>
+</head>
+<body>
+<main id="main"><div class="nf">
+  <h1>Page not found</h1>
+  <p>That page isn’t here. <a href="/index.html">Go to the Veloxo home page</a>.</p>
+</div></main>
+</body>
+</html>
