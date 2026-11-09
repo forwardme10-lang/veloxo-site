@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Event · Veloxo</title>
+<meta name="description" content="A cycling event on Veloxo. See the details and register in the Veloxo app.">
+<meta property="og:title" content="Cycling event · Register on Veloxo">
+<meta property="og:description" content="See the date, distances and prices, and register in the Veloxo app.">
+<meta property="og:image" content="https://veloxo.in/assets/app-icon-512.png">
+<meta property="og:site_name" content="Veloxo">
+<link rel="icon" href="../assets/app-icon-512.png">
+<meta name="theme-color" content="#f3f5f2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap">
+<style>
+  /* veloxo.in/e/<code>: a shared event (user, 2026-11-09, mock docs/design/share/share-links-mock.png). */
+  :root { --ink: #1f2226; --muted: #5f6b7a; --green: #239a5b; --green-dk: #15803d; --soft: #e9f7ee; --line: #e3e7ec; --bg: #f3f5f2; --amber: #92400e; --amber-bg: #fef3c7; }
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100vh; background: var(--bg); font-family: Outfit, system-ui, sans-serif; color: var(--ink); }
+  main { max-width: 480px; margin: 0 auto; padding: 20px 16px 140px; display: flex; flex-direction: column; gap: 16px; }
+  .top { display: flex; align-items: center; justify-content: space-between; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 20px; text-decoration: none; color: var(--ink); }
+  .brand img { width: 34px; height: 34px; border-radius: 10px; }
+  .top a.get { font-size: 15px; font-weight: 600; color: var(--green-dk); text-decoration: none; }
+  .card { background: #fff; border-radius: 24px; padding: 20px 18px; box-shadow: 0 10px 30px rgba(20,40,30,.08); display: flex; flex-direction: column; gap: 14px; }
+  .tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tag { font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: var(--soft); color: var(--green-dk); }
+  .tag.am { background: var(--amber-bg); color: var(--amber); }
+  .tag.bad { background: #fee2e2; color: #b91c1c; }
+  h1 { font-size: 27px; line-height: 1.15; margin: 0; }
+  h2 { font-size: 13px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 4px 0 0; }
+  p { margin: 0; font-size: 16px; line-height: 1.5; color: #374151; }
+  .club { display: flex; align-items: center; gap: 10px; font-size: 16px; color: #3a414b; }
+  .club .ini { width: 36px; height: 36px; border-radius: 10px; background: #0f3d2a; color: #fff; font-size: 12px; font-weight: 800; display: grid; place-items: center; flex-shrink: 0; overflow: hidden; }
+  .club .ini img { width: 100%; height: 100%; object-fit: contain; background: #fff; }
+  .row { border: 1.5px solid var(--line); border-radius: 16px; padding: 12px 14px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .row b { font-size: 17px; display: block; }
+  .row span { display: block; font-size: 14px; color: var(--muted); margin-top: 2px; }
+  .row .p { text-align: right; font-weight: 700; font-size: 17px; white-space: nowrap; }
+  .row .p s { display: block; color: #9aa3ae; font-weight: 500; font-size: 13px; }
+  .row.full { opacity: .55; }
+  .steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .steps li { display: flex; gap: 10px; font-size: 16px; line-height: 1.4; align-items: flex-start; }
+  .steps .n { width: 26px; height: 26px; border-radius: 50%; background: var(--soft); color: var(--green-dk); font-weight: 800; font-size: 13px; display: grid; place-items: center; flex-shrink: 0; }
+  .btn { display: flex; align-items: center; justify-content: center; width: 100%; text-align: center; min-height: 56px; border-radius: 999px; background: var(--green); color: #fff; font: 700 17px Outfit, system-ui, sans-serif; text-decoration: none; border: 0; cursor: pointer; }
+  .btn.ghost { background: #fff; color: var(--ink); border: 1.5px solid #d9dde3; }
+  .btn[aria-disabled="true"] { background: #c9d1d9; pointer-events: none; }
+  .foot { position: fixed; left: 0; right: 0; bottom: 0; background: rgba(255,255,255,.97); border-top: 1px solid var(--line); padding: 12px 16px calc(16px + env(safe-area-inset-bottom)); }
+  .foot div { max-width: 480px; margin: 0 auto; display: flex; flex-direction: column; gap: 6px; }
+  .small { font-size: 14px; color: var(--muted); text-align: center; line-height: 1.5; }
+  .msg { text-align: center; padding: 28px 18px; }
+  .spin { width: 26px; height: 26px; margin: 0 auto; border: 3px solid var(--soft); border-top-color: var(--green); border-radius: 50%; animation: s .9s linear infinite; }
+  @keyframes s { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .spin { animation: none; } }
+  .hide { display: none !important; }
+  a { color: var(--green-dk); }
+  .scrim { position: fixed; inset: 0; background: rgba(15,23,42,.45); }
+  .sheet { position: fixed; left: 0; right: 0; bottom: 0; background: #fff; border-radius: 24px 24px 0 0; padding: 12px 18px calc(22px + env(safe-area-inset-bottom)); }
+  .sheet > div { max-width: 480px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+  .grab { width: 40px; height: 5px; border-radius: 3px; background: var(--line); margin: 0 auto; }
+  .sheet h3 { font-size: 22px; margin: 0; }
+  .x { background: none; border: 0; font: 600 16px Outfit, system-ui, sans-serif; color: var(--muted); min-height: 44px; cursor: pointer; }
+
+  .when { display: flex; gap: 14px; align-items: center; }
+  .date { width: 60px; border-radius: 14px; border: 1.5px solid var(--line); text-align: center; padding: 6px 0; flex-shrink: 0; }
+  .date small { display: block; font-size: 12px; font-weight: 800; color: var(--green); letter-spacing: .04em; }
+  .date b { font-size: 24px; }
+  .when p { font-size: 16px; line-height: 1.4; }
+</style>
+</head>
+<body>
+<main>
+  <div class="top"><a class="brand" href="../index.html"><img src="../assets/app-icon-512.png" alt="" width="34" height="34">Veloxo</a><a class="get" href="../join.html">Get the app</a></div>
+  <div class="card msg" id="wait" aria-live="polite"><div class="spin"></div><p>Loading the event…</p></div>
+  <div id="ev" class="hide" style="display:flex;flex-direction:column;gap:16px">
+    <div class="card">
+      <div class="tags" id="tags"></div>
+      <h1 id="title"></h1>
+      <div class="club"><span class="ini" id="ini"></span><span id="club"></span></div>
+      <div class="when"><div class="date"><small id="mon"></small><b id="day"></b></div><p id="where"></p></div>
+    </div>
+    <div class="card">
+      <h2>Distances</h2>
+      <div id="rides" style="display:flex;flex-direction:column;gap:10px"></div>
+      <p id="route" class="hide"></p>
+      <p id="facts"></p>
+    </div>
+    <div class="card hide" id="about-card"><h2>About</h2><p id="about" style="white-space:pre-line"></p></div>
+    <p class="small"><a href="../index.html">Veloxo</a> · plans, events and the Velo SI coach for cyclists in India</p>
+  </div>
+</main>
+<div class="foot hide" id="foot"><div><a class="btn" id="reg" href="#" role="button">Register in Veloxo</a><span class="small">Free app · Android · iPhone soon</span></div></div>
+<div id="sheet" class="hide" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+  <div class="scrim" onclick="closeSheet()"></div>
+  <div class="sheet"><div>
+    <div class="grab" aria-hidden="true"></div>
+    <h3 id="sheet-title">Register in the Veloxo app</h3>
+    <p>Your ticket, race-day updates and a free training plan for this ride, all in the app.</p>
+    <a class="btn" id="open" href="#">Open in Veloxo</a>
+    <h2>Don’t have it yet?</h2>
+    <ol class="steps">
+      <li><span class="n" aria-hidden="true">1</span><span>Join the Veloxo beta (Android, free)</span></li>
+      <li><span class="n" aria-hidden="true">2</span><span>Install, sign in, then open this link again: it takes you straight here</span></li>
+    </ol>
+    <a class="btn ghost" href="../join.html">Get the app</a>
+    <button class="x" type="button" onclick="closeSheet()">Not now</button>
+  </div></div>
+</div>
+
+<script>
+(function () {
+  var ENDPOINT = 'https://xswtyoiocwafeekkznox.supabase.co/functions/v1/share-page';
+  var $ = window.$ = function (id) { return document.getElementById(id); };
+  // "Open in Veloxo": the app opens on this page when installed. On Android an intent link falls back to the beta
+  // page by itself when the app isn't there; elsewhere the sheet's second button does.
+  var JOIN = 'https://veloxo.in/join.html';
+  function appLink(path) {
+    if (/Android/i.test(navigator.userAgent)) {
+      return 'intent://' + path + '#Intent;scheme=veloxo;S.browser_fallback_url=' + encodeURIComponent(JOIN) + ';end';
+    }
+    return 'veloxo://' + path;
+  }
+  function openSheet(path) {
+    $('open').href = appLink(path);
+    $('sheet').classList.remove('hide');
+    $('open').focus();
+  }
+  function closeSheet() { $('sheet').classList.add('hide'); }
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeSheet(); });
+
+  window.closeSheet = closeSheet;
+  var TYPE = { race: 'Race', cyclothon: 'Cyclothon', time_trial: 'Time trial', group_ride: 'Group ride' };
+  var LEVEL = { district: 'District', state: 'State', national: 'National' };
+  var INCLUDES = { timing_chip: 'Timing chip', bib: 'Bib', aid_stations: 'Aid stations', medal: 'Finisher medal', tshirt: 'T-shirt',
+    certificate: 'E-certificate', breakfast: 'Breakfast', photos: 'Event photos', goodie_bag: 'Goodie bag' };
+  var code = (new URLSearchParams(location.search).get('c') || '').trim().toUpperCase();
+  function fail(title, line) {
+    $('wait').innerHTML = '';
+    var h = document.createElement('h1'); h.textContent = title; h.style.fontSize = '22px';
+    var p = document.createElement('p'); p.textContent = line;
+    $('wait').appendChild(h); $('wait').appendChild(p);
+  }
+  function rupees(paise) { return '₹' + Math.round(paise / 100).toLocaleString('en-IN'); }
+  function tag(text, kind) { var s = document.createElement('span'); s.className = 'tag' + (kind ? ' ' + kind : ''); s.textContent = text; return s; }
+  function avail(taken, slots) {
+    if (!slots) return 'Open';
+    var left = Math.max(0, slots - taken);
+    if (left === 0) return 'Full';
+    if (left <= 5 || left / slots <= 0.1) return 'Almost full';
+    if (taken / slots >= 0.6) return 'Filling fast';
+    return 'Open';
+  }
+  function ymdLabel(d) { return new Date(d + 'T00:00:00+05:30').toLocaleDateString('en-IN', { day: 'numeric', month: 'short', timeZone: 'Asia/Kolkata' }); }
+  if (!/^[A-HJ-NP-Z2-9]{8}$/.test(code)) { fail('This link isn’t right', 'Check that you copied the whole link.'); return; }
+  fetch(ENDPOINT + '?e=' + encodeURIComponent(code))
+    .then(function (r) { return r.json(); })
+    .then(function (v) {
+      if (!v.found) { fail('Event not found', 'This event isn’t on Veloxo any more, or the link isn’t complete.'); return; }
+      document.title = v.title + ' · Veloxo';
+      var tags = $('tags');
+      (v.types || []).forEach(function (t) { tags.appendChild(tag(TYPE[t] || t)); });
+      if (LEVEL[v.level]) tags.appendChild(tag(LEVEL[v.level]));
+      var anyFilling = (v.rides || []).some(function (r) { return r.slots && r.taken / r.slots >= 0.6 && r.taken < r.slots; });
+      if (v.status === 'cancelled') tags.appendChild(tag('Cancelled', 'bad'));
+      else if (v.status === 'completed') tags.appendChild(tag('Finished'));
+      else if (!v.open) tags.appendChild(tag('Entries closed', 'am'));
+      else if (anyFilling) tags.appendChild(tag('Filling fast', 'am'));
+      $('title').textContent = v.title;
+      $('club').textContent = v.club_name + (v.club_city ? ' · ' + v.club_city : '');
+      $('ini').textContent = (v.club_name || '').split(/\s+/).filter(Boolean).slice(0, 3).map(function (w) { return w[0]; }).join('').toUpperCase();
+      var at = new Date(v.flag_off_at);
+      var tz = { timeZone: 'Asia/Kolkata' };
+      $('mon').textContent = at.toLocaleDateString('en-IN', Object.assign({ month: 'short' }, tz)).toUpperCase();
+      $('day').textContent = at.toLocaleDateString('en-IN', Object.assign({ day: 'numeric' }, tz));
+      var where = $('where');
+      where.textContent = at.toLocaleDateString('en-IN', Object.assign({ weekday: 'short' }, tz)) + ' · flag-off ' +
+        at.toLocaleTimeString('en-IN', Object.assign({ hour: 'numeric', minute: '2-digit' }, tz)).replace(/\s?(am|pm)/i, function (m) { return ' ' + m.trim().toUpperCase(); });
+      where.appendChild(document.createElement('br'));
+      where.appendChild(document.createTextNode(v.start_location + ' · '));
+      var maps = document.createElement('a');
+      maps.textContent = 'Open in Maps';
+      maps.href = v.start_map_url || 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(v.start_location);
+      maps.target = '_blank'; maps.rel = 'noopener';
+      where.appendChild(maps);
+      var box = $('rides');
+      (v.rides || []).forEach(function (r) {
+        var a = avail(r.taken, r.slots);
+        var row = document.createElement('div');
+        row.className = 'row' + (a === 'Full' ? ' full' : '');
+        var left = document.createElement('div');
+        var b = document.createElement('b'); b.textContent = r.distance_km + ' km' + (r.name ? ' · ' + r.name : '');
+        var s = document.createElement('span');
+        s.textContent = [r.category, r.gender === 'male' ? 'Men' : r.gender === 'female' ? 'Women' : null, v.status === 'published' && v.open ? a : null].filter(Boolean).join(' · ');
+        left.appendChild(b); if (s.textContent) left.appendChild(s);
+        var p = document.createElement('div'); p.className = 'p';
+        if (v.entry === 'free') p.textContent = 'Free';
+        else {
+          if (r.price_paise < r.fee_paise) { var old = document.createElement('s'); old.textContent = rupees(r.fee_paise); p.appendChild(old); }
+          p.appendChild(document.createTextNode(rupees(r.price_paise)));
+        }
+        row.appendChild(left); row.appendChild(p);
+        box.appendChild(row);
+      });
+      if (v.route_note) { $('route').textContent = v.route_note; $('route').classList.remove('hide'); }
+      var facts = [];
+      var inc = (v.includes || []).map(function (k) { return INCLUDES[k]; }).filter(Boolean);
+      if (inc.length) facts.push('Includes: ' + inc.join(', '));
+      if (v.open && v.reg_closes_on) facts.push('Entries close ' + ymdLabel(v.reg_closes_on));
+      if (v.early_bird_until) facts.push('Early bird until ' + ymdLabel(v.early_bird_until));
+      if (v.entry_rule === 'licence') facts.push('Club licence needed to enter');
+      if (v.entry_rule === 'licence_or_id') facts.push('Club licence, or ID proof for riders from other states');
+      $('facts').textContent = facts.join(' · ');
+      if (v.description) { $('about').textContent = v.description; $('about-card').classList.remove('hide'); }
+      $('wait').classList.add('hide');
+      $('ev').classList.remove('hide');
+      var reg = $('reg');
+      reg.textContent = v.status === 'completed' ? 'See the results in Veloxo' : v.open ? 'Register in Veloxo' : 'Open in Veloxo';
+      if (v.status !== 'cancelled') $('foot').classList.remove('hide');
+      reg.addEventListener('click', function (e) { e.preventDefault(); openSheet('event/' + v.id); });
+    })
+    .catch(function () { fail('Couldn’t reach Veloxo', 'Check your internet connection and open the link again.'); });
+})();
+</script>
+</body>
+</html>

@@ -14,6 +14,12 @@
     // veloxo.in/f/K7M2QX9P (a short download link from Veloxo) → the download page.
     var f = location.pathname.match(/^\/f\/([A-Za-z0-9]{8})\/?$/);
     if (f) location.replace('/f/?c=' + encodeURIComponent(f[1].toUpperCase()));
+    // veloxo.in/e/K7M2QX9P (a shared event) → the event page.
+    var e = location.pathname.match(/^\/e\/([A-Za-z0-9]{8})\/?$/);
+    if (e) location.replace('/e/?c=' + encodeURIComponent(e[1].toUpperCase()));
+    // veloxo.in/j/TNCA (a club's licence invite: its licence prefix) → the licence page.
+    var j = location.pathname.match(/^\/j\/([A-Za-z0-9]{2,8})\/?$/);
+    if (j) location.replace('/j/?c=' + encodeURIComponent(j[1].toUpperCase()));
   })();
 </script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap">
