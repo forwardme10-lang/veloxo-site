@@ -40,7 +40,7 @@
       <p class="lede">What the Veloxo apps collect, why, who sees it, and your rights under India’s Digital Personal Data Protection Act, 2023.</p>
       <div class="meta">
         <nav class="tabs" aria-label="Legal pages"><a href="privacy.html" aria-current="page">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="delete-account.html">Delete your account</a></nav>
-        <span class="updated">Last updated 8 November 2026</span>
+        <span class="updated">Last updated 12 November 2026</span>
       </div>
     </div>
   </section>
@@ -69,14 +69,14 @@
             <h2>Data we collect</h2>
 <div class="table-wrap"><table>
               <tr><th>What</th><th>Examples</th><th>Why</th></tr>
-              <tr><td>Account</td><td>Email address, name, password (stored encrypted by our sign-in provider), or your Google account’s name and email if you sign in with Google</td><td>To create your account and sign you in</td></tr>
-              <tr><td>Profile</td><td>City, phone number, date of birth, gender, cycling club, riding style, level, weekly hours, years of riding</td><td>To set up your training and your event registrations</td></tr>
+              <tr><td>Account</td><td>Email address, name, password (stored encrypted by our sign-in provider), or your Google or Apple account’s name and email if you sign in with Google or Apple</td><td>To create your account and sign you in</td></tr>
+              <tr><td>Profile</td><td>City (and its approximate location, to about 1 km, for the weather), the time of day you like to ride, the equipment you ride with (power meter, heart-rate strap, smart trainer, lights), phone number, date of birth, gender, cycling club, riding style, level, weekly hours, years of riding</td><td>To set up your training and your event registrations</td></tr>
               <tr><td>Body and performance</td><td>Weight, height, FTP (power), maximum heart rate</td><td>To set workout targets (power and heart-rate zones)</td></tr>
               <tr><td>Emergency and medical</td><td>Emergency contact name and phone, blood group, medical notes (all optional)</td><td>Shared with the club running an event you registered for, for your safety on race day</td></tr>
               <tr><td>Profile photo</td><td>A photo you choose to add (optional)</td><td>Shown on your profile. It’s stored at a link that isn’t listed anywhere, but anyone who has the link can open it. Remove it any time in Edit profile</td></tr>
-              <tr><td>Training</td><td>Your goal, riding days, training plan, workouts marked done, and the changes Velo makes to your plan (kept so they can be undone)</td><td>To build and adapt your plan</td></tr>
-              <tr><td>Rides from your device</td><td>For each ride: start time, duration, distance, average power, average heart rate, climbing. Only after you connect Wahoo or Intervals.icu (which can bring rides from Zwift, Garmin and other services you link there)</td><td>To track your training and adapt your plan</td></tr>
-              <tr><td>Velo (SI coach: Sports Intelligence, built on AI)</td><td>The messages you send Velo, its replies, your weekly reviews, and the 👍 / 👎 you give a reply</td><td>To answer you; Velo also sees your profile, plan and recent rides to give relevant advice. Ratings help us improve Velo’s answers</td></tr>
+              <tr><td>Training</td><td>Your goal, riding days, training plan, workouts marked done, how each ride felt (1–10), dates you pause your plan, health notes you give us (for example in sign-up or “I’m not well”), the things Velo remembers about you (you can delete them in What Velo remembers), and the changes you or Velo make to your plan (kept so they can be undone)</td><td>To build and adapt your plan</td></tr>
+              <tr><td>Rides from your device</td><td>Only after you connect Garmin, Wahoo or Intervals.icu (which can bring rides from Zwift and other services you link there). For each ride: start time, duration, distance, climbing, average and normalised power, training load, average and maximum heart rate, cadence, and whether it was indoors. When you connect, we can also bring in your rides from the past 12 months, where the service allows it. From Intervals.icu, if you allow it: resting heart rate, HRV and sleep. We don’t store the GPS track of your rides</td><td>To track your training and adapt your plan</td></tr>
+              <tr><td>Velo (SI coach: Sports Intelligence, built on AI)</td><td>The messages you send Velo, its replies, your weekly reviews, and the 👍 / 👎 you give a reply</td><td>To answer you. Velo also sees your profile, plan and your rides from connected devices (Garmin, Wahoo, Intervals.icu) to give relevant advice. Velo runs on AI and can make mistakes; it gives training guidance, not medical advice. Ratings help us improve Velo’s answers</td></tr>
               <tr><td>Events</td><td>Registrations, the distance you chose, bib number, attendance, finish time and rank</td><td>To register you, check you in on race day and publish results</td></tr>
               <tr><td>Payments</td><td>Amount and the UPI transaction number (UTR) you enter</td><td>So the club can confirm your entry fee. Veloxo never receives your money or your bank or card details</td></tr>
               <tr><td>Club licences (optional)</td><td>If you apply for a club or state association licence: your name, date of birth, gender, blood group, district, club, phone, emergency contact, a photo, pictures of both sides of your Aadhaar (masked Aadhaar is fine) and the last 4 digits, a date of birth proof, and the UPI transaction number (UTR) of the fee. For riders under 18: your parent or guardian’s name, relation and email, and when they agreed</td><td>So the club can check who you are and your age category, issue your licence, and enter you in district, state and national races. Your licence also gives you the club’s member price</td></tr>
@@ -87,7 +87,7 @@
               <tr><td>App and device</td><td>Push notification token, which app it belongs to (Veloxo or Veloxo Organiser), notification settings, notifications sent to you, feedback you send</td><td>To send the notifications you’ve chosen and to improve the app</td></tr>
               <tr><td>Crash reports</td><td>When the app crashes or a screen fails: the error, the screen and the steps just before it, phone model, operating system and app version, and a random account ID (no name, email, phone number or IP address)</td><td>To find and fix bugs</td></tr>
             </table></div>
-            <p>We don’t collect your location or contacts. We store the photos you choose to add: a profile photo, and for a club licence or an ID-proof race entry, your licence photo and ID pictures.</p>
+            <p>We don’t use your phone’s GPS location and we don’t collect your contacts; we only keep the approximate location of the city you choose. We store the photos you choose to add: a profile photo, and for a club licence or an ID-proof race entry, your licence photo and ID pictures.</p>
           </div>
         </section>
         <section class="sec" id="who">
@@ -112,13 +112,16 @@
             <div class="table-wrap"><table>
               <tr><th>Provider</th><th>For</th><th>Where</th></tr>
               <tr><td>Supabase</td><td>Database, sign-in and app back end</td><td>Mumbai, India</td></tr>
-              <tr><td>Anthropic (Claude)</td><td>Writing Velo’s replies and weekly reviews. Your messages and the training context are sent with each question; Anthropic does not use them to train its models</td><td>United States</td></tr>
+              <tr><td>Anthropic (Claude)</td><td>Writing Velo’s replies and weekly reviews. Your messages and the training context are sent with each question: your profile, plan, health notes and the rides from your connected devices, including Garmin, Wahoo and Intervals.icu. Anthropic does not use them to train its models. To stop your ride data going to Velo, disconnect the device</td><td>United States</td></tr>
               <tr><td>Google</td><td>Sign in with Google (if you choose it) and Firebase Cloud Messaging for notifications</td><td>Global</td></tr>
               <tr><td>Resend</td><td>Sending emails: sign-up and password codes, a parent’s consent code, and licence lists and download links to the club that asked</td><td>United States</td></tr>
               <tr><td>Expo</td><td>App updates and sending notifications</td><td>United States</td></tr>
               <tr><td>Sentry</td><td>Crash reports from the app</td><td>United States</td></tr>
+              <tr><td>Garmin</td><td>Sending planned workouts to your Garmin device through Garmin Connect and reading the rides you finish, only if you connect a Garmin account. You can disconnect in Veloxo or in Garmin Connect at any time</td><td>United States</td></tr>
               <tr><td>Wahoo</td><td>Sending workouts and reading rides, only if you connect a Wahoo account</td><td>United States</td></tr>
               <tr><td>Intervals.icu</td><td>Putting planned workouts on your Intervals.icu calendar and reading your rides, only if you connect an Intervals.icu account. Intervals.icu can pass workouts to Zwift or Garmin Connect if you link them there, under its own terms</td><td>Germany</td></tr>
+              <tr><td>Open-Meteo</td><td>Weather and air quality forecasts for your best time to ride. Only your city’s approximate location is sent, never your name or account</td><td>Switzerland</td></tr>
+              <tr><td>Apple</td><td>Sign in with Apple (if you choose it)</td><td>United States</td></tr>
             </table></div>
             <p>Some providers process data outside India. We only use providers that protect personal data to a standard consistent with Indian law.</p>
           </div>
@@ -129,7 +132,7 @@
             <h2>How long we keep data</h2>
 <ul>
               <li>Your account data is kept while your account exists, and deleted when you delete your account (see <a href="delete-account.html">Delete your account</a>).</li>
-              <li>Device connections are removed as soon as you disconnect them.</li>
+              <li>Device connections are removed as soon as you disconnect them, in Veloxo or in the device’s own app (for example Garmin Connect). From then on we receive no new rides or data from that service. Rides already saved stay in your ride history so your plan keeps working; they’re deleted with your account, or sooner if you email us.</li>
               <li>Your club licence photo, Aadhaar pictures and date of birth proof are kept while your licence exists, because the club needs them for race entry lists (its team can download them in the race export). Aadhaar pictures for a race entry with ID proof are kept for that event. All of them are deleted when you delete your Veloxo account.</li>
               <li>Files you or your club download from Veloxo (licence cards, race exports) are shared through short veloxo.in/f/… links that stop working after 7 days (1 hour for your own licence card).</li>
               <li>Beta sign-ups from the website are deleted when the beta ends, or sooner if you email us to remove yours.</li>
